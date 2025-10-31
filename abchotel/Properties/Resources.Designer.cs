@@ -63,6 +63,26 @@ namespace abchotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1 {
+            get {
+                object obj = ResourceManager.GetObject("1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap frame_1466048_1280 {
+            get {
+                object obj = ResourceManager.GetObject("frame-1466048_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_bed_90 {
             get {
                 object obj = ResourceManager.GetObject("icons8-bed-90", resourceCulture);
@@ -96,6 +116,16 @@ namespace abchotel.Properties {
         internal static System.Drawing.Bitmap icons8_person_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-person-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-search-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
