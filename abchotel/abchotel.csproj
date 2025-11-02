@@ -47,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\KhachHangBLL.cs" />
+    <Compile Include="BLL\PhongBLL.cs" />
+    <Compile Include="DAL\DatabaseHelper.cs" />
+    <Compile Include="DAL\KhachHangDAL.cs" />
+    <Compile Include="DAL\PhongDAL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +76,8 @@
     <Compile Include="FormRoom.Designer.cs">
       <DependentUpon>FormRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\KhachHang.cs" />
+    <Compile Include="Model\Phong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCustomer.resx">
@@ -134,6 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-search-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-buy-100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

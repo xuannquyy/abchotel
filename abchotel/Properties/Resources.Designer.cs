@@ -103,6 +103,16 @@ namespace abchotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_buy_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-buy-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_key_90 {
             get {
                 object obj = ResourceManager.GetObject("icons8-key-90", resourceCulture);
