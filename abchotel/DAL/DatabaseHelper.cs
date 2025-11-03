@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,34 +12,46 @@ namespace abchotel.DAL
     public class DatabaseHelper
     {
         private static string connectionString =
-            @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyKhachSan;Integrated Security=True";
+            ConfigurationManager.ConnectionStrings["abchotel.Properties.Settings.Setting"].ConnectionString;
 
-        public static SqlConnection GetConnection()
+        public static DataTable GetData(string query, params (string, object)[] parameters)
         {
-            return new SqlConnection(connectionString);
-        }
-
-        public static DataTable GetData(string query)
-        {
-            using (SqlConnection conn = GetConnection())
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    if (parameters != null)
+                    {
+                        foreach (var param in parameters)
+                            cmd.Parameters.AddWithValue(param.Item1, param.Item2 ?? DBNull.Value);
+                    }
+
+                    conn.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
             }
+            return dt;
         }
 
-        public static int ExecuteQuery(string query, SqlParameter[] parameters = null)
+        public static int ExecuteQuery(string query, params (string, object)[] parameters)
         {
-            using (SqlConnection conn = GetConnection())
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
-                if (parameters != null)
-                    cmd.Parameters.AddRange(parameters);
-                return cmd.ExecuteNonQuery();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    if (parameters != null)
+                    {
+                        foreach (var param in parameters)
+                            cmd.Parameters.AddWithValue(param.Item1, param.Item2 ?? DBNull.Value);
+                    }
+
+                    conn.Open();
+                    return cmd.ExecuteNonQuery();
+                }
             }
         }
     }

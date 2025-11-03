@@ -30,19 +30,23 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTra = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateNhan = new System.Windows.Forms.DateTimePicker();
             this.txtDongia = new System.Windows.Forms.TextBox();
             this.txtLoaiphong = new System.Windows.Forms.TextBox();
             this.txtSophong = new System.Windows.Forms.TextBox();
             this.txtTenKH = new System.Windows.Forms.TextBox();
             this.txtMaphong = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnThem = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -51,17 +55,12 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtTimkiem = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateNhan = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dateTra = new System.Windows.Forms.DateTimePicker();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtTimkiem = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pbTimkiem = new System.Windows.Forms.PictureBox();
-            this.btnThem = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -109,6 +108,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết phòng";
             // 
+            // dateTra
+            // 
+            this.dateTra.CustomFormat = "dd/MM/yyyy";
+            this.dateTra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTra.Location = new System.Drawing.Point(180, 258);
+            this.dateTra.Name = "dateTra";
+            this.dateTra.Size = new System.Drawing.Size(245, 29);
+            this.dateTra.TabIndex = 14;
+            this.dateTra.ValueChanged += new System.EventHandler(this.dateTra_ValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 262);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 24);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Ngày trả";
+            // 
+            // dateNhan
+            // 
+            this.dateNhan.CustomFormat = "dd/MM/yyyy";
+            this.dateNhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateNhan.Location = new System.Drawing.Point(180, 215);
+            this.dateNhan.Name = "dateNhan";
+            this.dateNhan.Size = new System.Drawing.Size(245, 29);
+            this.dateNhan.TabIndex = 12;
+            this.dateNhan.ValueChanged += new System.EventHandler(this.dateNhan_ValueChanged);
+            // 
             // txtDongia
             // 
             this.txtDongia.Location = new System.Drawing.Point(180, 301);
@@ -155,6 +183,15 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Đơn giá";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 220);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(111, 24);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Ngày nhận";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -195,7 +232,6 @@
             // 
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Controls.Add(this.btnHuy);
-            this.groupBox2.Controls.Add(this.btnLuu);
             this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -207,29 +243,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
             // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnThem.Location = new System.Drawing.Point(12, 40);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(136, 50);
+            this.btnThem.TabIndex = 5;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
             // btnHuy
             // 
             this.btnHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Location = new System.Drawing.Point(225, 106);
+            this.btnHuy.Location = new System.Drawing.Point(154, 104);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(136, 50);
             this.btnHuy.TabIndex = 4;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(83, 106);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(136, 50);
-            this.btnLuu.TabIndex = 3;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = false;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -306,6 +341,21 @@
             this.columnHeader4.Text = "Loại phòng";
             this.columnHeader4.Width = 100;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Ngày nhận";
+            this.columnHeader5.Width = 100;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Ngày trả";
+            this.columnHeader6.Width = 100;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Đơn giá";
+            this.columnHeader9.Width = 100;
+            // 
             // txtTimkiem
             // 
             this.txtTimkiem.Location = new System.Drawing.Point(3, 5);
@@ -324,59 +374,6 @@
             this.panel1.Size = new System.Drawing.Size(414, 35);
             this.panel1.TabIndex = 1;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 220);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 24);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Ngày nhận";
-            // 
-            // dateNhan
-            // 
-            this.dateNhan.CustomFormat = "dd/MM/yyyy";
-            this.dateNhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateNhan.Location = new System.Drawing.Point(180, 215);
-            this.dateNhan.Name = "dateNhan";
-            this.dateNhan.Size = new System.Drawing.Size(245, 29);
-            this.dateNhan.TabIndex = 12;
-            this.dateNhan.ValueChanged += new System.EventHandler(this.dateNhan_ValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 262);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 24);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Ngày trả";
-            // 
-            // dateTra
-            // 
-            this.dateTra.CustomFormat = "dd/MM/yyyy";
-            this.dateTra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTra.Location = new System.Drawing.Point(180, 258);
-            this.dateTra.Name = "dateTra";
-            this.dateTra.Size = new System.Drawing.Size(245, 29);
-            this.dateTra.TabIndex = 14;
-            this.dateTra.ValueChanged += new System.EventHandler(this.dateTra_ValueChanged);
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Ngày nhận";
-            this.columnHeader5.Width = 100;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Ngày trả";
-            this.columnHeader6.Width = 100;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Đơn giá";
-            this.columnHeader9.Width = 100;
-            // 
             // pbTimkiem
             // 
             this.pbTimkiem.Image = global::abchotel.Properties.Resources.icons8_search_100;
@@ -387,17 +384,6 @@
             this.pbTimkiem.TabIndex = 1;
             this.pbTimkiem.TabStop = false;
             this.pbTimkiem.Click += new System.EventHandler(this.pbTimkiem_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnThem.Location = new System.Drawing.Point(12, 40);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(136, 50);
-            this.btnThem.TabIndex = 5;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = false;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // FormRoom
             // 
@@ -443,7 +429,6 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtTimkiem;

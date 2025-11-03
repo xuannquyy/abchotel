@@ -31,34 +31,43 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnDichvu = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pnCaidat = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pnThongke = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pnQlykhachhang = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnQlyphong = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnTraphong = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnDatphong = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblNhanvien = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnVIP301 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.pnVIP302 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.pnVIP303 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.pnVIP304 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.pnHB201 = new System.Windows.Forms.Panel();
             this.label46 = new System.Windows.Forms.Label();
             this.pnHB101 = new System.Windows.Forms.Panel();
@@ -94,11 +103,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.pnDichvu = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lblDoanhthunow = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -108,20 +115,21 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblPhongtrong = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.pnDichvu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.pnCaidat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pnThongke.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.pnQlykhachhang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnQlyphong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnTraphong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnDatphong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.pnVIP301.SuspendLayout();
             this.pnVIP302.SuspendLayout();
@@ -144,17 +152,9 @@
             this.pnHV208.SuspendLayout();
             this.pnHV108.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.pnDichvu.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -185,6 +185,38 @@
             this.panel1.Size = new System.Drawing.Size(303, 593);
             this.panel1.TabIndex = 2;
             // 
+            // pnDichvu
+            // 
+            this.pnDichvu.Controls.Add(this.label18);
+            this.pnDichvu.Controls.Add(this.pictureBox7);
+            this.pnDichvu.Location = new System.Drawing.Point(19, 192);
+            this.pnDichvu.Name = "pnDichvu";
+            this.pnDichvu.Size = new System.Drawing.Size(245, 55);
+            this.pnDichvu.TabIndex = 4;
+            this.pnDichvu.Click += new System.EventHandler(this.pnDichvu_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(66, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(114, 20);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Thêm dịch vụ";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Image = global::abchotel.Properties.Resources.icons8_buy_100;
+            this.pictureBox7.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(55, 53);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            // 
             // pnCaidat
             // 
             this.pnCaidat.Controls.Add(this.label7);
@@ -205,6 +237,17 @@
             this.label7.Size = new System.Drawing.Size(71, 20);
             this.label7.TabIndex = 1;
             this.label7.Text = "Cài đặt ";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Image = global::abchotel.Properties.Resources.icons8_setting_100;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(55, 53);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
             // 
             // pnThongke
             // 
@@ -227,6 +270,17 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Thống kê báo cáo";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Image = global::abchotel.Properties.Resources.icons8_total_sales_90;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(55, 53);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
             // pnQlykhachhang
             // 
             this.pnQlykhachhang.Controls.Add(this.label5);
@@ -247,6 +301,17 @@
             this.label5.Size = new System.Drawing.Size(167, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "Quản lý khách hàng";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Image = global::abchotel.Properties.Resources.icons8_person_64;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(55, 53);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
             // 
             // pnQlyphong
             // 
@@ -269,6 +334,17 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Quản lý phòng";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Image = global::abchotel.Properties.Resources.icons8_book_100;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(55, 53);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // pnTraphong
             // 
             this.pnTraphong.Controls.Add(this.label3);
@@ -290,6 +366,17 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Trả phòng";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = global::abchotel.Properties.Resources.icons8_key_90;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(55, 53);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // pnDatphong
             // 
             this.pnDatphong.Controls.Add(this.label2);
@@ -310,6 +397,17 @@
             this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Đặt phòng";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::abchotel.Properties.Resources.icons8_bed_90;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 53);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -361,16 +459,6 @@
             this.pnVIP301.Size = new System.Drawing.Size(164, 72);
             this.pnVIP301.TabIndex = 6;
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(53, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 13);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "VIP301";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -380,6 +468,16 @@
             this.label17.Size = new System.Drawing.Size(82, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "GIƯỜNG ĐÔI";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(53, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "VIP301";
             // 
             // pnVIP302
             // 
@@ -393,16 +491,6 @@
             this.pnVIP302.Size = new System.Drawing.Size(164, 72);
             this.pnVIP302.TabIndex = 7;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(54, 16);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "VIP302";
-            // 
             // label45
             // 
             this.label45.AutoSize = true;
@@ -412,6 +500,16 @@
             this.label45.Size = new System.Drawing.Size(87, 13);
             this.label45.TabIndex = 1;
             this.label45.Text = "GIƯỜNG ĐƠN";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(54, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(48, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "VIP302";
             // 
             // pnVIP303
             // 
@@ -425,16 +523,6 @@
             this.pnVIP303.Size = new System.Drawing.Size(158, 72);
             this.pnVIP303.TabIndex = 7;
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(51, 16);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 13);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "VIP303";
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -444,6 +532,16 @@
             this.label20.Size = new System.Drawing.Size(82, 13);
             this.label20.TabIndex = 1;
             this.label20.Text = "GIƯỜNG ĐÔI";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(51, 16);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(48, 13);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "VIP303";
             // 
             // pnVIP304
             // 
@@ -457,16 +555,6 @@
             this.pnVIP304.Size = new System.Drawing.Size(164, 72);
             this.pnVIP304.TabIndex = 8;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(56, 16);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(48, 13);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "VIP304";
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -476,6 +564,16 @@
             this.label22.Size = new System.Drawing.Size(87, 13);
             this.label22.TabIndex = 1;
             this.label22.Text = "GIƯỜNG ĐƠN";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(56, 16);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(48, 13);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "VIP304";
             // 
             // pnHB201
             // 
@@ -871,6 +969,17 @@
             this.panel2.Size = new System.Drawing.Size(919, 385);
             this.panel2.TabIndex = 7;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.White;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(62, 114);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(42, 24);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "VIP";
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -892,38 +1001,6 @@
             this.label14.Size = new System.Drawing.Size(131, 24);
             this.label14.TabIndex = 4;
             this.label14.Text = "GIƯỜNG ĐÔI";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(62, 114);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(42, 24);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "VIP";
-            // 
-            // pnDichvu
-            // 
-            this.pnDichvu.Controls.Add(this.label18);
-            this.pnDichvu.Controls.Add(this.pictureBox7);
-            this.pnDichvu.Location = new System.Drawing.Point(19, 192);
-            this.pnDichvu.Name = "pnDichvu";
-            this.pnDichvu.Size = new System.Drawing.Size(245, 55);
-            this.pnDichvu.TabIndex = 4;
-            this.pnDichvu.Click += new System.EventHandler(this.pnDichvu_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(66, 16);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(114, 20);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Thêm dịch vụ";
             // 
             // panel10
             // 
@@ -1025,83 +1102,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "PHÒNG TRỐNG";
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Image = global::abchotel.Properties.Resources.icons8_buy_100;
-            this.pictureBox7.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(55, 53);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 0;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Image = global::abchotel.Properties.Resources.icons8_setting_100;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(55, 53);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Image = global::abchotel.Properties.Resources.icons8_total_sales_90;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(55, 53);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Image = global::abchotel.Properties.Resources.icons8_person_64;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(55, 53);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Image = global::abchotel.Properties.Resources.icons8_book_100;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(55, 53);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = global::abchotel.Properties.Resources.icons8_key_90;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(55, 53);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::abchotel.Properties.Resources.icons8_bed_90;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1123,18 +1123,27 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panel1.ResumeLayout(false);
+            this.pnDichvu.ResumeLayout(false);
+            this.pnDichvu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.pnCaidat.ResumeLayout(false);
             this.pnCaidat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnThongke.ResumeLayout(false);
             this.pnThongke.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.pnQlykhachhang.ResumeLayout(false);
             this.pnQlykhachhang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnQlyphong.ResumeLayout(false);
             this.pnQlyphong.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnTraphong.ResumeLayout(false);
             this.pnTraphong.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnDatphong.ResumeLayout(false);
             this.pnDatphong.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.pnVIP301.ResumeLayout(false);
@@ -1179,21 +1188,12 @@
             this.pnHV108.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.pnDichvu.ResumeLayout(false);
-            this.pnDichvu.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

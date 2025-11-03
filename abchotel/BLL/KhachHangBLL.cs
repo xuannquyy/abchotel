@@ -10,11 +10,12 @@ namespace abchotel.BLL
 {
     public class KhachHangBLL
     {
-        private KhachHangDAL khDAL = new KhachHangDAL();
-        public List<KhachHang> LayTatCaKhachHang()
-        {
-            return khDAL.LayTatCaKhachHang();
-        }
+        private KhachHangDAL dal = new KhachHangDAL();
+
+        public List<KhachHang> LayTatCaKhachHang() => dal.LayTatCaKhachHang();
+        public void ThemKhachHang(KhachHang kh) => dal.ThemKhachHang(kh);
+        public void SuaKhachHang(KhachHang kh) => dal.SuaKhachHang(kh);
+        public void XoaKhachHang(int ma) => dal.XoaKhachHang(ma);
     }
 
 }

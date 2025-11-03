@@ -15,8 +15,8 @@ namespace abchotel.DAL
             string query = @"
                 SELECT p.*, 
                        c.HoTen AS TenKhachHang,
-                       b.CheckIn AS NgayNhan,
-                       b.CheckOut AS NgayTra
+                       b.NgayNhan AS NgayNhan,
+                       b.NgayTra AS NgayTra
                 FROM Phong p
                 LEFT JOIN DatPhong b ON p.MaPhong = b.MaPhong
                 LEFT JOIN KhachHang c ON b.MaKhachHang = c.MaKhachHang";
@@ -43,7 +43,7 @@ namespace abchotel.DAL
         public void ThemPhong(Phong p)
         {
             string sql = "INSERT INTO Phong(SoPhong,LoaiPhong,TrangThai,DonGia) VALUES(@SoPhong,@LoaiPhong,@TrangThai,@DonGia)";
-            DatabaseHelper.ExecuteNonQuery(sql,
+            DatabaseHelper.ExecuteQuery(sql,
                 ("@SoPhong", p.SoPhong),
                 ("@LoaiPhong", p.LoaiPhong),
                 ("@TrangThai", p.TrangThai),
@@ -53,7 +53,7 @@ namespace abchotel.DAL
         public void SuaPhong(Phong p)
         {
             string sql = "UPDATE Phong SET SoPhong=@SoPhong,LoaiPhong=@LoaiPhong,TrangThai=@TrangThai,DonGia=@DonGia WHERE MaPhong=@MaPhong";
-            DatabaseHelper.ExecuteNonQuery(sql,
+            DatabaseHelper.ExecuteQuery(sql,
                 ("@SoPhong", p.SoPhong),
                 ("@LoaiPhong", p.LoaiPhong),
                 ("@TrangThai", p.TrangThai),
@@ -64,7 +64,7 @@ namespace abchotel.DAL
         public void XoaPhong(int maPhong)
         {
             string sql = "DELETE FROM Phong WHERE MaPhong=@MaPhong";
-            DatabaseHelper.ExecuteNonQuery(sql, ("@MaPhong", maPhong));
+            DatabaseHelper.ExecuteQuery(sql, ("@MaPhong", maPhong));
         }
 
         public List<Phong> TimKiemPhongTheoSo(string soPhong)
