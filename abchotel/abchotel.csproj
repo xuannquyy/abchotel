@@ -67,11 +67,11 @@
     <Compile Include="DAL\KhachHangDAL.cs" />
     <Compile Include="DAL\NguoiDungDAL.cs" />
     <Compile Include="DAL\PhongDAL.cs" />
-    <Compile Include="Formadmin.cs">
+    <Compile Include="FormUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formadmin.Designer.cs">
-      <DependentUpon>Formadmin.cs</DependentUpon>
+    <Compile Include="FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
     <Compile Include="FormchangePW.cs">
       <SubType>Form</SubType>
@@ -138,8 +138,8 @@
     <Compile Include="Model\Phong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Formadmin.resx">
-      <DependentUpon>Formadmin.cs</DependentUpon>
+    <EmbeddedResource Include="FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormchangePW.resx">
       <DependentUpon>FormchangePW.cs</DependentUpon>
