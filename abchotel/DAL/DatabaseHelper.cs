@@ -37,7 +37,7 @@ namespace abchotel.DAL
             return dt;
         }
 
-        public static int ExecuteQuery(string query, params (string, object)[] parameters)
+        public static int ExecuteNonQuery(string query, params (string, object)[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

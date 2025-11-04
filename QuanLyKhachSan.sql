@@ -7,7 +7,9 @@ CREATE TABLE NguoiDung (
     MaNguoiDung INT IDENTITY(1,1) PRIMARY KEY,
     TenDangNhap NVARCHAR(50),
     MatKhau NVARCHAR(100),
-    HoTen NVARCHAR(100)
+    HoTen NVARCHAR(100),
+	Email NVARCHAR(100),
+    VaiTro NVARCHAR(20)
 );
 
 -- Bảng khách hàng
@@ -37,6 +39,7 @@ CREATE TABLE DatPhong (
     MaKhachHang INT FOREIGN KEY REFERENCES KhachHang(MaKhachHang),
     NgayNhan DATE,
     NgayTra DATE,
+	SoNguoiO INT DEFAULT 1,
     TongTien DECIMAL(18,2)
 );
 
@@ -54,3 +57,11 @@ CREATE TABLE DichVu (
     TenDichVu NVARCHAR(100),
     DonGia DECIMAL(18,2)
 );
+
+-- Thêm 1 tài khoản admin mặc định
+INSERT INTO NguoiDung (TenDangNhap, MatKhau, HoTen, Email, VaiTro)
+VALUES ('admin', 'admin', N'Quản trị hệ thống', 'vienxuanquy82024@gmail.com', 'Admin');
+
+-- Thêm 1 tài khoản nhân viên ví dụ
+INSERT INTO NguoiDung (TenDangNhap, MatKhau, HoTen, Email, VaiTro)
+VALUES (N'Trương Thị Ánh', '123456', N'Nhân viên lễ tân', 'truongthianh23ct112@gmail.com', 'User');
