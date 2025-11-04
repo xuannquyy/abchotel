@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using DAL;
+using BLL;
 namespace abchotel
 {
     public partial class FormchangePW : Form
@@ -55,6 +57,6 @@ namespace abchotel
                 MessageBox.Show("Mật khẩu cũ không đúng!");
             }
         }
-    }
+    
     }
 }

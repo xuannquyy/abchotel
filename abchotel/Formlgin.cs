@@ -35,7 +35,7 @@ namespace abchotel
             }
 
             UserBLL userBLL = new UserBLL();
-            bool result = userBLL.CheckLogin(username, password);
+            bool result = userBLL.checkLogin(username, password);
 
             if (result)
             {
@@ -63,15 +63,27 @@ namespace abchotel
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormforgotPW formforgotPW = new FormforgotPW();
+            this.Hide();
             formforgotPW.ShowDialog();
+            this.Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormchangePW formchangePW = new FormchangePW();
+            this.Hide();
+            formchangePW.ShowDialog();
+            this.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -23,7 +23,7 @@ namespace abchotel
             string username = textBox1.Text.Trim();
             string email = textBox2.Text.Trim();
             string newPassword = textBox3.Text.Trim();
-
+           
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(newPassword))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
@@ -39,6 +39,15 @@ namespace abchotel
             else
                 MessageBox.Show("Tên đăng nhập hoặc email không đúng!");
         }
-    
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
