@@ -13,15 +13,22 @@ namespace abchotel.BLL
     {
         private HoaDonDAL dal = new HoaDonDAL();
 
-        public DataTable LayDanhSachHoaDon() => dal.LayDanhSachHoaDon();
-
-        public int ThemHoaDon(HoaDon hd) => dal.ThemHoaDon(hd);
-
-        public int XoaHoaDon(int maHoaDon) => dal.XoaHoaDon(maHoaDon);
-        public decimal DoanhThuHomNay()
+        public DataTable LayDanhSachDatPhongChuaThanhToan() => dal.LayDanhSachDatPhongChuaThanhToan();
+        public HoaDon LayThongTinHoaDon(int maDatPhong) => dal.LayThongTinHoaDon(maDatPhong);
+        public DataTable LayChiTietTienPhong(int maDatPhong) => dal.LayChiTietTienPhong(maDatPhong);
+        public DataTable LayChiTietDichVu(int maHoaDon) => dal.LayChiTietDichVu(maHoaDon);
+        public void LuuThanhToan(int maHoaDon, int giamGiaPhanTram, decimal tongThanhToan)
         {
-            return dal.DoanhThuHomNay();
+            dal.LuuThanhToan(maHoaDon, giamGiaPhanTram, tongThanhToan);
         }
 
+        // Hàm này không còn phù hợp, vì 'ThanhTien' giờ là 'TongThanhToan'
+        // Bạn có thể tạo 1 hàm mới 'LayDoanhThuHomNay()'
+        public decimal LayDoanhThuHomNay()
+        {
+            // Cần tạo hàm mới trong DAL
+            // return dal.LayDoanhThuHomNay(); 
+            return 0; // Tạm thời
+        }
     }
 }
