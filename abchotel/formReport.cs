@@ -1,12 +1,9 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OfficeOpenXml;
-using System.IO;
-
 
 namespace abchotel
 {
@@ -17,11 +14,9 @@ namespace abchotel
         public FormReport()
         {
             InitializeComponent();
-        }
 
         private void formReport_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
             cboloaibc.Items.Add("Theo ngày");
             cboloaibc.Items.Add("Theo tháng");
             cboloaibc.SelectedIndex = 0;
@@ -67,7 +62,6 @@ namespace abchotel
                 WHERE NgayLap BETWEEN @from AND @to
                 GROUP BY FORMAT(NgayLap, 'MM/yyyy')
                 ORDER BY MIN(NgayLap)";
-
             LoadData(query, "Thang");
         }
 
@@ -105,12 +99,8 @@ namespace abchotel
             dgvdt.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             dgvdt.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             dgvdt.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
-
-            dgvdt.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvdt.EnableHeadersVisualStyles = false;
 
-            dgvdt.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // ✅ căn giữa dữ liệu
-        }
         void LoadChart(DataTable dt, string xField)
         {
             chdthu.Series.Clear();
@@ -136,14 +126,9 @@ namespace abchotel
 
             lblvaluesdthu.Text = $"{total:N0} VNĐ";
             lblvaluessohoadon.Text = $"{count} hóa đơn";
-
         }
 
-        private void formReport_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn thoát?", "Xác nhận thoát", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.No)
-            {
                 e.Cancel = true;
             }
         }
@@ -187,12 +172,6 @@ namespace abchotel
                     MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-        }
-
-        private void lblvaluesdthu_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

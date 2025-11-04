@@ -147,7 +147,6 @@
             this.lblvaluesdthu.Size = new System.Drawing.Size(77, 25);
             this.lblvaluesdthu.TabIndex = 11;
             this.lblvaluesdthu.Text = "label1";
-            this.lblvaluesdthu.Click += new System.EventHandler(this.lblvaluesdthu_Click);
             // 
             // lblsohoadon
             // 
