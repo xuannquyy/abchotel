@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OfficeOpenXml;
@@ -15,14 +17,33 @@ namespace abchotel
         {
             InitializeComponent();
 
-        private void formReport_Load(object sender, EventArgs e)
-        {
-            cboloaibc.Items.Add("Theo ngày");
-            cboloaibc.Items.Add("Theo tháng");
-            cboloaibc.SelectedIndex = 0;
+            // 🔹 Đảm bảo ComboBox đã được khởi tạo trước khi thêm items
+            if (cboloaibc != null)
+            {
+                cboloaibc.Items.Add("Theo ngày");
+                cboloaibc.Items.Add("Theo tháng");
+                cboloaibc.SelectedIndex = 0;
 
+                // 🔹 Thêm sự kiện SelectedIndexChanged
+                cboloaibc.SelectedIndexChanged += Cboloaibc_SelectedIndexChanged;
+            }
+        }
+
+        private void FormReport_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+
+            // Thiết lập ngày mặc định
             dtfrom.Value = new DateTime(DateTime.Now.Year, 1, 1);
             dtto.Value = DateTime.Now;
+
+            // Load báo cáo ngay lần đầu
+            LoadReport();
+        }
+
+        private void Cboloaibc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadReport(); // Gọi lại báo cáo khi đổi ComboBox
         }
 
         private void btntk_Click(object sender, EventArgs e)
@@ -45,7 +66,7 @@ namespace abchotel
                        SUM(ThanhTien) AS DoanhThu, 
                        COUNT(*) AS SoHoaDon
                 FROM HoaDon
-                WHERE NgayLap BETWEEN @from AND @to
+                WHERE NgayLap BETWEEN @from AND @to AND ThanhTien IS NOT NULL
                 GROUP BY NgayLap
                 ORDER BY NgayLap";
 
@@ -59,9 +80,10 @@ namespace abchotel
                        SUM(ThanhTien) AS DoanhThu,
                        COUNT(*) AS SoHoaDon
                 FROM HoaDon
-                WHERE NgayLap BETWEEN @from AND @to
+                WHERE NgayLap BETWEEN @from AND @to AND ThanhTien IS NOT NULL
                 GROUP BY FORMAT(NgayLap, 'MM/yyyy')
                 ORDER BY MIN(NgayLap)";
+
             LoadData(query, "Thang");
         }
 
@@ -78,7 +100,7 @@ namespace abchotel
                 da.Fill(dt);
 
                 dgvdt.DataSource = dt;
-                FormatGridDoanhThu(); // ✅ Áp dụng format
+                FormatGridDoanhThu();
 
                 LoadChart(dt, xField);
                 LoadSummary(dt);
@@ -93,14 +115,17 @@ namespace abchotel
 
             dgvdt.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(10, 35, 66);
             dgvdt.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvdt.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvdt.ColumnHeadersDefaultCellStyle.Font =
                 new System.Drawing.Font("Segoe UI", 10, System.Drawing.FontStyle.Bold);
 
-            dgvdt.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            dgvdt.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dgvdt.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight; // căn phải số
             dgvdt.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
             dgvdt.EnableHeadersVisualStyles = false;
 
+            if (dgvdt.Columns.Contains("DoanhThu"))
+                dgvdt.Columns["DoanhThu"].DefaultCellStyle.Format = "N0"; // 90.000
+        }
         void LoadChart(DataTable dt, string xField)
         {
             chdthu.Series.Clear();
@@ -120,18 +145,26 @@ namespace abchotel
 
             foreach (DataRow row in dt.Rows)
             {
-                total += Convert.ToDecimal(row["DoanhThu"]);
-                count += Convert.ToInt32(row["SoHoaDon"]);
+                total += row["DoanhThu"] != DBNull.Value ? (decimal)row["DoanhThu"] : 0;
+                count += row["SoHoaDon"] != DBNull.Value ? Convert.ToInt32(row["SoHoaDon"]) : 0;
             }
 
-            lblvaluesdthu.Text = $"{total:N0} VNĐ";
-            lblvaluessohoadon.Text = $"{count} hóa đơn";
+            CultureInfo vn = new CultureInfo("vi-VN");
+            lblvaluesdthu.Text = total.ToString("N0", vn) + " VNĐ";
+            lblvaluesdthu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+
+            lblvaluessohoadon.Text = count + " hóa đơn";
+            lblvaluessohoadon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
         }
+        private void FormReport_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn thoát?",
+                "Xác nhận thoát", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             if (result == DialogResult.No)
                 e.Cancel = true;
-            }
         }
+
         private void btnxuat_Click(object sender, EventArgs e)
         {
             if (dgvdt.Rows.Count == 0)
@@ -169,9 +202,25 @@ namespace abchotel
                     }
 
                     File.WriteAllBytes(save.FileName, excel.GetAsByteArray());
-                    MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xuất Excel thành công!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void lblfrom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtto_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

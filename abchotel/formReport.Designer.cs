@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblbc = new System.Windows.Forms.Label();
             this.cboloaibc = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -57,21 +57,22 @@
             // lblbc
             // 
             this.lblbc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
-            this.lblbc.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblbc.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblbc.ForeColor = System.Drawing.Color.White;
-            this.lblbc.Location = new System.Drawing.Point(0, 0);
+            this.lblbc.Location = new System.Drawing.Point(-204, 0);
             this.lblbc.Name = "lblbc";
-            this.lblbc.Size = new System.Drawing.Size(1072, 42);
+            this.lblbc.Size = new System.Drawing.Size(2251, 63);
             this.lblbc.TabIndex = 0;
             this.lblbc.Text = "BÁO CÁO DOANH THU \r\n";
             this.lblbc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // cboloaibc
             // 
+            this.cboloaibc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cboloaibc.FormattingEnabled = true;
-            this.cboloaibc.Location = new System.Drawing.Point(137, 10);
+            this.cboloaibc.Location = new System.Drawing.Point(432, 64);
             this.cboloaibc.Name = "cboloaibc";
-            this.cboloaibc.Size = new System.Drawing.Size(222, 24);
+            this.cboloaibc.Size = new System.Drawing.Size(313, 37);
             this.cboloaibc.TabIndex = 1;
             // 
             // panel1
@@ -87,9 +88,9 @@
             this.panel1.Controls.Add(this.dtfrom);
             this.panel1.Controls.Add(this.btntk);
             this.panel1.Controls.Add(this.cboloaibc);
-            this.panel1.Location = new System.Drawing.Point(23, 45);
+            this.panel1.Location = new System.Drawing.Point(12, 81);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1036, 450);
+            this.panel1.Size = new System.Drawing.Size(1900, 972);
             this.panel1.TabIndex = 2;
             // 
             // btnxuat
@@ -97,11 +98,11 @@
             this.btnxuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.btnxuat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnxuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnxuat.ForeColor = System.Drawing.Color.White;
-            this.btnxuat.Location = new System.Drawing.Point(72, 393);
+            this.btnxuat.Location = new System.Drawing.Point(766, 870);
             this.btnxuat.Name = "btnxuat";
-            this.btnxuat.Size = new System.Drawing.Size(311, 39);
+            this.btnxuat.Size = new System.Drawing.Size(390, 68);
             this.btnxuat.TabIndex = 15;
             this.btnxuat.Text = "Xuất bảng dữ liệu chi tiết (excel)";
             this.btnxuat.UseVisualStyleBackColor = false;
@@ -111,11 +112,11 @@
             // 
             this.dgvdt.BackgroundColor = System.Drawing.Color.White;
             this.dgvdt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvdt.Location = new System.Drawing.Point(7, 82);
+            this.dgvdt.Location = new System.Drawing.Point(108, 203);
             this.dgvdt.Name = "dgvdt";
             this.dgvdt.RowHeadersWidth = 51;
             this.dgvdt.RowTemplate.Height = 24;
-            this.dgvdt.Size = new System.Drawing.Size(431, 305);
+            this.dgvdt.Size = new System.Drawing.Size(860, 624);
             this.dgvdt.TabIndex = 14;
             // 
             // panel2
@@ -124,110 +125,115 @@
             this.panel2.Controls.Add(this.lblvaluesdthu);
             this.panel2.Controls.Add(this.lblsohoadon);
             this.panel2.Controls.Add(this.lbltongdoanhthu);
-            this.panel2.Location = new System.Drawing.Point(580, 10);
+            this.panel2.Location = new System.Drawing.Point(1114, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 66);
+            this.panel2.Size = new System.Drawing.Size(541, 84);
             this.panel2.TabIndex = 13;
             // 
             // lblvaluessohoadon
             // 
             this.lblvaluessohoadon.AutoSize = true;
-            this.lblvaluessohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblvaluessohoadon.Location = new System.Drawing.Point(139, 39);
+            this.lblvaluessohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblvaluessohoadon.Location = new System.Drawing.Point(238, 41);
             this.lblvaluessohoadon.Name = "lblvaluessohoadon";
-            this.lblvaluessohoadon.Size = new System.Drawing.Size(64, 25);
+            this.lblvaluessohoadon.Size = new System.Drawing.Size(92, 32);
             this.lblvaluessohoadon.TabIndex = 12;
             this.lblvaluessohoadon.Text = "label2";
             // 
             // lblvaluesdthu
             // 
-            this.lblvaluesdthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblvaluesdthu.Location = new System.Drawing.Point(159, 1);
+            this.lblvaluesdthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblvaluesdthu.Location = new System.Drawing.Point(238, 3);
             this.lblvaluesdthu.Name = "lblvaluesdthu";
-            this.lblvaluesdthu.Size = new System.Drawing.Size(77, 25);
+            this.lblvaluesdthu.Size = new System.Drawing.Size(281, 38);
             this.lblvaluesdthu.TabIndex = 11;
             this.lblvaluesdthu.Text = "label1";
             // 
             // lblsohoadon
             // 
             this.lblsohoadon.AutoSize = true;
-            this.lblsohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblsohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblsohoadon.Location = new System.Drawing.Point(14, 39);
             this.lblsohoadon.Name = "lblsohoadon";
-            this.lblsohoadon.Size = new System.Drawing.Size(119, 25);
+            this.lblsohoadon.Size = new System.Drawing.Size(167, 32);
             this.lblsohoadon.TabIndex = 10;
             this.lblsohoadon.Text = "Số hóa đơn:";
             // 
             // lbltongdoanhthu
             // 
             this.lbltongdoanhthu.AutoSize = true;
-            this.lbltongdoanhthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbltongdoanhthu.Location = new System.Drawing.Point(4, 1);
+            this.lbltongdoanhthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbltongdoanhthu.Location = new System.Drawing.Point(4, 7);
             this.lbltongdoanhthu.Name = "lbltongdoanhthu";
-            this.lbltongdoanhthu.Size = new System.Drawing.Size(161, 25);
+            this.lbltongdoanhthu.Size = new System.Drawing.Size(228, 32);
             this.lbltongdoanhthu.TabIndex = 9;
             this.lbltongdoanhthu.Text = "Tổng doanh thu: ";
             // 
             // chdthu
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chdthu.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chdthu.Legends.Add(legend1);
-            this.chdthu.Location = new System.Drawing.Point(444, 82);
+            chartArea2.Name = "ChartArea1";
+            this.chdthu.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chdthu.Legends.Add(legend2);
+            this.chdthu.Location = new System.Drawing.Point(974, 203);
             this.chdthu.Name = "chdthu";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chdthu.Series.Add(series1);
-            this.chdthu.Size = new System.Drawing.Size(589, 305);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chdthu.Series.Add(series2);
+            this.chdthu.Size = new System.Drawing.Size(900, 624);
             this.chdthu.TabIndex = 6;
             this.chdthu.Text = "Doanh thu";
             // 
             // lblto
             // 
             this.lblto.AutoSize = true;
-            this.lblto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblto.Location = new System.Drawing.Point(263, 54);
+            this.lblto.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblto.Location = new System.Drawing.Point(480, 136);
             this.lblto.Name = "lblto";
-            this.lblto.Size = new System.Drawing.Size(44, 20);
+            this.lblto.Size = new System.Drawing.Size(74, 32);
             this.lblto.TabIndex = 8;
             this.lblto.Text = "Đến:";
+            this.lblto.Click += new System.EventHandler(this.lblto_Click);
             // 
             // lblfrom
             // 
             this.lblfrom.AutoSize = true;
-            this.lblfrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblfrom.Location = new System.Drawing.Point(3, 54);
+            this.lblfrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblfrom.Location = new System.Drawing.Point(184, 144);
             this.lblfrom.Name = "lblfrom";
-            this.lblfrom.Size = new System.Drawing.Size(38, 20);
+            this.lblfrom.Size = new System.Drawing.Size(62, 32);
             this.lblfrom.TabIndex = 7;
             this.lblfrom.Text = "Từ: ";
+            this.lblfrom.Click += new System.EventHandler(this.lblfrom_Click);
             // 
             // dtto
             // 
+            this.dtto.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtto.Location = new System.Drawing.Point(332, 54);
+            this.dtto.Location = new System.Drawing.Point(576, 144);
             this.dtto.Name = "dtto";
             this.dtto.Size = new System.Drawing.Size(200, 22);
             this.dtto.TabIndex = 2;
+            this.dtto.ValueChanged += new System.EventHandler(this.dtto_ValueChanged);
             // 
             // lblloai
             // 
             this.lblloai.AutoSize = true;
-            this.lblloai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblloai.Location = new System.Drawing.Point(3, 10);
+            this.lblloai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblloai.Location = new System.Drawing.Point(184, 66);
             this.lblloai.Name = "lblloai";
-            this.lblloai.Size = new System.Drawing.Size(110, 20);
+            this.lblloai.Size = new System.Drawing.Size(197, 32);
             this.lblloai.TabIndex = 6;
             this.lblloai.Text = "Loại báo cáo ";
             // 
             // dtfrom
             // 
+            this.dtfrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtfrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtfrom.Location = new System.Drawing.Point(56, 54);
+            this.dtfrom.Location = new System.Drawing.Point(272, 146);
             this.dtfrom.Name = "dtfrom";
-            this.dtfrom.Size = new System.Drawing.Size(187, 22);
+            this.dtfrom.Size = new System.Drawing.Size(186, 22);
             this.dtfrom.TabIndex = 3;
             // 
             // btntk
@@ -235,10 +241,11 @@
             this.btntk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
             this.btntk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btntk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btntk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btntk.ForeColor = System.Drawing.Color.White;
-            this.btntk.Location = new System.Drawing.Point(386, 8);
+            this.btntk.Location = new System.Drawing.Point(812, 68);
             this.btntk.Name = "btntk";
-            this.btntk.Size = new System.Drawing.Size(124, 37);
+            this.btntk.Size = new System.Drawing.Size(224, 60);
             this.btntk.TabIndex = 4;
             this.btntk.Text = "Xem Báo Cáo";
             this.btntk.UseVisualStyleBackColor = false;
@@ -248,14 +255,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 507);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblbc);
             this.Name = "FormReport";
             this.Text = "FormReport";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formReport_FormClosing);
-            this.Load += new System.EventHandler(this.formReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdt)).EndInit();
