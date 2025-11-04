@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
-            "DV01",
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "1",
             "Ăn sáng buffet",
             "150.000",
             "/người"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
-            "DV02",
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "2",
             "Spa / Massage",
             "800.000",
             "/lần"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
-            "DV03",
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "3",
             "Thuê xe",
             "1.500.000",
             "/ngày"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
-            "DV04",
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "4",
             "Thuê phòng họp",
             "2.000.000",
             "/buổi"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
-            "DV05",
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            "5",
             "Minibar trong phòng",
             "100.000",
             "/món"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
-            "DV06",
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            "6",
             "Karaoke / Bar Club",
             "800.000",
             "/giờ"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
-            "DV07",
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            "7",
             "Giặt ủi",
             "50.000",
             "/kg"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
-            "DV08",
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            "8",
             "Dịch vụ tổ chức tiệc",
             "2.000.00",
             "/suất"}, -1);
@@ -139,14 +139,14 @@
             this.lViewDV.GridLines = true;
             this.lViewDV.HideSelection = false;
             this.lViewDV.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8});
             this.lViewDV.Location = new System.Drawing.Point(6, 54);
             this.lViewDV.Name = "lViewDV";
             this.lViewDV.Size = new System.Drawing.Size(746, 562);
@@ -338,7 +338,7 @@
             this.butxoa.UseVisualStyleBackColor = false;
             this.butxoa.Click += new System.EventHandler(this.butxoa_Click);
             // 
-            // Form3
+            // FormSer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -359,7 +359,7 @@
             this.Controls.Add(this.lbMphong);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.butxoa);
-            this.Name = "Form3";
+            this.Name = "FormSer";
             this.Text = "Form3";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

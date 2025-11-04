@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using abchotel.BLL;
+using abchotel.Model;
 
 namespace abchotel
 {
@@ -18,7 +20,7 @@ namespace abchotel
             public string SoPhong { get; set; }
             public string LoaiPhong { get; set; }
             public decimal GiaPhong { get; set; }
-            public int SoNguoiToiDa { get; set; }
+            
             public bool Trong { get; set; } = true;
         }
 
@@ -33,15 +35,15 @@ namespace abchotel
         {
             for (int i = 1; i <= 10; i++)
             {
-                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"10{i}", LoaiPhong = "Phòng đơn", GiaPhong = 300000, SoNguoiToiDa = 2 });
+                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"10{i}", LoaiPhong = "Phòng đơn", GiaPhong = 300000 });
             }
             for (int i = 11; i <= 20; i++)
             {
-                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"20{i}", LoaiPhong = "Phòng đôi", GiaPhong = 500000, SoNguoiToiDa = 4 });
+                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"20{i}", LoaiPhong = "Phòng đôi", GiaPhong = 500000 });
             }
             for (int i = 21; i <= 30; i++)
             {
-                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"30{i}", LoaiPhong = "Phòng VIP", GiaPhong = 800000, SoNguoiToiDa = 6 });
+                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"30{i}", LoaiPhong = "Phòng VIP", GiaPhong = 800000 });
             }
 
             Cbloaiphong.Items.AddRange(new string[] { "Phòng đơn", "Phòng đôi", "Phòng VIP" });
@@ -63,7 +65,7 @@ namespace abchotel
             if (dsPhongTrong.Count > 0)
             {
                 txbgia.Text = dsPhongTrong[0].GiaPhong.ToString("#,0") + " VNĐ";
-                txbsoluong.Text = dsPhongTrong[0].SoNguoiToiDa.ToString();
+                
             }
 
             TinhTamTinh();
@@ -126,17 +128,17 @@ namespace abchotel
             LamMoi();
         }
 
-        private void butnhanphong_Click(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Vui lòng chọn một phòng trong danh sách để nhận!", "Thông báo");
-                return;
-            }
+        //private void butnhanphong_Click(object sender, EventArgs e)
+        //{
+        //    if (listView1.SelectedItems.Count == 0)
+        //    {
+        //        MessageBox.Show("Vui lòng chọn một phòng trong danh sách để nhận!", "Thông báo");
+        //        return;
+        //    }
 
-            string maPhong = listView1.SelectedItems[0].SubItems[0].Text;
-            MessageBox.Show($"Phòng {maPhong} đã được nhận!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        //    string maPhong = listView1.SelectedItems[0].SubItems[0].Text;
+        //    MessageBox.Show($"Phòng {maPhong} đã được nhận!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //}
 
         private void butlmmoi_Click(object sender, EventArgs e)
         {

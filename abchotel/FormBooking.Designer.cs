@@ -46,7 +46,6 @@
             this.cbgioitinh = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.butnhanphong = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -291,21 +290,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Đặt Phòng";
             // 
-            // butnhanphong
-            // 
-            this.butnhanphong.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.butnhanphong.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.butnhanphong.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.butnhanphong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butnhanphong.Location = new System.Drawing.Point(1456, 756);
-            this.butnhanphong.Margin = new System.Windows.Forms.Padding(2);
-            this.butnhanphong.Name = "butnhanphong";
-            this.butnhanphong.Size = new System.Drawing.Size(236, 32);
-            this.butnhanphong.TabIndex = 37;
-            this.butnhanphong.Text = "Nhận phòng";
-            this.butnhanphong.UseVisualStyleBackColor = false;
-            this.butnhanphong.Click += new System.EventHandler(this.butnhanphong_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbgioitinh);
@@ -485,9 +469,9 @@
             this.lbsoluong.Location = new System.Drawing.Point(44, 184);
             this.lbsoluong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbsoluong.Name = "lbsoluong";
-            this.lbsoluong.Size = new System.Drawing.Size(189, 22);
+            this.lbsoluong.Size = new System.Drawing.Size(104, 22);
             this.lbsoluong.TabIndex = 6;
-            this.lbsoluong.Text = "Số lượng người tối đa:";
+            this.lbsoluong.Text = "Số người ở:";
             // 
             // txbMphong
             // 
@@ -611,7 +595,7 @@
             this.butdatphong.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.butdatphong.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.butdatphong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butdatphong.Location = new System.Drawing.Point(1456, 684);
+            this.butdatphong.Location = new System.Drawing.Point(1456, 705);
             this.butdatphong.Margin = new System.Windows.Forms.Padding(2);
             this.butdatphong.Name = "butdatphong";
             this.butdatphong.Size = new System.Drawing.Size(236, 32);
@@ -626,7 +610,7 @@
             this.butlmmoi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.butlmmoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.butlmmoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butlmmoi.Location = new System.Drawing.Point(1456, 825);
+            this.butlmmoi.Location = new System.Drawing.Point(1456, 804);
             this.butlmmoi.Margin = new System.Windows.Forms.Padding(2);
             this.butlmmoi.Name = "butlmmoi";
             this.butlmmoi.Size = new System.Drawing.Size(236, 32);
@@ -642,7 +626,6 @@
             this.ClientSize = new System.Drawing.Size(1882, 1002);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.butnhanphong);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -684,7 +667,6 @@
         private System.Windows.Forms.ComboBox cbgioitinh;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button butnhanphong;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label12;
