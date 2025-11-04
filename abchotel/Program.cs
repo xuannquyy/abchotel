@@ -16,7 +16,7 @@ namespace abchotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormInvoice());
+            Application.Run(new FormReport());
         }
     }
 }

@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblbc = new System.Windows.Forms.Label();
             this.cboloaibc = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnxuat = new System.Windows.Forms.Button();
+            this.dgvdt = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.lblvaluessohoadon = new System.Windows.Forms.Label();
             this.lblvaluesdthu = new System.Windows.Forms.Label();
             this.lblsohoadon = new System.Windows.Forms.Label();
@@ -45,13 +48,10 @@
             this.lblloai = new System.Windows.Forms.Label();
             this.dtfrom = new System.Windows.Forms.DateTimePicker();
             this.btntk = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvdt = new System.Windows.Forms.DataGridView();
-            this.btnxuat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chdthu)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdt)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chdthu)).BeginInit();
             this.SuspendLayout();
             // 
             // lblbc
@@ -91,6 +91,43 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1036, 450);
             this.panel1.TabIndex = 2;
+            // 
+            // btnxuat
+            // 
+            this.btnxuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
+            this.btnxuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnxuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnxuat.ForeColor = System.Drawing.Color.White;
+            this.btnxuat.Location = new System.Drawing.Point(72, 393);
+            this.btnxuat.Name = "btnxuat";
+            this.btnxuat.Size = new System.Drawing.Size(311, 39);
+            this.btnxuat.TabIndex = 15;
+            this.btnxuat.Text = "Xuất bảng dữ liệu chi tiết (excel)";
+            this.btnxuat.UseVisualStyleBackColor = false;
+            this.btnxuat.Click += new System.EventHandler(this.btnxuat_Click);
+            // 
+            // dgvdt
+            // 
+            this.dgvdt.BackgroundColor = System.Drawing.Color.White;
+            this.dgvdt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvdt.Location = new System.Drawing.Point(7, 82);
+            this.dgvdt.Name = "dgvdt";
+            this.dgvdt.RowHeadersWidth = 51;
+            this.dgvdt.RowTemplate.Height = 24;
+            this.dgvdt.Size = new System.Drawing.Size(431, 305);
+            this.dgvdt.TabIndex = 14;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblvaluessohoadon);
+            this.panel2.Controls.Add(this.lblvaluesdthu);
+            this.panel2.Controls.Add(this.lblsohoadon);
+            this.panel2.Controls.Add(this.lbltongdoanhthu);
+            this.panel2.Location = new System.Drawing.Point(580, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(266, 66);
+            this.panel2.TabIndex = 13;
             // 
             // lblvaluessohoadon
             // 
@@ -134,16 +171,16 @@
             // 
             // chdthu
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chdthu.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.chdthu.Legends.Add(legend9);
+            chartArea1.Name = "ChartArea1";
+            this.chdthu.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chdthu.Legends.Add(legend1);
             this.chdthu.Location = new System.Drawing.Point(444, 82);
             this.chdthu.Name = "chdthu";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chdthu.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chdthu.Series.Add(series1);
             this.chdthu.Size = new System.Drawing.Size(589, 305);
             this.chdthu.TabIndex = 6;
             this.chdthu.Text = "Doanh thu";
@@ -208,43 +245,6 @@
             this.btntk.UseVisualStyleBackColor = false;
             this.btntk.Click += new System.EventHandler(this.btntk_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblvaluessohoadon);
-            this.panel2.Controls.Add(this.lblvaluesdthu);
-            this.panel2.Controls.Add(this.lblsohoadon);
-            this.panel2.Controls.Add(this.lbltongdoanhthu);
-            this.panel2.Location = new System.Drawing.Point(580, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 66);
-            this.panel2.TabIndex = 13;
-            // 
-            // dgvdt
-            // 
-            this.dgvdt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(66)))));
-            this.dgvdt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvdt.Location = new System.Drawing.Point(7, 82);
-            this.dgvdt.Name = "dgvdt";
-            this.dgvdt.RowHeadersWidth = 51;
-            this.dgvdt.RowTemplate.Height = 24;
-            this.dgvdt.Size = new System.Drawing.Size(431, 305);
-            this.dgvdt.TabIndex = 14;
-            // 
-            // btnxuat
-            // 
-            this.btnxuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
-            this.btnxuat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnxuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnxuat.ForeColor = System.Drawing.Color.White;
-            this.btnxuat.Location = new System.Drawing.Point(72, 393);
-            this.btnxuat.Name = "btnxuat";
-            this.btnxuat.Size = new System.Drawing.Size(311, 39);
-            this.btnxuat.TabIndex = 15;
-            this.btnxuat.Text = "Xuất bảng dữ liệu chi tiết (excel)";
-            this.btnxuat.UseVisualStyleBackColor = false;
-            this.btnxuat.Click += new System.EventHandler(this.btnxuat_Click);
-            // 
             // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -259,10 +259,10 @@
             this.Load += new System.EventHandler(this.formReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chdthu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdt)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvdt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chdthu)).EndInit();
             this.ResumeLayout(false);
 
         }
