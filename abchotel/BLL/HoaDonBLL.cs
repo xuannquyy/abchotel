@@ -18,5 +18,10 @@ namespace abchotel.BLL
         public int ThemHoaDon(HoaDon hd) => dal.ThemHoaDon(hd);
 
         public int XoaHoaDon(int maHoaDon) => dal.XoaHoaDon(maHoaDon);
+        public decimal DoanhThuHomNay()
+        {
+            return dal.DoanhThuHomNay();
+        }
+
     }
 }

@@ -68,46 +68,44 @@
             this.pnVIP304 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.pnHB201 = new System.Windows.Forms.Panel();
+            this.pnA201 = new System.Windows.Forms.Panel();
             this.label46 = new System.Windows.Forms.Label();
-            this.pnHB101 = new System.Windows.Forms.Panel();
+            this.pnA101 = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
-            this.pnHB202 = new System.Windows.Forms.Panel();
+            this.pnA202 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
-            this.pnHB102 = new System.Windows.Forms.Panel();
+            this.pnA102 = new System.Windows.Forms.Panel();
             this.label38 = new System.Windows.Forms.Label();
-            this.pnHV205 = new System.Windows.Forms.Panel();
+            this.pnA205 = new System.Windows.Forms.Panel();
             this.label31 = new System.Windows.Forms.Label();
-            this.pnHV105 = new System.Windows.Forms.Panel();
+            this.pnA105 = new System.Windows.Forms.Panel();
             this.label37 = new System.Windows.Forms.Label();
-            this.pnHB203 = new System.Windows.Forms.Panel();
+            this.pnA203 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
-            this.pnHB103 = new System.Windows.Forms.Panel();
+            this.pnA103 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
-            this.pnHV206 = new System.Windows.Forms.Panel();
+            this.pnA206 = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
-            this.pnHV106 = new System.Windows.Forms.Panel();
+            this.pnA106 = new System.Windows.Forms.Panel();
             this.label35 = new System.Windows.Forms.Label();
-            this.pnHB204 = new System.Windows.Forms.Panel();
+            this.pnA204 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
-            this.pnHB104 = new System.Windows.Forms.Panel();
+            this.pnA104 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
-            this.pnHV207 = new System.Windows.Forms.Panel();
+            this.pnA207 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
-            this.pnHV107 = new System.Windows.Forms.Panel();
+            this.pnA107 = new System.Windows.Forms.Panel();
             this.label33 = new System.Windows.Forms.Label();
-            this.pnHV208 = new System.Windows.Forms.Panel();
+            this.pnA208 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
-            this.pnHV108 = new System.Windows.Forms.Panel();
+            this.pnA108 = new System.Windows.Forms.Panel();
             this.label32 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.lblDoanhthunow = new System.Windows.Forms.Label();
+            this.lblDoanhthu = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblKhachhang = new System.Windows.Forms.Label();
@@ -135,22 +133,22 @@
             this.pnVIP302.SuspendLayout();
             this.pnVIP303.SuspendLayout();
             this.pnVIP304.SuspendLayout();
-            this.pnHB201.SuspendLayout();
-            this.pnHB101.SuspendLayout();
-            this.pnHB202.SuspendLayout();
-            this.pnHB102.SuspendLayout();
-            this.pnHV205.SuspendLayout();
-            this.pnHV105.SuspendLayout();
-            this.pnHB203.SuspendLayout();
-            this.pnHB103.SuspendLayout();
-            this.pnHV206.SuspendLayout();
-            this.pnHV106.SuspendLayout();
-            this.pnHB204.SuspendLayout();
-            this.pnHB104.SuspendLayout();
-            this.pnHV207.SuspendLayout();
-            this.pnHV107.SuspendLayout();
-            this.pnHV208.SuspendLayout();
-            this.pnHV108.SuspendLayout();
+            this.pnA201.SuspendLayout();
+            this.pnA101.SuspendLayout();
+            this.pnA202.SuspendLayout();
+            this.pnA102.SuspendLayout();
+            this.pnA205.SuspendLayout();
+            this.pnA105.SuspendLayout();
+            this.pnA203.SuspendLayout();
+            this.pnA103.SuspendLayout();
+            this.pnA206.SuspendLayout();
+            this.pnA106.SuspendLayout();
+            this.pnA204.SuspendLayout();
+            this.pnA104.SuspendLayout();
+            this.pnA207.SuspendLayout();
+            this.pnA107.SuspendLayout();
+            this.pnA208.SuspendLayout();
+            this.pnA108.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -454,7 +452,7 @@
             this.pnVIP301.Controls.Add(this.label17);
             this.pnVIP301.Controls.Add(this.label16);
             this.pnVIP301.ForeColor = System.Drawing.Color.Black;
-            this.pnVIP301.Location = new System.Drawing.Point(178, 89);
+            this.pnVIP301.Location = new System.Drawing.Point(174, 67);
             this.pnVIP301.Name = "pnVIP301";
             this.pnVIP301.Size = new System.Drawing.Size(164, 72);
             this.pnVIP301.TabIndex = 6;
@@ -463,17 +461,17 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(37, 35);
+            this.label17.Location = new System.Drawing.Point(40, 38);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(82, 13);
+            this.label17.Size = new System.Drawing.Size(77, 13);
             this.label17.TabIndex = 1;
-            this.label17.Text = "GIƯỜNG ĐÔI";
+            this.label17.Text = "PHÒNG ĐÔI";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(53, 16);
+            this.label16.Location = new System.Drawing.Point(56, 19);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(48, 13);
             this.label16.TabIndex = 0;
@@ -486,7 +484,7 @@
             this.pnVIP302.Controls.Add(this.label45);
             this.pnVIP302.Controls.Add(this.label19);
             this.pnVIP302.ForeColor = System.Drawing.Color.Black;
-            this.pnVIP302.Location = new System.Drawing.Point(348, 89);
+            this.pnVIP302.Location = new System.Drawing.Point(344, 67);
             this.pnVIP302.Name = "pnVIP302";
             this.pnVIP302.Size = new System.Drawing.Size(164, 72);
             this.pnVIP302.TabIndex = 7;
@@ -495,17 +493,17 @@
             // 
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(38, 35);
+            this.label45.Location = new System.Drawing.Point(41, 38);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(87, 13);
+            this.label45.Size = new System.Drawing.Size(82, 13);
             this.label45.TabIndex = 1;
-            this.label45.Text = "GIƯỜNG ĐƠN";
+            this.label45.Text = "PHÒNG ĐƠN";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(54, 16);
+            this.label19.Location = new System.Drawing.Point(57, 19);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(48, 13);
             this.label19.TabIndex = 0;
@@ -518,7 +516,7 @@
             this.pnVIP303.Controls.Add(this.label20);
             this.pnVIP303.Controls.Add(this.label21);
             this.pnVIP303.ForeColor = System.Drawing.Color.Black;
-            this.pnVIP303.Location = new System.Drawing.Point(578, 89);
+            this.pnVIP303.Location = new System.Drawing.Point(574, 67);
             this.pnVIP303.Name = "pnVIP303";
             this.pnVIP303.Size = new System.Drawing.Size(158, 72);
             this.pnVIP303.TabIndex = 7;
@@ -527,17 +525,17 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(35, 35);
+            this.label20.Location = new System.Drawing.Point(38, 38);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(82, 13);
+            this.label20.Size = new System.Drawing.Size(77, 13);
             this.label20.TabIndex = 1;
-            this.label20.Text = "GIƯỜNG ĐÔI";
+            this.label20.Text = "PHÒNG ĐÔI";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(51, 16);
+            this.label21.Location = new System.Drawing.Point(54, 19);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(48, 13);
             this.label21.TabIndex = 0;
@@ -550,7 +548,7 @@
             this.pnVIP304.Controls.Add(this.label22);
             this.pnVIP304.Controls.Add(this.label23);
             this.pnVIP304.ForeColor = System.Drawing.Color.Black;
-            this.pnVIP304.Location = new System.Drawing.Point(742, 89);
+            this.pnVIP304.Location = new System.Drawing.Point(738, 67);
             this.pnVIP304.Name = "pnVIP304";
             this.pnVIP304.Size = new System.Drawing.Size(164, 72);
             this.pnVIP304.TabIndex = 8;
@@ -559,407 +557,381 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(40, 35);
+            this.label22.Location = new System.Drawing.Point(43, 38);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(87, 13);
+            this.label22.Size = new System.Drawing.Size(82, 13);
             this.label22.TabIndex = 1;
-            this.label22.Text = "GIƯỜNG ĐƠN";
+            this.label22.Text = "PHÒNG ĐƠN";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(56, 16);
+            this.label23.Location = new System.Drawing.Point(59, 19);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(48, 13);
             this.label23.TabIndex = 0;
             this.label23.Text = "VIP304";
             // 
-            // pnHB201
+            // pnA201
             // 
-            this.pnHB201.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHB201.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHB201.Controls.Add(this.label46);
-            this.pnHB201.ForeColor = System.Drawing.Color.Black;
-            this.pnHB201.Location = new System.Drawing.Point(178, 205);
-            this.pnHB201.Name = "pnHB201";
-            this.pnHB201.Size = new System.Drawing.Size(79, 50);
-            this.pnHB201.TabIndex = 7;
+            this.pnA201.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA201.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA201.Controls.Add(this.label46);
+            this.pnA201.ForeColor = System.Drawing.Color.Black;
+            this.pnA201.Location = new System.Drawing.Point(174, 183);
+            this.pnA201.Name = "pnA201";
+            this.pnA201.Size = new System.Drawing.Size(79, 50);
+            this.pnA201.TabIndex = 7;
             // 
             // label46
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(14, 11);
+            this.label46.Location = new System.Drawing.Point(20, 18);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(45, 13);
+            this.label46.Size = new System.Drawing.Size(36, 13);
             this.label46.TabIndex = 0;
-            this.label46.Text = "HB201";
+            this.label46.Text = "A201";
             // 
-            // pnHB101
+            // pnA101
             // 
-            this.pnHB101.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHB101.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHB101.Controls.Add(this.label39);
-            this.pnHB101.ForeColor = System.Drawing.Color.Black;
-            this.pnHB101.Location = new System.Drawing.Point(178, 307);
-            this.pnHB101.Name = "pnHB101";
-            this.pnHB101.Size = new System.Drawing.Size(79, 50);
-            this.pnHB101.TabIndex = 13;
+            this.pnA101.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA101.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA101.Controls.Add(this.label39);
+            this.pnA101.ForeColor = System.Drawing.Color.Black;
+            this.pnA101.Location = new System.Drawing.Point(174, 285);
+            this.pnA101.Name = "pnA101";
+            this.pnA101.Size = new System.Drawing.Size(79, 50);
+            this.pnA101.TabIndex = 13;
             // 
             // label39
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(14, 11);
+            this.label39.Location = new System.Drawing.Point(20, 18);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(45, 13);
+            this.label39.Size = new System.Drawing.Size(36, 13);
             this.label39.TabIndex = 0;
-            this.label39.Text = "HB101";
+            this.label39.Text = "A101";
             // 
-            // pnHB202
+            // pnA202
             // 
-            this.pnHB202.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHB202.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHB202.Controls.Add(this.label24);
-            this.pnHB202.ForeColor = System.Drawing.Color.Black;
-            this.pnHB202.Location = new System.Drawing.Point(263, 205);
-            this.pnHB202.Name = "pnHB202";
-            this.pnHB202.Size = new System.Drawing.Size(79, 50);
-            this.pnHB202.TabIndex = 8;
+            this.pnA202.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA202.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA202.Controls.Add(this.label24);
+            this.pnA202.ForeColor = System.Drawing.Color.Black;
+            this.pnA202.Location = new System.Drawing.Point(259, 183);
+            this.pnA202.Name = "pnA202";
+            this.pnA202.Size = new System.Drawing.Size(79, 50);
+            this.pnA202.TabIndex = 8;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(14, 11);
+            this.label24.Location = new System.Drawing.Point(20, 18);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(45, 13);
+            this.label24.Size = new System.Drawing.Size(36, 13);
             this.label24.TabIndex = 0;
-            this.label24.Text = "HB202";
+            this.label24.Text = "A202";
             // 
-            // pnHB102
+            // pnA102
             // 
-            this.pnHB102.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHB102.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHB102.Controls.Add(this.label38);
-            this.pnHB102.ForeColor = System.Drawing.Color.Black;
-            this.pnHB102.Location = new System.Drawing.Point(263, 307);
-            this.pnHB102.Name = "pnHB102";
-            this.pnHB102.Size = new System.Drawing.Size(79, 50);
-            this.pnHB102.TabIndex = 16;
+            this.pnA102.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA102.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA102.Controls.Add(this.label38);
+            this.pnA102.ForeColor = System.Drawing.Color.Black;
+            this.pnA102.Location = new System.Drawing.Point(259, 285);
+            this.pnA102.Name = "pnA102";
+            this.pnA102.Size = new System.Drawing.Size(79, 50);
+            this.pnA102.TabIndex = 16;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(14, 11);
+            this.label38.Location = new System.Drawing.Point(20, 18);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(45, 13);
+            this.label38.Size = new System.Drawing.Size(36, 13);
             this.label38.TabIndex = 0;
-            this.label38.Text = "HB102";
+            this.label38.Text = "A102";
             // 
-            // pnHV205
+            // pnA205
             // 
-            this.pnHV205.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHV205.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHV205.Controls.Add(this.label31);
-            this.pnHV205.ForeColor = System.Drawing.Color.Black;
-            this.pnHV205.Location = new System.Drawing.Point(572, 205);
-            this.pnHV205.Name = "pnHV205";
-            this.pnHV205.Size = new System.Drawing.Size(79, 50);
-            this.pnHV205.TabIndex = 9;
+            this.pnA205.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA205.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA205.Controls.Add(this.label31);
+            this.pnA205.ForeColor = System.Drawing.Color.Black;
+            this.pnA205.Location = new System.Drawing.Point(568, 183);
+            this.pnA205.Name = "pnA205";
+            this.pnA205.Size = new System.Drawing.Size(79, 50);
+            this.pnA205.TabIndex = 9;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(14, 11);
+            this.label31.Location = new System.Drawing.Point(20, 18);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(45, 13);
+            this.label31.Size = new System.Drawing.Size(36, 13);
             this.label31.TabIndex = 0;
-            this.label31.Text = "HV205";
+            this.label31.Text = "A205";
             // 
-            // pnHV105
+            // pnA105
             // 
-            this.pnHV105.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHV105.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHV105.Controls.Add(this.label37);
-            this.pnHV105.ForeColor = System.Drawing.Color.Black;
-            this.pnHV105.Location = new System.Drawing.Point(572, 307);
-            this.pnHV105.Name = "pnHV105";
-            this.pnHV105.Size = new System.Drawing.Size(79, 50);
-            this.pnHV105.TabIndex = 17;
+            this.pnA105.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA105.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA105.Controls.Add(this.label37);
+            this.pnA105.ForeColor = System.Drawing.Color.Black;
+            this.pnA105.Location = new System.Drawing.Point(568, 285);
+            this.pnA105.Name = "pnA105";
+            this.pnA105.Size = new System.Drawing.Size(79, 50);
+            this.pnA105.TabIndex = 17;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(14, 11);
+            this.label37.Location = new System.Drawing.Point(20, 18);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(45, 13);
+            this.label37.Size = new System.Drawing.Size(36, 13);
             this.label37.TabIndex = 0;
-            this.label37.Text = "HV105";
+            this.label37.Text = "A105";
             // 
-            // pnHB203
+            // pnA203
             // 
-            this.pnHB203.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHB203.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHB203.Controls.Add(this.label26);
-            this.pnHB203.ForeColor = System.Drawing.Color.Black;
-            this.pnHB203.Location = new System.Drawing.Point(348, 205);
-            this.pnHB203.Name = "pnHB203";
-            this.pnHB203.Size = new System.Drawing.Size(79, 50);
-            this.pnHB203.TabIndex = 8;
+            this.pnA203.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA203.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA203.Controls.Add(this.label26);
+            this.pnA203.ForeColor = System.Drawing.Color.Black;
+            this.pnA203.Location = new System.Drawing.Point(344, 183);
+            this.pnA203.Name = "pnA203";
+            this.pnA203.Size = new System.Drawing.Size(79, 50);
+            this.pnA203.TabIndex = 8;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(14, 11);
+            this.label26.Location = new System.Drawing.Point(20, 18);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(45, 13);
+            this.label26.Size = new System.Drawing.Size(36, 13);
             this.label26.TabIndex = 0;
-            this.label26.Text = "HB203";
+            this.label26.Text = "A203";
             // 
-            // pnHB103
+            // pnA103
             // 
-            this.pnHB103.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHB103.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHB103.Controls.Add(this.label36);
-            this.pnHB103.ForeColor = System.Drawing.Color.Black;
-            this.pnHB103.Location = new System.Drawing.Point(348, 307);
-            this.pnHB103.Name = "pnHB103";
-            this.pnHB103.Size = new System.Drawing.Size(79, 50);
-            this.pnHB103.TabIndex = 15;
+            this.pnA103.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA103.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA103.Controls.Add(this.label36);
+            this.pnA103.ForeColor = System.Drawing.Color.Black;
+            this.pnA103.Location = new System.Drawing.Point(344, 285);
+            this.pnA103.Name = "pnA103";
+            this.pnA103.Size = new System.Drawing.Size(79, 50);
+            this.pnA103.TabIndex = 15;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(14, 11);
+            this.label36.Location = new System.Drawing.Point(20, 18);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(45, 13);
+            this.label36.Size = new System.Drawing.Size(36, 13);
             this.label36.TabIndex = 0;
-            this.label36.Text = "HB103";
+            this.label36.Text = "A103";
             // 
-            // pnHV206
+            // pnA206
             // 
-            this.pnHV206.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHV206.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHV206.Controls.Add(this.label30);
-            this.pnHV206.ForeColor = System.Drawing.Color.Black;
-            this.pnHV206.Location = new System.Drawing.Point(657, 205);
-            this.pnHV206.Name = "pnHV206";
-            this.pnHV206.Size = new System.Drawing.Size(79, 50);
-            this.pnHV206.TabIndex = 12;
+            this.pnA206.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA206.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA206.Controls.Add(this.label30);
+            this.pnA206.ForeColor = System.Drawing.Color.Black;
+            this.pnA206.Location = new System.Drawing.Point(653, 183);
+            this.pnA206.Name = "pnA206";
+            this.pnA206.Size = new System.Drawing.Size(79, 50);
+            this.pnA206.TabIndex = 12;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(14, 11);
+            this.label30.Location = new System.Drawing.Point(20, 18);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(45, 13);
+            this.label30.Size = new System.Drawing.Size(36, 13);
             this.label30.TabIndex = 0;
-            this.label30.Text = "HV206";
+            this.label30.Text = "A206";
             // 
-            // pnHV106
+            // pnA106
             // 
-            this.pnHV106.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHV106.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHV106.Controls.Add(this.label35);
-            this.pnHV106.ForeColor = System.Drawing.Color.Black;
-            this.pnHV106.Location = new System.Drawing.Point(657, 307);
-            this.pnHV106.Name = "pnHV106";
-            this.pnHV106.Size = new System.Drawing.Size(79, 50);
-            this.pnHV106.TabIndex = 20;
+            this.pnA106.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA106.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA106.Controls.Add(this.label35);
+            this.pnA106.ForeColor = System.Drawing.Color.Black;
+            this.pnA106.Location = new System.Drawing.Point(653, 285);
+            this.pnA106.Name = "pnA106";
+            this.pnA106.Size = new System.Drawing.Size(79, 50);
+            this.pnA106.TabIndex = 20;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(14, 11);
+            this.label35.Location = new System.Drawing.Point(20, 18);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(45, 13);
+            this.label35.Size = new System.Drawing.Size(36, 13);
             this.label35.TabIndex = 0;
-            this.label35.Text = "HV106";
+            this.label35.Text = "A106";
             // 
-            // pnHB204
+            // pnA204
             // 
-            this.pnHB204.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHB204.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHB204.Controls.Add(this.label27);
-            this.pnHB204.ForeColor = System.Drawing.Color.Black;
-            this.pnHB204.Location = new System.Drawing.Point(433, 205);
-            this.pnHB204.Name = "pnHB204";
-            this.pnHB204.Size = new System.Drawing.Size(79, 50);
-            this.pnHB204.TabIndex = 8;
+            this.pnA204.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA204.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA204.Controls.Add(this.label27);
+            this.pnA204.ForeColor = System.Drawing.Color.Black;
+            this.pnA204.Location = new System.Drawing.Point(429, 183);
+            this.pnA204.Name = "pnA204";
+            this.pnA204.Size = new System.Drawing.Size(79, 50);
+            this.pnA204.TabIndex = 8;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(14, 11);
+            this.label27.Location = new System.Drawing.Point(20, 18);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(45, 13);
+            this.label27.Size = new System.Drawing.Size(36, 13);
             this.label27.TabIndex = 0;
-            this.label27.Text = "HB204";
+            this.label27.Text = "A204";
             // 
-            // pnHB104
+            // pnA104
             // 
-            this.pnHB104.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHB104.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHB104.Controls.Add(this.label34);
-            this.pnHB104.ForeColor = System.Drawing.Color.Black;
-            this.pnHB104.Location = new System.Drawing.Point(433, 307);
-            this.pnHB104.Name = "pnHB104";
-            this.pnHB104.Size = new System.Drawing.Size(79, 50);
-            this.pnHB104.TabIndex = 14;
+            this.pnA104.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA104.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA104.Controls.Add(this.label34);
+            this.pnA104.ForeColor = System.Drawing.Color.Black;
+            this.pnA104.Location = new System.Drawing.Point(429, 285);
+            this.pnA104.Name = "pnA104";
+            this.pnA104.Size = new System.Drawing.Size(79, 50);
+            this.pnA104.TabIndex = 14;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(14, 11);
+            this.label34.Location = new System.Drawing.Point(20, 18);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(45, 13);
+            this.label34.Size = new System.Drawing.Size(36, 13);
             this.label34.TabIndex = 0;
-            this.label34.Text = "HB104";
+            this.label34.Text = "A104";
             // 
-            // pnHV207
+            // pnA207
             // 
-            this.pnHV207.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHV207.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHV207.Controls.Add(this.label47);
-            this.pnHV207.ForeColor = System.Drawing.Color.Black;
-            this.pnHV207.Location = new System.Drawing.Point(742, 205);
-            this.pnHV207.Name = "pnHV207";
-            this.pnHV207.Size = new System.Drawing.Size(79, 50);
-            this.pnHV207.TabIndex = 11;
+            this.pnA207.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA207.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA207.Controls.Add(this.label47);
+            this.pnA207.ForeColor = System.Drawing.Color.Black;
+            this.pnA207.Location = new System.Drawing.Point(738, 183);
+            this.pnA207.Name = "pnA207";
+            this.pnA207.Size = new System.Drawing.Size(79, 50);
+            this.pnA207.TabIndex = 11;
             // 
             // label47
             // 
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(14, 11);
+            this.label47.Location = new System.Drawing.Point(20, 18);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(45, 13);
+            this.label47.Size = new System.Drawing.Size(36, 13);
             this.label47.TabIndex = 0;
-            this.label47.Text = "HV207";
+            this.label47.Text = "A207";
             // 
-            // pnHV107
+            // pnA107
             // 
-            this.pnHV107.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHV107.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHV107.Controls.Add(this.label33);
-            this.pnHV107.ForeColor = System.Drawing.Color.Black;
-            this.pnHV107.Location = new System.Drawing.Point(742, 307);
-            this.pnHV107.Name = "pnHV107";
-            this.pnHV107.Size = new System.Drawing.Size(79, 50);
-            this.pnHV107.TabIndex = 19;
+            this.pnA107.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA107.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA107.Controls.Add(this.label33);
+            this.pnA107.ForeColor = System.Drawing.Color.Black;
+            this.pnA107.Location = new System.Drawing.Point(738, 285);
+            this.pnA107.Name = "pnA107";
+            this.pnA107.Size = new System.Drawing.Size(79, 50);
+            this.pnA107.TabIndex = 19;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(14, 11);
+            this.label33.Location = new System.Drawing.Point(20, 18);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(45, 13);
+            this.label33.Size = new System.Drawing.Size(36, 13);
             this.label33.TabIndex = 0;
-            this.label33.Text = "HV107";
+            this.label33.Text = "A107";
             // 
-            // pnHV208
+            // pnA208
             // 
-            this.pnHV208.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHV208.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHV208.Controls.Add(this.label28);
-            this.pnHV208.ForeColor = System.Drawing.Color.Black;
-            this.pnHV208.Location = new System.Drawing.Point(827, 205);
-            this.pnHV208.Name = "pnHV208";
-            this.pnHV208.Size = new System.Drawing.Size(79, 50);
-            this.pnHV208.TabIndex = 10;
+            this.pnA208.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA208.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA208.Controls.Add(this.label28);
+            this.pnA208.ForeColor = System.Drawing.Color.Black;
+            this.pnA208.Location = new System.Drawing.Point(823, 183);
+            this.pnA208.Name = "pnA208";
+            this.pnA208.Size = new System.Drawing.Size(79, 50);
+            this.pnA208.TabIndex = 10;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(14, 11);
+            this.label28.Location = new System.Drawing.Point(20, 18);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(45, 13);
+            this.label28.Size = new System.Drawing.Size(36, 13);
             this.label28.TabIndex = 0;
-            this.label28.Text = "HV208";
+            this.label28.Text = "A208";
             // 
-            // pnHV108
+            // pnA108
             // 
-            this.pnHV108.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnHV108.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHV108.Controls.Add(this.label32);
-            this.pnHV108.ForeColor = System.Drawing.Color.Black;
-            this.pnHV108.Location = new System.Drawing.Point(827, 307);
-            this.pnHV108.Name = "pnHV108";
-            this.pnHV108.Size = new System.Drawing.Size(79, 50);
-            this.pnHV108.TabIndex = 18;
+            this.pnA108.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnA108.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnA108.Controls.Add(this.label32);
+            this.pnA108.ForeColor = System.Drawing.Color.Black;
+            this.pnA108.Location = new System.Drawing.Point(823, 285);
+            this.pnA108.Name = "pnA108";
+            this.pnA108.Size = new System.Drawing.Size(79, 50);
+            this.pnA108.TabIndex = 18;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(14, 11);
+            this.label32.Location = new System.Drawing.Point(20, 18);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(45, 13);
+            this.label32.Size = new System.Drawing.Size(36, 13);
             this.label32.TabIndex = 0;
-            this.label32.Text = "HV108";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label11.Location = new System.Drawing.Point(653, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(150, 24);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "HƯỚNG VƯỜN";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(277, 31);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(138, 24);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "HƯỚNG BIỂN";
+            this.label32.Text = "A108";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.pnHV108);
-            this.panel2.Controls.Add(this.pnHV208);
-            this.panel2.Controls.Add(this.pnHV107);
-            this.panel2.Controls.Add(this.pnHV207);
-            this.panel2.Controls.Add(this.pnHB104);
-            this.panel2.Controls.Add(this.pnHB204);
-            this.panel2.Controls.Add(this.pnHV106);
-            this.panel2.Controls.Add(this.pnHV206);
-            this.panel2.Controls.Add(this.pnHB103);
-            this.panel2.Controls.Add(this.pnHB203);
-            this.panel2.Controls.Add(this.pnHV105);
-            this.panel2.Controls.Add(this.pnHV205);
-            this.panel2.Controls.Add(this.pnHB102);
-            this.panel2.Controls.Add(this.pnHB202);
-            this.panel2.Controls.Add(this.pnHB101);
-            this.panel2.Controls.Add(this.pnHB201);
+            this.panel2.Controls.Add(this.pnA108);
+            this.panel2.Controls.Add(this.pnA208);
+            this.panel2.Controls.Add(this.pnA107);
+            this.panel2.Controls.Add(this.pnA207);
+            this.panel2.Controls.Add(this.pnA104);
+            this.panel2.Controls.Add(this.pnA204);
+            this.panel2.Controls.Add(this.pnA106);
+            this.panel2.Controls.Add(this.pnA206);
+            this.panel2.Controls.Add(this.pnA103);
+            this.panel2.Controls.Add(this.pnA203);
+            this.panel2.Controls.Add(this.pnA105);
+            this.panel2.Controls.Add(this.pnA205);
+            this.panel2.Controls.Add(this.pnA102);
+            this.panel2.Controls.Add(this.pnA202);
+            this.panel2.Controls.Add(this.pnA101);
+            this.panel2.Controls.Add(this.pnA201);
             this.panel2.Controls.Add(this.pnVIP304);
             this.panel2.Controls.Add(this.pnVIP303);
             this.panel2.Controls.Add(this.pnVIP302);
@@ -974,7 +946,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.White;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(62, 114);
+            this.label15.Location = new System.Drawing.Point(58, 92);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(42, 24);
             this.label15.TabIndex = 5;
@@ -985,28 +957,28 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(12, 319);
+            this.label13.Location = new System.Drawing.Point(14, 297);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(141, 24);
+            this.label13.Size = new System.Drawing.Size(135, 24);
             this.label13.TabIndex = 3;
-            this.label13.Text = "GIƯỜNG ĐƠN";
+            this.label13.Text = "PHÒNG ĐƠN";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.White;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(12, 217);
+            this.label14.Location = new System.Drawing.Point(14, 195);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(131, 24);
+            this.label14.Size = new System.Drawing.Size(125, 24);
             this.label14.TabIndex = 4;
-            this.label14.Text = "GIƯỜNG ĐÔI";
+            this.label14.Text = "PHÒNG ĐÔI";
             // 
             // panel10
             // 
             this.panel10.BackgroundImage = global::abchotel.Properties.Resources._1;
             this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel10.Controls.Add(this.lblDoanhthunow);
+            this.panel10.Controls.Add(this.lblDoanhthu);
             this.panel10.Controls.Add(this.label10);
             this.panel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel10.Location = new System.Drawing.Point(1028, 80);
@@ -1014,15 +986,16 @@
             this.panel10.Size = new System.Drawing.Size(276, 182);
             this.panel10.TabIndex = 6;
             // 
-            // lblDoanhthunow
+            // lblDoanhthu
             // 
-            this.lblDoanhthunow.AutoSize = true;
-            this.lblDoanhthunow.BackColor = System.Drawing.Color.White;
-            this.lblDoanhthunow.Location = new System.Drawing.Point(72, 92);
-            this.lblDoanhthunow.Name = "lblDoanhthunow";
-            this.lblDoanhthunow.Size = new System.Drawing.Size(111, 24);
-            this.lblDoanhthunow.TabIndex = 3;
-            this.lblDoanhthunow.Text = "lblDoanhthu";
+            this.lblDoanhthu.AutoSize = true;
+            this.lblDoanhthu.BackColor = System.Drawing.Color.White;
+            this.lblDoanhthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDoanhthu.Location = new System.Drawing.Point(113, 80);
+            this.lblDoanhthu.Name = "lblDoanhthu";
+            this.lblDoanhthu.Size = new System.Drawing.Size(55, 37);
+            this.lblDoanhthu.TabIndex = 3;
+            this.lblDoanhthu.Text = "00";
             // 
             // label10
             // 
@@ -1052,11 +1025,12 @@
             // 
             this.lblKhachhang.AutoSize = true;
             this.lblKhachhang.BackColor = System.Drawing.Color.White;
-            this.lblKhachhang.Location = new System.Drawing.Point(74, 92);
+            this.lblKhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKhachhang.Location = new System.Drawing.Point(106, 80);
             this.lblKhachhang.Name = "lblKhachhang";
-            this.lblKhachhang.Size = new System.Drawing.Size(126, 24);
+            this.lblKhachhang.Size = new System.Drawing.Size(55, 37);
             this.lblKhachhang.TabIndex = 2;
-            this.lblKhachhang.Text = "lblKhachhang";
+            this.lblKhachhang.Text = "00";
             // 
             // label9
             // 
@@ -1085,11 +1059,12 @@
             // 
             this.lblPhongtrong.AutoSize = true;
             this.lblPhongtrong.BackColor = System.Drawing.Color.White;
-            this.lblPhongtrong.Location = new System.Drawing.Point(79, 92);
+            this.lblPhongtrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhongtrong.Location = new System.Drawing.Point(111, 80);
             this.lblPhongtrong.Name = "lblPhongtrong";
-            this.lblPhongtrong.Size = new System.Drawing.Size(128, 24);
+            this.lblPhongtrong.Size = new System.Drawing.Size(55, 37);
             this.lblPhongtrong.TabIndex = 1;
-            this.lblPhongtrong.Text = "lblPhongtrong";
+            this.lblPhongtrong.Text = "00";
             // 
             // label8
             // 
@@ -1154,38 +1129,38 @@
             this.pnVIP303.PerformLayout();
             this.pnVIP304.ResumeLayout(false);
             this.pnVIP304.PerformLayout();
-            this.pnHB201.ResumeLayout(false);
-            this.pnHB201.PerformLayout();
-            this.pnHB101.ResumeLayout(false);
-            this.pnHB101.PerformLayout();
-            this.pnHB202.ResumeLayout(false);
-            this.pnHB202.PerformLayout();
-            this.pnHB102.ResumeLayout(false);
-            this.pnHB102.PerformLayout();
-            this.pnHV205.ResumeLayout(false);
-            this.pnHV205.PerformLayout();
-            this.pnHV105.ResumeLayout(false);
-            this.pnHV105.PerformLayout();
-            this.pnHB203.ResumeLayout(false);
-            this.pnHB203.PerformLayout();
-            this.pnHB103.ResumeLayout(false);
-            this.pnHB103.PerformLayout();
-            this.pnHV206.ResumeLayout(false);
-            this.pnHV206.PerformLayout();
-            this.pnHV106.ResumeLayout(false);
-            this.pnHV106.PerformLayout();
-            this.pnHB204.ResumeLayout(false);
-            this.pnHB204.PerformLayout();
-            this.pnHB104.ResumeLayout(false);
-            this.pnHB104.PerformLayout();
-            this.pnHV207.ResumeLayout(false);
-            this.pnHV207.PerformLayout();
-            this.pnHV107.ResumeLayout(false);
-            this.pnHV107.PerformLayout();
-            this.pnHV208.ResumeLayout(false);
-            this.pnHV208.PerformLayout();
-            this.pnHV108.ResumeLayout(false);
-            this.pnHV108.PerformLayout();
+            this.pnA201.ResumeLayout(false);
+            this.pnA201.PerformLayout();
+            this.pnA101.ResumeLayout(false);
+            this.pnA101.PerformLayout();
+            this.pnA202.ResumeLayout(false);
+            this.pnA202.PerformLayout();
+            this.pnA102.ResumeLayout(false);
+            this.pnA102.PerformLayout();
+            this.pnA205.ResumeLayout(false);
+            this.pnA205.PerformLayout();
+            this.pnA105.ResumeLayout(false);
+            this.pnA105.PerformLayout();
+            this.pnA203.ResumeLayout(false);
+            this.pnA203.PerformLayout();
+            this.pnA103.ResumeLayout(false);
+            this.pnA103.PerformLayout();
+            this.pnA206.ResumeLayout(false);
+            this.pnA206.PerformLayout();
+            this.pnA106.ResumeLayout(false);
+            this.pnA106.PerformLayout();
+            this.pnA204.ResumeLayout(false);
+            this.pnA204.PerformLayout();
+            this.pnA104.ResumeLayout(false);
+            this.pnA104.PerformLayout();
+            this.pnA207.ResumeLayout(false);
+            this.pnA207.PerformLayout();
+            this.pnA107.ResumeLayout(false);
+            this.pnA107.PerformLayout();
+            this.pnA208.ResumeLayout(false);
+            this.pnA208.PerformLayout();
+            this.pnA108.ResumeLayout(false);
+            this.pnA108.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -1231,7 +1206,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblPhongtrong;
         private System.Windows.Forms.Label lblKhachhang;
-        private System.Windows.Forms.Label lblDoanhthunow;
+        private System.Windows.Forms.Label lblDoanhthu;
         private System.Windows.Forms.Panel pnThongke;
         private System.Windows.Forms.Panel pnVIP301;
         private System.Windows.Forms.Label label17;
@@ -1245,40 +1220,38 @@
         private System.Windows.Forms.Panel pnVIP304;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Panel pnHB201;
+        private System.Windows.Forms.Panel pnA201;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Panel pnHB101;
+        private System.Windows.Forms.Panel pnA101;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Panel pnHB202;
+        private System.Windows.Forms.Panel pnA202;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Panel pnHB102;
+        private System.Windows.Forms.Panel pnA102;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Panel pnHV205;
+        private System.Windows.Forms.Panel pnA205;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Panel pnHV105;
+        private System.Windows.Forms.Panel pnA105;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Panel pnHB203;
+        private System.Windows.Forms.Panel pnA203;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Panel pnHB103;
+        private System.Windows.Forms.Panel pnA103;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Panel pnHV206;
+        private System.Windows.Forms.Panel pnA206;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Panel pnHV106;
+        private System.Windows.Forms.Panel pnA106;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Panel pnHB204;
+        private System.Windows.Forms.Panel pnA204;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Panel pnHB104;
+        private System.Windows.Forms.Panel pnA104;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Panel pnHV207;
+        private System.Windows.Forms.Panel pnA207;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Panel pnHV107;
+        private System.Windows.Forms.Panel pnA107;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Panel pnHV208;
+        private System.Windows.Forms.Panel pnA208;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Panel pnHV108;
+        private System.Windows.Forms.Panel pnA108;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
