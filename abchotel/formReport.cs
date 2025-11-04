@@ -1,16 +1,20 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using OfficeOpenXml;
+using System.IO;
+
 
 namespace abchotel
 {
-    public partial class formReport : Form
+    public partial class FormReport : Form
     {
         string connectionString = @"Data Source=ANHENHS\SQLEXPRESS;Initial Catalog=QuanLyKhachSan;Integrated Security=True";
 
-        public formReport()
+        public FormReport()
         {
             InitializeComponent();
         }
@@ -27,7 +31,7 @@ namespace abchotel
 
         private void btntk_Click(object sender, EventArgs e)
         {
-             LoadReport();
+            LoadReport();
         }
 
         void LoadReport()
@@ -78,11 +82,11 @@ namespace abchotel
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+                dgvdoanhthu.DataSource = dt; // ✅ Thêm để hiển thị chi tiết
                 LoadChart(dt, xField);
                 LoadSummary(dt);
             }
         }
-
         void LoadChart(DataTable dt, string xField)
         {
             chdthu.Series.Clear();
@@ -112,11 +116,53 @@ namespace abchotel
 
         private void formReport_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn thoát?","Xác nhận thoát",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning );
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn thoát?", "Xác nhận thoát", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgvdoanhthu.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo");
+                return;
+            }
+
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Excel file|*.xlsx";
+            save.FileName = "BaoCaoDoanhThu.xlsx";
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+
+                using (ExcelPackage excel = new ExcelPackage())
+                {
+                    var ws = excel.Workbook.Worksheets.Add("Report");
+
+                    // Tiêu đề
+                    for (int i = 0; i < dgvdoanhthu.Columns.Count; i++)
+                    {
+                        ws.Cells[1, i + 1].Value = dgvdoanhthu.Columns[i].HeaderText;
+                        ws.Cells[1, i + 1].Style.Font.Bold = true;
+                    }
+
+                    // Dữ liệu
+                    for (int r = 0; r < dgvdoanhthu.Rows.Count; r++)
+                    {
+                        for (int c = 0; c < dgvdoanhthu.Columns.Count; c++)
+                        {
+                            ws.Cells[r + 2, c + 1].Value =
+                                dgvdoanhthu.Rows[r].Cells[c].Value?.ToString();
+                        }
+                    }
+
+                    File.WriteAllBytes(save.FileName, excel.GetAsByteArray());
+                    MessageBox.Show("Xuất Excel thành công!", "Thông báo");
+                }
+            }
+        }
     }
-    }
+}

@@ -1,6 +1,6 @@
 ﻿namespace abchotel
 {
-    partial class formReport
+    partial class FormReport
     {
         /// <summary>
         /// Required designer variable.
@@ -146,6 +146,7 @@
             // 
             // dtto
             // 
+            this.dtto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtto.Location = new System.Drawing.Point(332, 54);
             this.dtto.Name = "dtto";
             this.dtto.Size = new System.Drawing.Size(200, 22);
@@ -163,6 +164,7 @@
             // 
             // dtfrom
             // 
+            this.dtfrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtfrom.Location = new System.Drawing.Point(56, 54);
             this.dtfrom.Name = "dtfrom";
             this.dtfrom.Size = new System.Drawing.Size(187, 22);
@@ -202,15 +204,40 @@
             this.lblvaluessohoadon.TabIndex = 12;
             this.lblvaluessohoadon.Text = "label2";
             // 
-            // formReport
+            // dgvdoanhthu
+            // 
+            this.dgvdoanhthu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvdoanhthu.Location = new System.Drawing.Point(7, 96);
+            this.dgvdoanhthu.Name = "dgvdoanhthu";
+            this.dgvdoanhthu.RowHeadersWidth = 51;
+            this.dgvdoanhthu.RowTemplate.Height = 24;
+            this.dgvdoanhthu.Size = new System.Drawing.Size(470, 321);
+            this.dgvdoanhthu.TabIndex = 14;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(98, 423);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(294, 39);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Xuất Bảng Dữ Liệu Chi Tiết(excel)";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 507);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblbc);
-            this.Name = "formReport";
-            this.Text = "formReport";
+            this.Name = "FormReport";
+            this.Text = "FormReport";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formReport_FormClosing);
             this.Load += new System.EventHandler(this.formReport_Load);
             this.panel1.ResumeLayout(false);
