@@ -13,7 +13,7 @@ using abchotel.Model;
 namespace abchotel
 {
     public partial class Formlgin : Form
-    {NguoiDungBLL userBLL = new NguoiDungBLL();
+    {
         public Formlgin()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace abchotel
                 return;
             }
 
-            NguoiDung user = NguoiDungBLL.Login(username, password);
+            NguoiDung user =  NguoiDungBLL.(username, password);
             if
 
             (user != null)

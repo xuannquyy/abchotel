@@ -37,7 +37,7 @@ namespace abchotel
 
             // Gọi lớp BLL hoặc DAL để kiểm tra thông tin
             NguoiDungBLL userBLL = new NguoiDungBLL();
-            bool result = userBLL.ResetPassword(username, email, newPassword);
+            bool result = userBLL.DoiMatKhau( username, email, newPassword);
 
             if (result)
                 MessageBox.Show("Đặt lại mật khẩu thành công!");
@@ -60,21 +60,21 @@ namespace abchotel
             string username = txtUsername.Text.Trim();
             string email = txtEmail.Text.Trim();
 
-            NguoiDung user = bll.CheckEmail(email);
+            NguoiDung user = NguoiDungBLL.CheckEmail(email);
 
-            if (user == null || !user.Username.Equals(username, StringComparison.OrdinalIgnoreCase))
+            if (user == null || !user.TenDangNhap.Equals(username, StringComparison.OrdinalIgnoreCase))
             {
                 MessageBox.Show("Tên đăng nhập hoặc Email không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            otpCode = bll.GenerateOTP();
+            otoCode= bll.GenerateOTP();
 
             try
             {
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress("youremail@gmail.com");
-                mail.To.Add(emailToReset);
+                mail.To.Add(email);
                 mail.Subject = "Mã OTP - Quên mật khẩu";
                 mail.Body = "Xin chào " + username + ",\n\nMã OTP của bạn là: " + otpCode + "\n\nTrân trọng,\nHệ thống Quản lý Khách sạn";
 
@@ -105,7 +105,7 @@ namespace abchotel
                 return;
             }
 
-            bool result = bll.ChangePassword(emailToReset, txtNewPass.Text.Trim());
+            bool result = bll.ChangePassword(txtEmail, txtNewPass.Text.Trim());
 
             if (result)
             {
