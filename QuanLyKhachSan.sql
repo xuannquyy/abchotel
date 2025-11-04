@@ -47,6 +47,7 @@ CREATE TABLE DatPhong (
 CREATE TABLE HoaDon (
     MaHoaDon INT IDENTITY(1,1) PRIMARY KEY,
     MaDatPhong INT FOREIGN KEY REFERENCES DatPhong(MaDatPhong),
+	MaDichVu INT FOREIGN KEY REFERENCES DichVu(MaDichVu),
     NgayLap DATE,
     ThanhTien DECIMAL(18,2)
 );
