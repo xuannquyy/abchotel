@@ -71,6 +71,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormchangePW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormchangePW.Designer.cs">
+      <DependentUpon>FormchangePW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormforgotPW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormforgotPW.Designer.cs">
+      <DependentUpon>FormforgotPW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlgin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formlgin.Designer.cs">
+      <DependentUpon>Formlgin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +135,15 @@
     <Compile Include="Model\Phong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormchangePW.resx">
+      <DependentUpon>FormchangePW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormforgotPW.resx">
+      <DependentUpon>FormforgotPW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formlgin.resx">
+      <DependentUpon>Formlgin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSer.resx">
       <DependentUpon>FormSer.cs</DependentUpon>
     </EmbeddedResource>
