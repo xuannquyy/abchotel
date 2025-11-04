@@ -38,7 +38,7 @@ namespace abchotel.DAL
             string query = @"
                 INSERT INTO KhachHang (HoTen, GioiTinh, NgaySinh, CCCD, SoDienThoai, DiaChi)
                 VALUES (@HoTen, @GioiTinh, @NgaySinh, @CCCD, @SoDienThoai, @DiaChi)";
-            return DatabaseHelper.ExecuteQuery(query,
+            return DatabaseHelper.ExecuteNonQuery(query,
                 ("@HoTen", kh.HoTen),
                 ("@GioiTinh", kh.GioiTinh),
                 ("@NgaySinh", kh.NgaySinh),
@@ -58,7 +58,7 @@ namespace abchotel.DAL
                     SoDienThoai = @SoDienThoai,
                     DiaChi = @DiaChi
                 WHERE MaKhachHang = @MaKhachHang";
-            return DatabaseHelper.ExecuteQuery(query,
+            return DatabaseHelper.ExecuteNonQuery(query,
                 ("@HoTen", kh.HoTen),
                 ("@GioiTinh", kh.GioiTinh),
                 ("@NgaySinh", kh.NgaySinh),
@@ -71,7 +71,7 @@ namespace abchotel.DAL
         public int XoaKhachHang(int ma)
         {
             string query = "DELETE FROM KhachHang WHERE MaKhachHang = @Ma";
-            return DatabaseHelper.ExecuteQuery(query, ("@Ma", ma));
+            return DatabaseHelper.ExecuteNonQuery(query, ("@Ma", ma));
         }
     }
 }

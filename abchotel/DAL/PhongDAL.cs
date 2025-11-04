@@ -43,7 +43,7 @@ namespace abchotel.DAL
         public void ThemPhong(Phong p)
         {
             string sql = "INSERT INTO Phong(SoPhong,LoaiPhong,TrangThai,DonGia) VALUES(@SoPhong,@LoaiPhong,@TrangThai,@DonGia)";
-            DatabaseHelper.ExecuteQuery(sql,
+            DatabaseHelper.ExecuteNonQuery(sql,
                 ("@SoPhong", p.SoPhong),
                 ("@LoaiPhong", p.LoaiPhong),
                 ("@TrangThai", p.TrangThai),
@@ -53,7 +53,7 @@ namespace abchotel.DAL
         public void SuaPhong(Phong p)
         {
             string sql = "UPDATE Phong SET SoPhong=@SoPhong,LoaiPhong=@LoaiPhong,TrangThai=@TrangThai,DonGia=@DonGia WHERE MaPhong=@MaPhong";
-            DatabaseHelper.ExecuteQuery(sql,
+            DatabaseHelper.ExecuteNonQuery(sql,
                 ("@SoPhong", p.SoPhong),
                 ("@LoaiPhong", p.LoaiPhong),
                 ("@TrangThai", p.TrangThai),
@@ -64,7 +64,7 @@ namespace abchotel.DAL
         public void XoaPhong(int maPhong)
         {
             string sql = "DELETE FROM Phong WHERE MaPhong=@MaPhong";
-            DatabaseHelper.ExecuteQuery(sql, ("@MaPhong", maPhong));
+            DatabaseHelper.ExecuteNonQuery(sql, ("@MaPhong", maPhong));
         }
 
         public List<Phong> TimKiemPhongTheoSo(string soPhong)
