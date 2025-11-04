@@ -195,12 +195,12 @@
             // 
             // txtTenDangNhap
             // 
+            this.txtTenDangNhap.Enabled = false;
             this.txtTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenDangNhap.Location = new System.Drawing.Point(158, 219);
             this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenDangNhap.Multiline = true;
             this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.ReadOnly = true;
             this.txtTenDangNhap.Size = new System.Drawing.Size(236, 27);
             this.txtTenDangNhap.TabIndex = 15;
             // 
@@ -228,12 +228,12 @@
             // 
             // txtChucVu
             // 
+            this.txtChucVu.Enabled = false;
             this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChucVu.Location = new System.Drawing.Point(158, 308);
             this.txtChucVu.Margin = new System.Windows.Forms.Padding(2);
             this.txtChucVu.Multiline = true;
             this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.ReadOnly = true;
             this.txtChucVu.Size = new System.Drawing.Size(236, 27);
             this.txtChucVu.TabIndex = 12;
             // 
@@ -249,12 +249,12 @@
             // 
             // txtmnv
             // 
+            this.txtmnv.Enabled = false;
             this.txtmnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmnv.Location = new System.Drawing.Point(158, 171);
             this.txtmnv.Margin = new System.Windows.Forms.Padding(2);
             this.txtmnv.Multiline = true;
             this.txtmnv.Name = "txtmnv";
-            this.txtmnv.ReadOnly = true;
             this.txtmnv.Size = new System.Drawing.Size(236, 27);
             this.txtmnv.TabIndex = 9;
             // 

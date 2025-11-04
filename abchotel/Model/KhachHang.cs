@@ -15,5 +15,6 @@ namespace abchotel.Model
         public string CCCD { get; set; }
         public string SoDienThoai { get; set; }
         public string DiaChi { get; set; }
+        public string SoPhongHienTai { get; set; }
     }
 }

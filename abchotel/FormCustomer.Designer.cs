@@ -236,6 +236,7 @@
             this.txtCCCD.Name = "txtCCCD";
             this.txtCCCD.Size = new System.Drawing.Size(245, 29);
             this.txtCCCD.TabIndex = 10;
+            this.txtCCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCCD_KeyPress);
             // 
             // txtTenKH
             // 
@@ -248,6 +249,7 @@
             // 
             // txtMaKH
             // 
+            this.txtMaKH.Enabled = false;
             this.txtMaKH.Location = new System.Drawing.Point(180, 41);
             this.txtMaKH.Name = "txtMaKH";
             this.txtMaKH.Size = new System.Drawing.Size(245, 29);
@@ -359,6 +361,7 @@
             this.dateNgaysinh.Name = "dateNgaysinh";
             this.dateNgaysinh.Size = new System.Drawing.Size(245, 29);
             this.dateNgaysinh.TabIndex = 15;
+            this.dateNgaysinh.ValueChanged += new System.EventHandler(this.dateNgaysinh_ValueChanged);
             // 
             // rdoNu
             // 
@@ -388,6 +391,7 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(245, 29);
             this.txtSDT.TabIndex = 11;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // label1
             // 
@@ -418,14 +422,14 @@
             // 
             // lblPhong
             // 
-            this.lblPhong.AutoSize = true;
             this.lblPhong.BackColor = System.Drawing.Color.White;
-            this.lblPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhong.Location = new System.Drawing.Point(63, 47);
+            this.lblPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhong.Location = new System.Drawing.Point(36, 34);
             this.lblPhong.Name = "lblPhong";
-            this.lblPhong.Size = new System.Drawing.Size(57, 20);
+            this.lblPhong.Size = new System.Drawing.Size(116, 32);
             this.lblPhong.TabIndex = 1;
-            this.lblPhong.Text = "label9";
+            this.lblPhong.Text = "000";
+            this.lblPhong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 

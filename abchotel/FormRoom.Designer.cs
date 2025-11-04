@@ -169,6 +169,7 @@
             // 
             // txtMaphong
             // 
+            this.txtMaphong.Enabled = false;
             this.txtMaphong.Location = new System.Drawing.Point(180, 44);
             this.txtMaphong.Name = "txtMaphong";
             this.txtMaphong.Size = new System.Drawing.Size(245, 29);

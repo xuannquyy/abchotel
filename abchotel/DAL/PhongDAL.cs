@@ -18,13 +18,15 @@ namespace abchotel.DAL
                        b.NgayNhan AS NgayNhan,
                        b.NgayTra AS NgayTra
                 FROM Phong p
-                LEFT JOIN DatPhong b ON p.MaPhong = b.MaPhong
+                LEFT JOIN DatPhong b ON p.MaPhong = b.MaPhong AND p.TrangThai = N'Đang ở'
                 LEFT JOIN KhachHang c ON b.MaKhachHang = c.MaKhachHang";
 
             DataTable dt = DatabaseHelper.GetData(query);
             List<Phong> list = new List<Phong>();
-            foreach (DataRow row in dt.Rows)
+            var groupedRows = dt.AsEnumerable().GroupBy(row => (int)row["MaPhong"]);
+            foreach (var group in groupedRows)
             {
+                DataRow row = group.First(); // Luôn lấy dòng đầu tiên của nhóm
                 list.Add(new Phong
                 {
                     MaPhong = (int)row["MaPhong"],
@@ -69,18 +71,34 @@ namespace abchotel.DAL
 
         public List<Phong> TimKiemPhongTheoSo(string soPhong)
         {
-            string query = "SELECT * FROM Phong WHERE SoPhong LIKE @SoPhong";
+            string query = @"
+                SELECT p.*, 
+                       c.HoTen AS TenKhachHang,
+                       b.NgayNhan AS NgayNhan,
+                       b.NgayTra AS NgayTra
+                FROM Phong p
+                LEFT JOIN DatPhong b ON p.MaPhong = b.MaPhong AND p.TrangThai = N'Đang ở'
+                LEFT JOIN KhachHang c ON b.MaKhachHang = c.MaKhachHang
+                WHERE p.SoPhong LIKE @SoPhong";
+
             DataTable dt = DatabaseHelper.GetData(query, ("@SoPhong", "%" + soPhong + "%"));
             List<Phong> list = new List<Phong>();
-            foreach (DataRow row in dt.Rows)
+
+            var groupedRows = dt.AsEnumerable().GroupBy(row => (int)row["MaPhong"]);
+
+            foreach (var group in groupedRows)
             {
+                DataRow row = group.First();
                 list.Add(new Phong
                 {
                     MaPhong = (int)row["MaPhong"],
                     SoPhong = row["SoPhong"].ToString(),
                     LoaiPhong = row["LoaiPhong"].ToString(),
                     TrangThai = row["TrangThai"].ToString(),
-                    DonGia = (decimal)row["DonGia"]
+                    DonGia = (decimal)row["DonGia"],
+                    TenKhachHang = row["TenKhachHang"].ToString(),
+                    NgayNhan = row["NgayNhan"] == DBNull.Value ? null : (DateTime?)row["NgayNhan"],
+                    NgayTra = row["NgayTra"] == DBNull.Value ? null : (DateTime?)row["NgayTra"]
                 });
             }
             return list;
