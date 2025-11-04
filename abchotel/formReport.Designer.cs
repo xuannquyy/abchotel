@@ -1,6 +1,6 @@
 ﻿namespace abchotel
 {
-    partial class formReport
+    partial class FormReport
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblbc = new System.Windows.Forms.Label();
             this.cboloaibc = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -45,10 +45,10 @@
             this.lblloai = new System.Windows.Forms.Label();
             this.dtfrom = new System.Windows.Forms.DateTimePicker();
             this.btntk = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblvaluesdthu = new System.Windows.Forms.Label();
+            this.lblvaluessohoadon = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chdthu)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblbc
@@ -58,7 +58,7 @@
             this.lblbc.ForeColor = System.Drawing.Color.White;
             this.lblbc.Location = new System.Drawing.Point(0, 0);
             this.lblbc.Name = "lblbc";
-            this.lblbc.Size = new System.Drawing.Size(881, 42);
+            this.lblbc.Size = new System.Drawing.Size(817, 42);
             this.lblbc.TabIndex = 0;
             this.lblbc.Text = "BÁO CÁO DOANH THU \r\n";
             this.lblbc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -73,7 +73,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.lblvaluessohoadon);
+            this.panel1.Controls.Add(this.lblvaluesdthu);
+            this.panel1.Controls.Add(this.lblsohoadon);
+            this.panel1.Controls.Add(this.lbltongdoanhthu);
             this.panel1.Controls.Add(this.chdthu);
             this.panel1.Controls.Add(this.lblto);
             this.panel1.Controls.Add(this.lblfrom);
@@ -82,36 +85,16 @@
             this.panel1.Controls.Add(this.dtfrom);
             this.panel1.Controls.Add(this.btntk);
             this.panel1.Controls.Add(this.cboloaibc);
-            this.panel1.Location = new System.Drawing.Point(23, 59);
+            this.panel1.Location = new System.Drawing.Point(23, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(845, 436);
+            this.panel1.Size = new System.Drawing.Size(599, 436);
             this.panel1.TabIndex = 2;
-            // 
-            // lblvaluessohoadon
-            // 
-            this.lblvaluessohoadon.AutoSize = true;
-            this.lblvaluessohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblvaluessohoadon.Location = new System.Drawing.Point(128, 55);
-            this.lblvaluessohoadon.Name = "lblvaluessohoadon";
-            this.lblvaluessohoadon.Size = new System.Drawing.Size(53, 20);
-            this.lblvaluessohoadon.TabIndex = 12;
-            this.lblvaluessohoadon.Text = "label2";
-            // 
-            // lblvaluesdthu
-            // 
-            this.lblvaluesdthu.AutoSize = true;
-            this.lblvaluesdthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblvaluesdthu.Location = new System.Drawing.Point(156, 18);
-            this.lblvaluesdthu.Name = "lblvaluesdthu";
-            this.lblvaluesdthu.Size = new System.Drawing.Size(53, 20);
-            this.lblvaluesdthu.TabIndex = 11;
-            this.lblvaluesdthu.Text = "label1";
             // 
             // lblsohoadon
             // 
             this.lblsohoadon.AutoSize = true;
             this.lblsohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblsohoadon.Location = new System.Drawing.Point(3, 50);
+            this.lblsohoadon.Location = new System.Drawing.Point(327, 270);
             this.lblsohoadon.Name = "lblsohoadon";
             this.lblsohoadon.Size = new System.Drawing.Size(119, 25);
             this.lblsohoadon.TabIndex = 10;
@@ -121,7 +104,7 @@
             // 
             this.lbltongdoanhthu.AutoSize = true;
             this.lbltongdoanhthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbltongdoanhthu.Location = new System.Drawing.Point(3, 13);
+            this.lbltongdoanhthu.Location = new System.Drawing.Point(327, 209);
             this.lbltongdoanhthu.Name = "lbltongdoanhthu";
             this.lbltongdoanhthu.Size = new System.Drawing.Size(161, 25);
             this.lbltongdoanhthu.TabIndex = 9;
@@ -129,17 +112,17 @@
             // 
             // chdthu
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chdthu.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chdthu.Legends.Add(legend1);
-            this.chdthu.Location = new System.Drawing.Point(7, 110);
+            chartArea4.Name = "ChartArea1";
+            this.chdthu.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chdthu.Legends.Add(legend4);
+            this.chdthu.Location = new System.Drawing.Point(7, 131);
             this.chdthu.Name = "chdthu";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chdthu.Series.Add(series1);
-            this.chdthu.Size = new System.Drawing.Size(806, 321);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chdthu.Series.Add(series4);
+            this.chdthu.Size = new System.Drawing.Size(300, 300);
             this.chdthu.TabIndex = 6;
             this.chdthu.Text = "Doanh thu";
             // 
@@ -165,6 +148,7 @@
             // 
             // dtto
             // 
+            this.dtto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtto.Location = new System.Drawing.Point(332, 54);
             this.dtto.Name = "dtto";
             this.dtto.Size = new System.Drawing.Size(200, 22);
@@ -182,6 +166,7 @@
             // 
             // dtfrom
             // 
+            this.dtfrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtfrom.Location = new System.Drawing.Point(56, 54);
             this.dtfrom.Name = "dtfrom";
             this.dtfrom.Size = new System.Drawing.Size(187, 22);
@@ -193,41 +178,49 @@
             this.btntk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btntk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btntk.ForeColor = System.Drawing.Color.White;
-            this.btntk.Location = new System.Drawing.Point(392, 10);
+            this.btntk.Location = new System.Drawing.Point(256, 95);
             this.btntk.Name = "btntk";
-            this.btntk.Size = new System.Drawing.Size(100, 38);
+            this.btntk.Size = new System.Drawing.Size(85, 30);
             this.btntk.TabIndex = 4;
             this.btntk.Text = "Xem Báo Cáo";
             this.btntk.UseVisualStyleBackColor = false;
             this.btntk.Click += new System.EventHandler(this.btntk_Click);
             // 
-            // panel2
+            // lblvaluesdthu
             // 
-            this.panel2.Controls.Add(this.lblvaluessohoadon);
-            this.panel2.Controls.Add(this.lblvaluesdthu);
-            this.panel2.Controls.Add(this.lblsohoadon);
-            this.panel2.Controls.Add(this.lbltongdoanhthu);
-            this.panel2.Location = new System.Drawing.Point(568, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(218, 94);
-            this.panel2.TabIndex = 13;
+            this.lblvaluesdthu.AutoSize = true;
+            this.lblvaluesdthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblvaluesdthu.Location = new System.Drawing.Point(494, 213);
+            this.lblvaluesdthu.Name = "lblvaluesdthu";
+            this.lblvaluesdthu.Size = new System.Drawing.Size(53, 20);
+            this.lblvaluesdthu.TabIndex = 11;
+            this.lblvaluesdthu.Text = "label1";
             // 
-            // formReport
+            // lblvaluessohoadon
+            // 
+            this.lblvaluessohoadon.AutoSize = true;
+            this.lblvaluessohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblvaluessohoadon.Location = new System.Drawing.Point(452, 274);
+            this.lblvaluessohoadon.Name = "lblvaluessohoadon";
+            this.lblvaluessohoadon.Size = new System.Drawing.Size(53, 20);
+            this.lblvaluessohoadon.TabIndex = 12;
+            this.lblvaluessohoadon.Text = "label2";
+            // 
+            // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 507);
+            this.ClientSize = new System.Drawing.Size(703, 507);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblbc);
-            this.Name = "formReport";
-            this.Text = "formReport";
+            this.Name = "FormReport";
+            this.Text = "FormReport";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formReport_FormClosing);
             this.Load += new System.EventHandler(this.formReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chdthu)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -248,6 +241,5 @@
         private System.Windows.Forms.Label lbltongdoanhthu;
         private System.Windows.Forms.Label lblvaluessohoadon;
         private System.Windows.Forms.Label lblvaluesdthu;
-        private System.Windows.Forms.Panel panel2;
     }
 }

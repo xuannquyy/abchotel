@@ -1,22 +1,27 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using OfficeOpenXml;
+using System.IO;
+
 
 namespace abchotel
 {
-    public partial class formReport : Form
+    public partial class FormReport : Form
     {
         string connectionString = @"Data Source=ANHENHS\SQLEXPRESS;Initial Catalog=QuanLyKhachSan;Integrated Security=True";
 
-        public formReport()
+        public FormReport()
         {
             InitializeComponent();
         }
 
         private void formReport_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             cboloaibc.Items.Add("Theo ngày");
             cboloaibc.Items.Add("Theo tháng");
             cboloaibc.SelectedIndex = 0;
@@ -27,7 +32,7 @@ namespace abchotel
 
         private void btntk_Click(object sender, EventArgs e)
         {
-             LoadReport();
+            LoadReport();
         }
 
         void LoadReport()
@@ -78,11 +83,34 @@ namespace abchotel
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+                dgvdt.DataSource = dt;
+                FormatGridDoanhThu(); // ✅ Áp dụng format
+
                 LoadChart(dt, xField);
                 LoadSummary(dt);
             }
         }
 
+        void FormatGridDoanhThu()
+        {
+            dgvdt.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvdt.RowHeadersVisible = false;
+            dgvdt.BackgroundColor = System.Drawing.Color.White;
+
+            dgvdt.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(10, 35, 66);
+            dgvdt.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvdt.ColumnHeadersDefaultCellStyle.Font =
+                new System.Drawing.Font("Segoe UI", 10, System.Drawing.FontStyle.Bold);
+
+            dgvdt.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            dgvdt.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dgvdt.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
+
+            dgvdt.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvdt.EnableHeadersVisualStyles = false;
+
+            dgvdt.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // ✅ căn giữa dữ liệu
+        }
         void LoadChart(DataTable dt, string xField)
         {
             chdthu.Series.Clear();
@@ -106,17 +134,65 @@ namespace abchotel
                 count += Convert.ToInt32(row["SoHoaDon"]);
             }
 
-            lblvaluesdthu.Text = total.ToString("N0") + " VNĐ";
-            lblvaluessohoadon.Text = count.ToString();
+            lblvaluesdthu.Text = $"{total:N0} VNĐ";
+            lblvaluessohoadon.Text = $"{count} hóa đơn";
+
         }
 
         private void formReport_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn thoát?","Xác nhận thoát",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning );
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn thoát?", "Xác nhận thoát", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
             }
         }
+        private void btnxuat_Click(object sender, EventArgs e)
+        {
+            if (dgvdt.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo");
+                return;
+            }
+
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Excel file|*.xlsx";
+            save.FileName = "BaoCaoDoanhThu.xlsx";
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+
+                using (ExcelPackage excel = new ExcelPackage())
+                {
+                    var ws = excel.Workbook.Worksheets.Add("Report");
+
+                    // Tiêu đề
+                    for (int i = 0; i < dgvdt.Columns.Count; i++)
+                    {
+                        ws.Cells[1, i + 1].Value = dgvdt.Columns[i].HeaderText;
+                        ws.Cells[1, i + 1].Style.Font.Bold = true;
+                    }
+
+                    // Dữ liệu
+                    for (int r = 0; r < dgvdt.Rows.Count; r++)
+                    {
+                        for (int c = 0; c < dgvdt.Columns.Count; c++)
+                        {
+                            ws.Cells[r + 2, c + 1].Value =
+                                dgvdt.Rows[r].Cells[c].Value?.ToString();
+                        }
+                    }
+
+                    File.WriteAllBytes(save.FileName, excel.GetAsByteArray());
+                    MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+        }
+
+        private void lblvaluesdthu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-    }
+}
