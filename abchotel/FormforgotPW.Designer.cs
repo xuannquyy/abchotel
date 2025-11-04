@@ -32,12 +32,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtOTP = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.bntXacnhan = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bntGui = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNewPass = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,52 +83,53 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label5.Location = new System.Drawing.Point(47, 181);
+            this.label5.Location = new System.Drawing.Point(47, 259);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 21);
             this.label5.TabIndex = 14;
             this.label5.Text = "Nhập Mật Khẩu Mới";
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(157, 79);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 26);
-            this.textBox1.TabIndex = 15;
+            this.txtUsername.Location = new System.Drawing.Point(157, 79);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUsername.Multiline = true;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(213, 26);
+            this.txtUsername.TabIndex = 15;
             // 
-            // textBox2
+            // txtOTP
             // 
-            this.textBox2.Location = new System.Drawing.Point(157, 176);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(213, 26);
-            this.textBox2.TabIndex = 16;
+            this.txtOTP.Location = new System.Drawing.Point(157, 210);
+            this.txtOTP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtOTP.Multiline = true;
+            this.txtOTP.Name = "txtOTP";
+            this.txtOTP.Size = new System.Drawing.Size(213, 26);
+            this.txtOTP.TabIndex = 16;
             // 
-            // textBox3
+            // txtEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(157, 129);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(213, 26);
-            this.textBox3.TabIndex = 17;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtEmail.Location = new System.Drawing.Point(157, 129);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(213, 26);
+            this.txtEmail.TabIndex = 17;
+            this.txtEmail.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // button1
+            // bntXacnhan
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(157, 237);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 35);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Xác nhận";
-            this.button1.UseVisualStyleBackColor = false;
+            this.bntXacnhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.bntXacnhan.ForeColor = System.Drawing.Color.White;
+            this.bntXacnhan.Location = new System.Drawing.Point(258, 290);
+            this.bntXacnhan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bntXacnhan.Name = "bntXacnhan";
+            this.bntXacnhan.Size = new System.Drawing.Size(112, 35);
+            this.bntXacnhan.TabIndex = 18;
+            this.bntXacnhan.Text = "Xác nhận";
+            this.bntXacnhan.UseVisualStyleBackColor = false;
+            this.bntXacnhan.Click += new System.EventHandler(this.bntXacnhan_Click);
             // 
             // label4
             // 
@@ -144,18 +148,54 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtNewPass);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.bntGui);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.bntXacnhan);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtOTP);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Location = new System.Drawing.Point(90, 75);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(414, 305);
+            this.panel1.Size = new System.Drawing.Size(414, 335);
             this.panel1.TabIndex = 21;
+            // 
+            // bntGui
+            // 
+            this.bntGui.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.bntGui.ForeColor = System.Drawing.Color.White;
+            this.bntGui.Location = new System.Drawing.Point(258, 165);
+            this.bntGui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bntGui.Name = "bntGui";
+            this.bntGui.Size = new System.Drawing.Size(112, 35);
+            this.bntGui.TabIndex = 19;
+            this.bntGui.Text = "Gửi mã";
+            this.bntGui.UseVisualStyleBackColor = false;
+            this.bntGui.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label6.Location = new System.Drawing.Point(47, 210);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 21);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Nhập Mã";
+            // 
+            // txtNewPass
+            // 
+            this.txtNewPass.Location = new System.Drawing.Point(157, 254);
+            this.txtNewPass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNewPass.Multiline = true;
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.Size = new System.Drawing.Size(213, 26);
+            this.txtNewPass.TabIndex = 21;
             // 
             // FormforgotPW
             // 
@@ -179,11 +219,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtOTP;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button bntXacnhan;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtNewPass;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button bntGui;
     }
 }

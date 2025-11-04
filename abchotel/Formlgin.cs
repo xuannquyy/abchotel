@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
+using abchotel.BLL;
+using abchotel.Model;
+
 namespace abchotel
 {
     public partial class Formlgin : Form
-    {
+    {NguoiDungBLL userBLL = new NguoiDungBLL();
         public Formlgin()
         {
             InitializeComponent();
@@ -24,9 +26,9 @@ namespace abchotel
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            string username  = textBox1.Text.Trim();
-            string password = textBox2.Text.Trim();
+
+            string username = txtTen.Text.Trim();
+            string password = txtMatkhau.Text.Trim();
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -34,34 +36,39 @@ namespace abchotel
                 return;
             }
 
-            UserBLL userBLL = new UserBLL();
-            bool result = userBLL.checkLogin(username, password);
+            NguoiDung user = NguoiDungBLL.Login(username, password);
+            if
 
-            if (result)
-            {
-                MessageBox.Show("Đăng nhập thành công!");
-                this.Hide(); // Ẩn form login
-                FormMain FormMain = new FormMain(); // Mở form chính
-                FormMain.ShowDialog();
-                this.Close();
+            (user != null)
+            { MessageBox.Show(" Tên đăng nhập hoặc mật khẩu không đúng!");
             }
-            else
-            {
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!");
+            else if ( user.VaiTro == "Admin")
+            { 
+                FormAdmin formAdmin = new FormAdmin();
+                this.Hide();
+                formAdmin.ShowDialog();
+                this.Show();
             }
+            else if (user.VaiTro == "Nguoi Dung")
+            {
+                FormMain formMain = new FormMain();
+                this.Hide();
+                formMain.ShowDialog();
+                this.Show();
+            } 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-            {
-                textBox2.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                textBox2.UseSystemPasswordChar = true;
-            }
-        }
+          private void checkBox1_CheckedChanged(object sender, EventArgs e)
+               {
+                  if (checkBoxhienmk.Checked)
+                   {
+                    txtMatkhau.UseSystemPasswordChar = false;
+                   }
+                  else
+                            {
+                                txtMatkhau.UseSystemPasswordChar = true;
+                            }
+                        }
 
         
 
@@ -73,13 +80,7 @@ namespace abchotel
             this.Show();
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FormchangePW formchangePW = new FormchangePW();
-            this.Hide();
-            formchangePW.ShowDialog();
-            this.Show();
-        }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

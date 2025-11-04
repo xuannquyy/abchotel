@@ -28,32 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDangnhap = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.linkLblQuenmk = new System.Windows.Forms.LinkLabel();
+            this.txtTen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMatkhau = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.checkBoxhienmk = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnDangnhap
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(129, 230);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Đăng nhập";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDangnhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnDangnhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangnhap.Location = new System.Drawing.Point(129, 230);
+            this.btnDangnhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDangnhap.Name = "btnDangnhap";
+            this.btnDangnhap.Size = new System.Drawing.Size(164, 35);
+            this.btnDangnhap.TabIndex = 0;
+            this.btnDangnhap.Text = "Đăng nhập";
+            this.btnDangnhap.UseVisualStyleBackColor = false;
+            this.btnDangnhap.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -79,40 +78,27 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Tên tài khoản";
             // 
-            // checkBox1
+            // linkLblQuenmk
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.checkBox1.Location = new System.Drawing.Point(276, 203);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(93, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Hiện mật khẩu";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.linkLblQuenmk.AutoSize = true;
+            this.linkLblQuenmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblQuenmk.Location = new System.Drawing.Point(168, 283);
+            this.linkLblQuenmk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLblQuenmk.Name = "linkLblQuenmk";
+            this.linkLblQuenmk.Size = new System.Drawing.Size(103, 16);
+            this.linkLblQuenmk.TabIndex = 5;
+            this.linkLblQuenmk.TabStop = true;
+            this.linkLblQuenmk.Text = "Quên mật khẩu?";
+            this.linkLblQuenmk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // linkLabel1
+            // txtTen
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(46, 279);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(103, 16);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Quên mật khẩu?";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(129, 104);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 28);
-            this.textBox1.TabIndex = 6;
+            this.txtTen.Location = new System.Drawing.Point(129, 104);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTen.Multiline = true;
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(229, 28);
+            this.txtTen.TabIndex = 6;
             // 
             // label3
             // 
@@ -125,14 +111,14 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Mật Khẩu";
             // 
-            // textBox2
+            // txtMatkhau
             // 
-            this.textBox2.Location = new System.Drawing.Point(129, 165);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 28);
-            this.textBox2.TabIndex = 8;
+            this.txtMatkhau.Location = new System.Drawing.Point(129, 165);
+            this.txtMatkhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMatkhau.Multiline = true;
+            this.txtMatkhau.Name = "txtMatkhau";
+            this.txtMatkhau.Size = new System.Drawing.Size(229, 28);
+            this.txtMatkhau.TabIndex = 8;
             // 
             // label4
             // 
@@ -151,32 +137,31 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.checkBoxhienmk);
+            this.panel1.Controls.Add(this.linkLblQuenmk);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.btnDangnhap);
+            this.panel1.Controls.Add(this.txtMatkhau);
+            this.panel1.Controls.Add(this.txtTen);
             this.panel1.Location = new System.Drawing.Point(159, 80);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(400, 386);
             this.panel1.TabIndex = 10;
             // 
-            // linkLabel2
+            // checkBoxhienmk
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(262, 279);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(91, 16);
-            this.linkLabel2.TabIndex = 9;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Đổi mật khẩu?";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.checkBoxhienmk.AutoSize = true;
+            this.checkBoxhienmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.checkBoxhienmk.Location = new System.Drawing.Point(276, 203);
+            this.checkBoxhienmk.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBoxhienmk.Name = "checkBoxhienmk";
+            this.checkBoxhienmk.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxhienmk.TabIndex = 4;
+            this.checkBoxhienmk.Text = "Hiện mật khẩu";
+            this.checkBoxhienmk.UseVisualStyleBackColor = true;
+            this.checkBoxhienmk.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Formlgin
             // 
@@ -200,16 +185,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDangnhap;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.LinkLabel linkLblQuenmk;
+        private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMatkhau;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.CheckBox checkBoxhienmk;
     }
 }

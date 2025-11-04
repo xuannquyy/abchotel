@@ -7,7 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
+using abchotel.BLL;
+using System.Data.SqlClient;
+using abchotel.Model;
+using System.Net;
+using System.Net.Mail;
+using abchotel.DAL;
 namespace abchotel
 {
     public partial class FormforgotPW : Form
@@ -20,9 +25,9 @@ namespace abchotel
         private void label2_Click(object sender, EventArgs e)
         {
            
-            string username = textBox1.Text.Trim();
-            string email = textBox2.Text.Trim();
-            string newPassword = textBox3.Text.Trim();
+            string username = txtUsername.Text.Trim();
+            string email = txtOTP.Text.Trim();
+            string newPassword = txtEmail.Text.Trim();
            
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(newPassword))
             {
@@ -31,7 +36,7 @@ namespace abchotel
             }
 
             // Gọi lớp BLL hoặc DAL để kiểm tra thông tin
-            UserBLL userBLL = new UserBLL();
+            NguoiDungBLL userBLL = new NguoiDungBLL();
             bool result = userBLL.ResetPassword(username, email, newPassword);
 
             if (result)
@@ -48,6 +53,70 @@ namespace abchotel
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text.Trim();
+            string email = txtEmail.Text.Trim();
+
+            NguoiDung user = bll.CheckEmail(email);
+
+            if (user == null || !user.Username.Equals(username, StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Tên đăng nhập hoặc Email không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            otpCode = bll.GenerateOTP();
+
+            try
+            {
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("youremail@gmail.com");
+                mail.To.Add(emailToReset);
+                mail.Subject = "Mã OTP - Quên mật khẩu";
+                mail.Body = "Xin chào " + username + ",\n\nMã OTP của bạn là: " + otpCode + "\n\nTrân trọng,\nHệ thống Quản lý Khách sạn";
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential("youremail@gmail.com", "your_app_password");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+
+                MessageBox.Show("Đã gửi mã OTP đến email của bạn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không thể gửi email. Vui lòng kiểm tra kết nối hoặc cấu hình Gmail!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bntXacnhan_Click(object sender, EventArgs e)
+        {
+            if (txtOTP.Text.Trim() != otpCode)
+            {
+                MessageBox.Show("Mã OTP không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNewPass.Text))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool result = bll.ChangePassword(emailToReset, txtNewPass.Text.Trim());
+
+            if (result)
+            {
+                MessageBox.Show("Đổi mật khẩu thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                new FormMain().Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Đổi mật khẩu thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
