@@ -98,24 +98,6 @@
     <Compile Include="FormUser.Designer.cs">
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormchangePW.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormchangePW.Designer.cs">
-      <DependentUpon>FormchangePW.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormforgotPW.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormforgotPW.Designer.cs">
-      <DependentUpon>FormforgotPW.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formlgin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formlgin.Designer.cs">
-      <DependentUpon>Formlgin.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormSer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,12 +128,6 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="formReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formReport.Designer.cs">
-      <DependentUpon>formReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,15 +146,6 @@
     <EmbeddedResource Include="FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormchangePW.resx">
-      <DependentUpon>FormchangePW.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormforgotPW.resx">
-      <DependentUpon>FormforgotPW.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formlgin.resx">
-      <DependentUpon>Formlgin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormSer.resx">
       <DependentUpon>FormSer.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,9 +160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formReport.resx">
-      <DependentUpon>formReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRoom.resx">
       <DependentUpon>FormRoom.cs</DependentUpon>

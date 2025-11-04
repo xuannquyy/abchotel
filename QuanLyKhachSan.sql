@@ -66,3 +66,14 @@ VALUES ('admin', 'admin', N'Quản trị hệ thống', 'vienxuanquy82024@gmail.
 -- Thêm 1 tài khoản nhân viên ví dụ
 INSERT INTO NguoiDung (TenDangNhap, MatKhau, HoTen, Email, VaiTro)
 VALUES (N'Trương Thị Ánh', '123456', N'Nhân viên lễ tân', 'truongthianh23ct112@gmail.com', 'User');
+
+INSERT INTO DichVu (TenDichVu, DonGia)
+VALUES
+(N'Ăn sáng buffet', 150000.00),
+(N'Spa / Massage', 800000.00),
+(N'Thuê xe', 1500000.00),
+(N'Thuê phòng họp', 2000000.00),
+(N'Minibar trong phòng', 100000.00),
+(N'Karaoke / Bar Club', 800000.00),
+(N'Giặt ủi', 50000.00),
+(N'Dịch vụ tổ chức tiệc', 2000000.00);
