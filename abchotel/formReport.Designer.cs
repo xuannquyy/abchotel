@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblbc = new System.Windows.Forms.Label();
             this.cboloaibc = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblvaluessohoadon = new System.Windows.Forms.Label();
+            this.lblvaluesdthu = new System.Windows.Forms.Label();
             this.lblsohoadon = new System.Windows.Forms.Label();
             this.lbltongdoanhthu = new System.Windows.Forms.Label();
             this.chdthu = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -43,10 +45,13 @@
             this.lblloai = new System.Windows.Forms.Label();
             this.dtfrom = new System.Windows.Forms.DateTimePicker();
             this.btntk = new System.Windows.Forms.Button();
-            this.lblvaluesdthu = new System.Windows.Forms.Label();
-            this.lblvaluessohoadon = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvdt = new System.Windows.Forms.DataGridView();
+            this.btnxuat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chdthu)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdt)).BeginInit();
             this.SuspendLayout();
             // 
             // lblbc
@@ -56,7 +61,7 @@
             this.lblbc.ForeColor = System.Drawing.Color.White;
             this.lblbc.Location = new System.Drawing.Point(0, 0);
             this.lblbc.Name = "lblbc";
-            this.lblbc.Size = new System.Drawing.Size(817, 42);
+            this.lblbc.Size = new System.Drawing.Size(1072, 42);
             this.lblbc.TabIndex = 0;
             this.lblbc.Text = "BÁO CÁO DOANH THU \r\n";
             this.lblbc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -71,10 +76,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblvaluessohoadon);
-            this.panel1.Controls.Add(this.lblvaluesdthu);
-            this.panel1.Controls.Add(this.lblsohoadon);
-            this.panel1.Controls.Add(this.lbltongdoanhthu);
+            this.panel1.Controls.Add(this.btnxuat);
+            this.panel1.Controls.Add(this.dgvdt);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.chdthu);
             this.panel1.Controls.Add(this.lblto);
             this.panel1.Controls.Add(this.lblfrom);
@@ -83,16 +87,36 @@
             this.panel1.Controls.Add(this.dtfrom);
             this.panel1.Controls.Add(this.btntk);
             this.panel1.Controls.Add(this.cboloaibc);
-            this.panel1.Location = new System.Drawing.Point(23, 59);
+            this.panel1.Location = new System.Drawing.Point(23, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(599, 436);
+            this.panel1.Size = new System.Drawing.Size(1036, 450);
             this.panel1.TabIndex = 2;
+            // 
+            // lblvaluessohoadon
+            // 
+            this.lblvaluessohoadon.AutoSize = true;
+            this.lblvaluessohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblvaluessohoadon.Location = new System.Drawing.Point(139, 39);
+            this.lblvaluessohoadon.Name = "lblvaluessohoadon";
+            this.lblvaluessohoadon.Size = new System.Drawing.Size(64, 25);
+            this.lblvaluessohoadon.TabIndex = 12;
+            this.lblvaluessohoadon.Text = "label2";
+            // 
+            // lblvaluesdthu
+            // 
+            this.lblvaluesdthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblvaluesdthu.Location = new System.Drawing.Point(159, 1);
+            this.lblvaluesdthu.Name = "lblvaluesdthu";
+            this.lblvaluesdthu.Size = new System.Drawing.Size(77, 25);
+            this.lblvaluesdthu.TabIndex = 11;
+            this.lblvaluesdthu.Text = "label1";
+            this.lblvaluesdthu.Click += new System.EventHandler(this.lblvaluesdthu_Click);
             // 
             // lblsohoadon
             // 
             this.lblsohoadon.AutoSize = true;
             this.lblsohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblsohoadon.Location = new System.Drawing.Point(327, 270);
+            this.lblsohoadon.Location = new System.Drawing.Point(14, 39);
             this.lblsohoadon.Name = "lblsohoadon";
             this.lblsohoadon.Size = new System.Drawing.Size(119, 25);
             this.lblsohoadon.TabIndex = 10;
@@ -102,7 +126,7 @@
             // 
             this.lbltongdoanhthu.AutoSize = true;
             this.lbltongdoanhthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbltongdoanhthu.Location = new System.Drawing.Point(327, 209);
+            this.lbltongdoanhthu.Location = new System.Drawing.Point(4, 1);
             this.lbltongdoanhthu.Name = "lbltongdoanhthu";
             this.lbltongdoanhthu.Size = new System.Drawing.Size(161, 25);
             this.lbltongdoanhthu.TabIndex = 9;
@@ -110,17 +134,17 @@
             // 
             // chdthu
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chdthu.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chdthu.Legends.Add(legend4);
-            this.chdthu.Location = new System.Drawing.Point(7, 131);
+            chartArea9.Name = "ChartArea1";
+            this.chdthu.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.chdthu.Legends.Add(legend9);
+            this.chdthu.Location = new System.Drawing.Point(444, 82);
             this.chdthu.Name = "chdthu";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chdthu.Series.Add(series4);
-            this.chdthu.Size = new System.Drawing.Size(300, 300);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chdthu.Series.Add(series9);
+            this.chdthu.Size = new System.Drawing.Size(589, 305);
             this.chdthu.TabIndex = 6;
             this.chdthu.Text = "Doanh thu";
             // 
@@ -176,63 +200,56 @@
             this.btntk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btntk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btntk.ForeColor = System.Drawing.Color.White;
-            this.btntk.Location = new System.Drawing.Point(256, 95);
+            this.btntk.Location = new System.Drawing.Point(386, 8);
             this.btntk.Name = "btntk";
-            this.btntk.Size = new System.Drawing.Size(85, 30);
+            this.btntk.Size = new System.Drawing.Size(124, 37);
             this.btntk.TabIndex = 4;
-            this.btntk.Text = "Thống Kê";
+            this.btntk.Text = "Xem Báo Cáo";
             this.btntk.UseVisualStyleBackColor = false;
             this.btntk.Click += new System.EventHandler(this.btntk_Click);
             // 
-            // lblvaluesdthu
+            // panel2
             // 
-            this.lblvaluesdthu.AutoSize = true;
-            this.lblvaluesdthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblvaluesdthu.Location = new System.Drawing.Point(494, 213);
-            this.lblvaluesdthu.Name = "lblvaluesdthu";
-            this.lblvaluesdthu.Size = new System.Drawing.Size(53, 20);
-            this.lblvaluesdthu.TabIndex = 11;
-            this.lblvaluesdthu.Text = "label1";
+            this.panel2.Controls.Add(this.lblvaluessohoadon);
+            this.panel2.Controls.Add(this.lblvaluesdthu);
+            this.panel2.Controls.Add(this.lblsohoadon);
+            this.panel2.Controls.Add(this.lbltongdoanhthu);
+            this.panel2.Location = new System.Drawing.Point(580, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(266, 66);
+            this.panel2.TabIndex = 13;
             // 
-            // lblvaluessohoadon
+            // dgvdt
             // 
-            this.lblvaluessohoadon.AutoSize = true;
-            this.lblvaluessohoadon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblvaluessohoadon.Location = new System.Drawing.Point(452, 274);
-            this.lblvaluessohoadon.Name = "lblvaluessohoadon";
-            this.lblvaluessohoadon.Size = new System.Drawing.Size(53, 20);
-            this.lblvaluessohoadon.TabIndex = 12;
-            this.lblvaluessohoadon.Text = "label2";
+            this.dgvdt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(66)))));
+            this.dgvdt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvdt.Location = new System.Drawing.Point(7, 82);
+            this.dgvdt.Name = "dgvdt";
+            this.dgvdt.RowHeadersWidth = 51;
+            this.dgvdt.RowTemplate.Height = 24;
+            this.dgvdt.Size = new System.Drawing.Size(431, 305);
+            this.dgvdt.TabIndex = 14;
             // 
-            // dgvdoanhthu
+            // btnxuat
             // 
-            this.dgvdoanhthu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvdoanhthu.Location = new System.Drawing.Point(7, 96);
-            this.dgvdoanhthu.Name = "dgvdoanhthu";
-            this.dgvdoanhthu.RowHeadersWidth = 51;
-            this.dgvdoanhthu.RowTemplate.Height = 24;
-            this.dgvdoanhthu.Size = new System.Drawing.Size(470, 321);
-            this.dgvdoanhthu.TabIndex = 14;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(98, 423);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(294, 39);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Xuất Bảng Dữ Liệu Chi Tiết(excel)";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnxuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(155)))));
+            this.btnxuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnxuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnxuat.ForeColor = System.Drawing.Color.White;
+            this.btnxuat.Location = new System.Drawing.Point(72, 393);
+            this.btnxuat.Name = "btnxuat";
+            this.btnxuat.Size = new System.Drawing.Size(311, 39);
+            this.btnxuat.TabIndex = 15;
+            this.btnxuat.Text = "Xuất bảng dữ liệu chi tiết (excel)";
+            this.btnxuat.UseVisualStyleBackColor = false;
+            this.btnxuat.Click += new System.EventHandler(this.btnxuat_Click);
             // 
             // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 507);
+            this.ClientSize = new System.Drawing.Size(1071, 507);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblbc);
             this.Name = "FormReport";
@@ -243,6 +260,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chdthu)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,5 +283,8 @@
         private System.Windows.Forms.Label lbltongdoanhthu;
         private System.Windows.Forms.Label lblvaluessohoadon;
         private System.Windows.Forms.Label lblvaluesdthu;
+        private System.Windows.Forms.Button btnxuat;
+        private System.Windows.Forms.DataGridView dgvdt;
+        private System.Windows.Forms.Panel panel2;
     }
 }
