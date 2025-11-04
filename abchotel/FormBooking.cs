@@ -12,7 +12,7 @@ using abchotel.Model;
 
 namespace abchotel
 {
-    public partial class Form2 : Form
+    public partial class FormBooking : Form
     {
         public class Phong
         {
@@ -26,7 +26,7 @@ namespace abchotel
 
         // Danh sách phòng toàn khách sạn
         private List<Phong> danhSachPhong = new List<Phong>();
-        public Form2()
+        public FormBooking()
         {
             InitializeComponent();
         }

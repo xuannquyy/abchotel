@@ -61,24 +61,33 @@ namespace abchotel
         }
         private void pnDatphong_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormBooking frm = new FormBooking();
+            frm.FormClosed += (s, args) => this.Show(); // Khi đóng form con thì hiện lại form chính
+            frm.Show();
         }
 
         private void pnTraphong_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormRoom frm = new FormRoom();
+            frm.FormClosed += (s, args) => this.Show();
+            frm.Show();
         }
 
         private void pnDichvu_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormSer frm = new FormSer();
+            frm.FormClosed += (s, args) => this.Show();
+            frm.Show();
         }
 
         private void pnQlyphong_Click(object sender, EventArgs e)
         {
             this.Hide(); 
             FormRoom frm = new FormRoom();
-            frm.FormClosed += (s, args) => this.Show(); // Khi đóng form con thì hiện lại form chính
+            frm.FormClosed += (s, args) => this.Show(); 
             frm.Show();
         }
 
@@ -92,12 +101,18 @@ namespace abchotel
 
         private void pnThongke_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormRoom frm = new FormRoom();
+            frm.FormClosed += (s, args) => this.Show();
+            frm.Show();
         }
 
         private void pnCaidat_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormUser frm = new FormUser();
+            frm.FormClosed += (s, args) => this.Show();
+            frm.Show();
         }
     }
 }

@@ -16,8 +16,7 @@ namespace abchotel.DAL
         public DataTable LayPhongTrongTheoLoai(string loaiPhong)
         {
             string query = "SELECT * FROM Phong WHERE LoaiPhong = @LoaiPhong AND TrangThai = N'Trống'";
-            SqlParameter[] p = { new SqlParameter("@LoaiPhong", loaiPhong) };
-            return db.ExecuteNonQuery(query, p);
+            return DatabaseHelper.GetData(query, ("@LoaiPhong", loaiPhong));
         }
 
         public bool ThemDatPhong(DatPhong dp)
@@ -25,16 +24,14 @@ namespace abchotel.DAL
             string query = @"INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
                              VALUES (@MaPhong, @MaKhachHang, @NgayNhan, @NgayTra, @SoNguoiO, @TongTien);
                              UPDATE Phong SET TrangThai = N'Đang ở' WHERE MaPhong = @MaPhong";
-            SqlParameter[] p =
-            {
-                new SqlParameter("@MaPhong", dp.MaPhong),
-                new SqlParameter("@MaKhachHang", dp.MaKhachHang),
-                new SqlParameter("@NgayNhan", dp.NgayNhan),
-                new SqlParameter("@NgayTra", dp.NgayTra),
-                new SqlParameter("@SoNguoiO", dp.SoNguoiO),
-                new SqlParameter("@TongTien", dp.TongTien)
-            };
-            return db.ExecuteNonQuery(query, p) > 0;
+            return DatabaseHelper.ExecuteNonQuery(query,
+                ("@MaPhong", dp.MaPhong),
+                ("@MaKhachHang", dp.MaKhachHang),
+                ("@NgayNhan", dp.NgayNhan),
+                ("@NgayTra", dp.NgayTra),
+                ("@SoNguoiO", dp.SoNguoiO),
+                ("@TongTien", dp.TongTien)
+            ) > 0;
         }
     }
 }
