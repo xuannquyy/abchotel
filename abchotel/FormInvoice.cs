@@ -4,42 +4,15 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using OfficeOpenXml;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
 // Thêm alias để tránh conflict với System.Drawing.Font
 using iTextFont = iTextSharp.text.Font;
-using iTextBaseColor = iTextSharp.text.BaseColor;
 
-namespace abchotel
-{
-    public partial class FormInvoice : Form
-    {
-        string connectionString = @"Data Source=ANHENHS\SQLEXPRESS;Initial Catalog=QuanLyKhachSan;Integrated Security=True";
-        SqlDataAdapter da;
-        DataTable dt;
 
-        public FormInvoice()
-        {
-            InitializeComponent();
-            // Chỉ đăng ký 1 lần
-            dgvInvoice.CellClick += dgvInvoice_CellClick;
-        }
-
-        private void FormInvoice_Load(object sender, EventArgs e)
-        {
-            LoadInvoice();
-            FormatGrid();
-
-            // Tùy chọn: hiển thị chi tiết hàng đầu tiên khi load
-            if (dgvInvoice.Rows.Count > 0)
-            {
-                dgvInvoice_CellClick(dgvInvoice, new DataGridViewCellEventArgs(0, 0));
-            }
-        }
-
-        private void LoadInvoice()
+        // 🔹 Thiết lập style cho các DataGridView
+        private void SetupDataGridViews()
         {
             dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -56,8 +29,8 @@ namespace abchotel
             }
             dgvInvoice.DataSource = dt;
         }
-
-        private void FormatGrid()
+        private void LoadSampleData()
+        private void LoadThongTinKhachHang()
         {
             dgvInvoice.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInvoice.RowHeadersVisible = false;
