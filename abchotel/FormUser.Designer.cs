@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtnlmk = new System.Windows.Forms.TextBox();
             this.txtmkc = new System.Windows.Forms.TextBox();
             this.txtmkm = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -37,10 +36,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnlmkm = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtXacNhan = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtemail = new System.Windows.Forms.TextBox();
-            this.txtcv = new System.Windows.Forms.TextBox();
-            this.txttnv = new System.Windows.Forms.TextBox();
+            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtChucVu = new System.Windows.Forms.TextBox();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
             this.txtmnv = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,9 +51,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnLuuthongtin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnHuy);
             this.panel1.Controls.Add(this.txtmkc);
             this.panel1.Controls.Add(this.txtmkm);
             this.panel1.Controls.Add(this.label10);
@@ -66,42 +68,35 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.btnlmkm);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(692, 61);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(686, 141);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(485, 476);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // txtnlmk
-            // 
-            this.txtnlmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnlmk.Location = new System.Drawing.Point(918, 325);
-            this.txtnlmk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtnlmk.Multiline = true;
-            this.txtnlmk.Name = "txtnlmk";
-            this.txtnlmk.Size = new System.Drawing.Size(243, 27);
-            this.txtnlmk.TabIndex = 14;
             // 
             // txtmkc
             // 
             this.txtmkc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmkc.Location = new System.Drawing.Point(225, 175);
-            this.txtmkc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtmkc.Margin = new System.Windows.Forms.Padding(2);
             this.txtmkc.Multiline = true;
             this.txtmkc.Name = "txtmkc";
+            this.txtmkc.PasswordChar = '*';
             this.txtmkc.Size = new System.Drawing.Size(243, 27);
             this.txtmkc.TabIndex = 13;
+            this.txtmkc.UseSystemPasswordChar = true;
             // 
             // txtmkm
             // 
             this.txtmkm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmkm.Location = new System.Drawing.Point(225, 223);
-            this.txtmkm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtmkm.Margin = new System.Windows.Forms.Padding(2);
             this.txtmkm.Multiline = true;
             this.txtmkm.Name = "txtmkm";
+            this.txtmkm.PasswordChar = '*';
             this.txtmkm.Size = new System.Drawing.Size(243, 27);
             this.txtmkm.TabIndex = 11;
+            this.txtmkm.UseSystemPasswordChar = true;
             // 
             // label10
             // 
@@ -144,14 +139,13 @@
             this.btnlmkm.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnlmkm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlmkm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnlmkm.Location = new System.Drawing.Point(123, 325);
-            this.btnlmkm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnlmkm.Location = new System.Drawing.Point(225, 402);
+            this.btnlmkm.Margin = new System.Windows.Forms.Padding(2);
             this.btnlmkm.Name = "btnlmkm";
-            this.btnlmkm.Size = new System.Drawing.Size(226, 36);
+            this.btnlmkm.Size = new System.Drawing.Size(243, 36);
             this.btnlmkm.TabIndex = 5;
             this.btnlmkm.Text = "LƯU MẬT KHẨU MỚI";
             this.btnlmkm.UseVisualStyleBackColor = false;
-            this.btnlmkm.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -165,14 +159,27 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "ĐỔI MẬT KHẨU";
             // 
+            // txtXacNhan
+            // 
+            this.txtXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtXacNhan.Location = new System.Drawing.Point(912, 405);
+            this.txtXacNhan.Margin = new System.Windows.Forms.Padding(2);
+            this.txtXacNhan.Multiline = true;
+            this.txtXacNhan.Name = "txtXacNhan";
+            this.txtXacNhan.PasswordChar = '*';
+            this.txtXacNhan.Size = new System.Drawing.Size(243, 27);
+            this.txtXacNhan.TabIndex = 14;
+            this.txtXacNhan.UseSystemPasswordChar = true;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.btnLuuthongtin);
+            this.panel2.Controls.Add(this.txtTenDangNhap);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.txtemail);
-            this.panel2.Controls.Add(this.txtcv);
-            this.panel2.Controls.Add(this.txttnv);
+            this.panel2.Controls.Add(this.txtEmail);
+            this.panel2.Controls.Add(this.txtChucVu);
+            this.panel2.Controls.Add(this.txtHoTen);
             this.panel2.Controls.Add(this.txtmnv);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label7);
@@ -180,63 +187,83 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(265, 61);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(259, 141);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(408, 476);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // txtemail
+            // txtTenDangNhap
             // 
-            this.txtemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(158, 356);
-            this.txtemail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtemail.Multiline = true;
-            this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(236, 27);
-            this.txtemail.TabIndex = 13;
-            this.txtemail.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.txtTenDangNhap.Enabled = false;
+            this.txtTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenDangNhap.Location = new System.Drawing.Point(158, 219);
+            this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTenDangNhap.Multiline = true;
+            this.txtTenDangNhap.Name = "txtTenDangNhap";
+            this.txtTenDangNhap.Size = new System.Drawing.Size(236, 27);
+            this.txtTenDangNhap.TabIndex = 15;
             // 
-            // txtcv
+            // label11
             // 
-            this.txtcv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcv.Location = new System.Drawing.Point(158, 308);
-            this.txtcv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtcv.Multiline = true;
-            this.txtcv.Name = "txtcv";
-            this.txtcv.Size = new System.Drawing.Size(236, 27);
-            this.txtcv.TabIndex = 12;
-            this.txtcv.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label11.Location = new System.Drawing.Point(13, 226);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(132, 20);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Tên Đăng nhập";
             // 
-            // txttnv
+            // txtEmail
             // 
-            this.txttnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttnv.Location = new System.Drawing.Point(158, 263);
-            this.txttnv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txttnv.Multiline = true;
-            this.txttnv.Name = "txttnv";
-            this.txttnv.Size = new System.Drawing.Size(236, 27);
-            this.txttnv.TabIndex = 11;
-            this.txttnv.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(158, 356);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(236, 27);
+            this.txtEmail.TabIndex = 13;
+            // 
+            // txtChucVu
+            // 
+            this.txtChucVu.Enabled = false;
+            this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChucVu.Location = new System.Drawing.Point(158, 308);
+            this.txtChucVu.Margin = new System.Windows.Forms.Padding(2);
+            this.txtChucVu.Multiline = true;
+            this.txtChucVu.Name = "txtChucVu";
+            this.txtChucVu.Size = new System.Drawing.Size(236, 27);
+            this.txtChucVu.TabIndex = 12;
+            // 
+            // txtHoTen
+            // 
+            this.txtHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.Location = new System.Drawing.Point(158, 263);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHoTen.Multiline = true;
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(236, 27);
+            this.txtHoTen.TabIndex = 11;
             // 
             // txtmnv
             // 
+            this.txtmnv.Enabled = false;
             this.txtmnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmnv.Location = new System.Drawing.Point(158, 171);
-            this.txtmnv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtmnv.Margin = new System.Windows.Forms.Padding(2);
             this.txtmnv.Multiline = true;
             this.txtmnv.Name = "txtmnv";
             this.txtmnv.Size = new System.Drawing.Size(236, 27);
             this.txtmnv.TabIndex = 9;
-            this.txtmnv.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panel3
             // 
             this.panel3.BackgroundImage = global::abchotel.Properties.Resources.icons8_person_64;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Location = new System.Drawing.Point(158, 51);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(89, 86);
             this.panel3.TabIndex = 8;
@@ -309,59 +336,53 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1370, 50);
+            this.label1.Size = new System.Drawing.Size(1370, 98);
             this.label1.TabIndex = 2;
             this.label1.Text = "THÔNG TIN VÀ CÀI ĐẶT CÁ NHÂN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // btnHuy
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(890, 557);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(287, 33);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Cập nhật thông tin liên hệ ?";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnHuy.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnHuy.Location = new System.Drawing.Point(20, 402);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(180, 36);
+            this.btnHuy.TabIndex = 14;
+            this.btnHuy.Text = "HỦY";
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // label11
+            // btnLuuthongtin
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label11.Location = new System.Drawing.Point(13, 226);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(133, 20);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Tên người dùng";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(158, 219);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 27);
-            this.textBox1.TabIndex = 15;
+            this.btnLuuthongtin.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnLuuthongtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuuthongtin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLuuthongtin.Location = new System.Drawing.Point(151, 402);
+            this.btnLuuthongtin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLuuthongtin.Name = "btnLuuthongtin";
+            this.btnLuuthongtin.Size = new System.Drawing.Size(243, 36);
+            this.btnLuuthongtin.TabIndex = 15;
+            this.btnLuuthongtin.Text = "LƯU THÔNG TIN";
+            this.btnLuuthongtin.UseVisualStyleBackColor = false;
+            this.btnLuuthongtin.Click += new System.EventHandler(this.btnLuuthongtin_Click);
             // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.txtnlmk);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtXacNhan);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUser";
             this.Text = "FormUser";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormUser_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -385,17 +406,18 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtmnv;
-        private System.Windows.Forms.TextBox txtnlmk;
+        private System.Windows.Forms.TextBox txtXacNhan;
         private System.Windows.Forms.TextBox txtmkc;
         private System.Windows.Forms.TextBox txtmkm;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtemail;
-        private System.Windows.Forms.TextBox txtcv;
-        private System.Windows.Forms.TextBox txttnv;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtChucVu;
+        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnLuuthongtin;
     }
 }

@@ -54,5 +54,23 @@ namespace abchotel.DAL
                 }
             }
         }
+        public static object ExecuteScalar(string query, params (string, object)[] parameters)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    if (parameters != null)
+                    {
+                        foreach (var param in parameters)
+                            cmd.Parameters.AddWithValue(param.Item1, param.Item2 ?? DBNull.Value);
+                    }
+
+                    conn.Open();
+                    return cmd.ExecuteScalar();
+                }
+            }
+        }
+
     }
 }

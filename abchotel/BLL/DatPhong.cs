@@ -24,5 +24,9 @@ namespace abchotel.BLL
         {
             return dal.ThemDatPhong(dp);
         }
+        public int TongSoNguoiDangO()
+        {
+            return dal.TongSoNguoiDangO();
+        }
     }
 }

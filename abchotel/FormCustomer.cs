@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,6 +22,9 @@ namespace abchotel
             InitializeComponent();
             KhoiTaoDatePicker();
             LoadDanhSachKhachHang();
+            txtSDT.MaxLength = 10;
+            txtCCCD.MaxLength = 12; 
+
         }
         private void KhoiTaoDatePicker()
         {
@@ -29,38 +33,10 @@ namespace abchotel
         }
         private void LoadDanhSachKhachHang()
         {
-            lstKhachHang.Items.Clear();
             var ds = khBLL.LayTatCaKhachHang();
-
-            foreach (var kh in ds)
-            {
-                ListViewItem item = new ListViewItem(kh.MaKhachHang.ToString());
-                item.SubItems.Add(kh.HoTen);
-                item.SubItems.Add(kh.GioiTinh);
-                item.SubItems.Add(kh.NgaySinh == DateTime.MinValue ? "" : kh.NgaySinh.ToString("dd/MM/yyyy"));
-                item.SubItems.Add(kh.CCCD);
-                item.SubItems.Add(kh.SoDienThoai);
-                item.SubItems.Add(kh.DiaChi);
-                item.SubItems.Add(LaySoPhongTheoKhach(kh.MaKhachHang)); // cột Số phòng
-                lstKhachHang.Items.Add(item);
-            }
+            HienThiKhachHang(ds);
         }
-        private string LaySoPhongTheoKhach(int maKhach)
-        {
-            try
-            {
-                string query = @"SELECT p.SoPhong 
-                                 FROM DatPhong dp 
-                                 JOIN Phong p ON dp.MaPhong = p.MaPhong
-                                 WHERE dp.MaKhachHang = @ma";
-                var dt = abchotel.DAL.DatabaseHelper.GetData(query, ("@ma", maKhach));
-                return dt.Rows.Count > 0 ? dt.Rows[0]["SoPhong"].ToString() : "Chưa có";
-            }
-            catch
-            {
-                return "Chưa có";
-            }
-        }
+        
         private void lstKhachhang_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstKhachHang.SelectedItems.Count == 0) return;
@@ -83,7 +59,7 @@ namespace abchotel
             txtCCCD.Text = item.SubItems[4].Text;
             txtSDT.Text = item.SubItems[5].Text;
             txtDiachi.Text = item.SubItems[6].Text;
-            lblPhong.Text = "Phòng: " + item.SubItems[7].Text;
+            lblPhong.Text = item.SubItems[7].Text;
 
             // Xử lý ngày sinh trống
             if (string.IsNullOrWhiteSpace(item.SubItems[3].Text))
@@ -94,16 +70,79 @@ namespace abchotel
                 dateNgaysinh.Value = DateTime.ParseExact(item.SubItems[3].Text, "dd/MM/yyyy", null);
             }
         }
+        private bool IsFormValid()
+        {
+            // 1. Kiểm tra Tên
+            if (string.IsNullOrWhiteSpace(txtTenKH.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Họ tên khách hàng.");
+                txtTenKH.Focus();
+                return false;
+            }
 
+            // 2. Kiểm tra Giới tính
+            if (!rdoNam.Checked && !rdoNu.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn Giới tính.");
+                return false;
+            }
+
+            // 3. Kiểm tra SĐT
+            if (string.IsNullOrWhiteSpace(txtSDT.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Số điện thoại.");
+                txtSDT.Focus();
+                return false;
+            }
+            if (txtSDT.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại phải có đúng 10 số.");
+                txtSDT.Focus();
+                return false;
+            }
+            // Kiểm tra SĐT có phải toàn số không (phòng trường hợp copy-paste)
+            if (!Regex.IsMatch(txtSDT.Text, @"^\d{10}$"))
+            {
+                MessageBox.Show("Số điện thoại chỉ được chứa số.");
+                txtSDT.Focus();
+                return false;
+            }
+
+
+            // 4. Kiểm tra CCCD
+            if (string.IsNullOrWhiteSpace(txtCCCD.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số CCCD/Passport.");
+                txtCCCD.Focus();
+                return false;
+            }
+            // Cho phép CMND 9 số hoặc CCCD 12 số
+            if (txtCCCD.Text.Length != 9 && txtCCCD.Text.Length != 12)
+            {
+                MessageBox.Show("CCCD/CMND phải có 9 hoặc 12 số.");
+                txtCCCD.Focus();
+                return false;
+            }
+            // Kiểm tra CCCD có phải toàn số không
+            if (!Regex.IsMatch(txtCCCD.Text, @"^\d+$"))
+            {
+                MessageBox.Show("CCCD/CMND chỉ được chứa số.");
+                txtCCCD.Focus();
+                return false;
+            }
+
+            return true; // Tất cả đều hợp lệ
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (!IsFormValid()) return;
             try
             {
                 var kh = new KhachHang
                 {
                     HoTen = txtTenKH.Text.Trim(),
                     GioiTinh = rdoNam.Checked ? "Nam" : (rdoNu.Checked ? "Nữ" : ""),
-                    NgaySinh = dateNgaysinh.CustomFormat == " " ? DateTime.MinValue : dateNgaysinh.Value,
+                    NgaySinh = (dateNgaysinh.CustomFormat == " ") ? DateTime.MinValue : dateNgaysinh.Value,
                     CCCD = txtCCCD.Text.Trim(),
                     SoDienThoai = txtSDT.Text.Trim(),
                     DiaChi = txtDiachi.Text.Trim()
@@ -112,6 +151,7 @@ namespace abchotel
                 khBLL.ThemKhachHang(kh);
                 LoadDanhSachKhachHang();
                 MessageBox.Show("Đã thêm khách hàng mới!");
+                btnHuy_Click(null, null);
             }
             catch (Exception ex)
             {
@@ -126,7 +166,7 @@ namespace abchotel
                 MessageBox.Show("Vui lòng chọn khách hàng để sửa!");
                 return;
             }
-
+            if (!IsFormValid()) return;
             try
             {
                 var kh = new KhachHang
@@ -134,7 +174,7 @@ namespace abchotel
                     MaKhachHang = maKhachDangChon,
                     HoTen = txtTenKH.Text.Trim(),
                     GioiTinh = rdoNam.Checked ? "Nam" : (rdoNu.Checked ? "Nữ" : ""),
-                    NgaySinh = dateNgaysinh.CustomFormat == " " ? DateTime.MinValue : dateNgaysinh.Value,
+                    NgaySinh = (dateNgaysinh.CustomFormat == " ") ? DateTime.MinValue : dateNgaysinh.Value,
                     CCCD = txtCCCD.Text.Trim(),
                     SoDienThoai = txtSDT.Text.Trim(),
                     DiaChi = txtDiachi.Text.Trim()
@@ -143,6 +183,7 @@ namespace abchotel
                 khBLL.SuaKhachHang(kh);
                 LoadDanhSachKhachHang();
                 MessageBox.Show("Cập nhật khách hàng thành công!");
+                btnHuy_Click(null, null);
             }
             catch (Exception ex)
             {
@@ -165,6 +206,7 @@ namespace abchotel
                     khBLL.XoaKhachHang(maKhachDangChon);
                     LoadDanhSachKhachHang();
                     MessageBox.Show("Đã xóa khách hàng!");
+                    btnHuy_Click(null, null);
                 }
                 catch (Exception ex)
                 {
@@ -175,20 +217,19 @@ namespace abchotel
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Hủy tất cả thay đổi chưa lưu?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                LoadDanhSachKhachHang();
-                txtMaKH.Clear();
-                txtTenKH.Clear();
-                rdoNam.Checked = false;
-                rdoNu.Checked = false;
-                txtCCCD.Clear();
-                txtSDT.Clear();
-                txtDiachi.Clear();
-                dateNgaysinh.CustomFormat = " ";
-                lblPhong.Text = "Phòng:";
-                maKhachDangChon = -1;
-            }
+            txtMaKH.Clear();
+            txtTenKH.Clear();
+            rdoNam.Checked = false;
+            rdoNu.Checked = false;
+            txtCCCD.Clear();
+            txtSDT.Clear();
+            txtDiachi.Clear();
+            txtTimkiem.Clear();
+            dateNgaysinh.CustomFormat = " "; 
+            lblPhong.Text = "Phòng:";
+            maKhachDangChon = -1; 
+            lstKhachHang.SelectedItems.Clear();
+            LoadDanhSachKhachHang();
         }
 
         private void pbTimkiem_Click(object sender, EventArgs e)
@@ -200,9 +241,7 @@ namespace abchotel
                 return;
             }
 
-            var result = khBLL.LayTatCaKhachHang()
-                .Where(k => LaySoPhongTheoKhach(k.MaKhachHang).Contains(keyword))
-                .ToList();
+            var result = khBLL.TimKiemKhachHang(keyword);
 
             HienThiKhachHang(result);
         }
@@ -224,8 +263,29 @@ namespace abchotel
                 item.SubItems.Add(kh.CCCD);
                 item.SubItems.Add(kh.SoDienThoai);
                 item.SubItems.Add(kh.DiaChi);
-                item.SubItems.Add(LaySoPhongTheoKhach(kh.MaKhachHang));
+                item.SubItems.Add(kh.SoPhongHienTai ?? "Chưa có");
                 lstKhachHang.Items.Add(item);
+            }
+        }
+
+        private void dateNgaysinh_ValueChanged(object sender, EventArgs e)
+        {
+            dateNgaysinh.CustomFormat = "dd/MM/yyyy";
+        }
+
+        private void txtCCCD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -33,5 +33,11 @@ namespace abchotel.DAL
                 ("@TongTien", dp.TongTien)
             ) > 0;
         }
+        public int TongSoNguoiDangO()
+        {
+            string query = "SELECT ISNULL(SUM(SoNguoiO), 0) FROM DatPhong WHERE GETDATE() BETWEEN NgayNhan AND NgayTra";
+            object result = DatabaseHelper.ExecuteScalar(query);
+            return Convert.ToInt32(result);
+        }
     }
 }

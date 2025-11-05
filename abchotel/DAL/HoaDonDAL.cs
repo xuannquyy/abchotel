@@ -32,5 +32,12 @@ namespace abchotel.DAL
             string query = "DELETE FROM HoaDon WHERE MaHoaDon = @MaHoaDon";
             return DatabaseHelper.ExecuteNonQuery(query, ("@MaHoaDon", maHoaDon));
         }
+        public decimal DoanhThuHomNay()
+        {
+            string query = "SELECT ISNULL(SUM(ThanhTien), 0) FROM HoaDon WHERE CAST(NgayLap AS DATE) = CAST(GETDATE() AS DATE)";
+            object result = DatabaseHelper.ExecuteScalar(query);
+            return Convert.ToDecimal(result);
+        }
+
     }
 }

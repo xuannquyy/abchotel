@@ -16,6 +16,7 @@ namespace abchotel.BLL
         public void ThemKhachHang(KhachHang kh) => dal.ThemKhachHang(kh);
         public void SuaKhachHang(KhachHang kh) => dal.SuaKhachHang(kh);
         public void XoaKhachHang(int ma) => dal.XoaKhachHang(ma);
+        public List<KhachHang> TimKiemKhachHang(string keyword) => dal.TimKiemKhachHang(keyword);
     }
 
 }

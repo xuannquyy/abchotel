@@ -14,6 +14,8 @@ namespace abchotel
 {
     public partial class FormMain : Form
     {
+        DatPhongBLL datPhongBLL = new DatPhongBLL();
+        HoaDonBLL hoaDonBLL = new HoaDonBLL();
         public FormMain()
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace abchotel
         private void FormMain_Load(object sender, EventArgs e)
         {
             HienThiTrangThaiPhong();
+            CapNhatThongTinTongQuan(); ;
         }
         private void HienThiTrangThaiPhong()
         {
@@ -55,10 +58,27 @@ namespace abchotel
                     if (p.TrangThai == "Đang ở")
                         panel.BackColor = Color.LightGreen;
                     else
-                        panel.BackColor = Color.White;
+                        panel.BackColor = SystemColors.ActiveCaption;
                 }
             }
         }
+        private void CapNhatThongTinTongQuan()
+        {
+            var ds = phongBLL.LayTatCaPhong();
+
+            // Tổng số phòng trống
+            int soPhongTrong = ds.Count(p => p.TrangThai == "Trống");
+            lblPhongtrong.Text = $"{soPhongTrong}";
+
+            // Tổng số người đang ở
+            int tongSoNguoiO = datPhongBLL.TongSoNguoiDangO();
+            lblKhachhang.Text = $"{tongSoNguoiO}";
+
+            // Doanh thu hôm nay
+            decimal doanhThuHomNay = hoaDonBLL.DoanhThuHomNay();
+            lblDoanhthu.Text = $"{doanhThuHomNay:N0} VNĐ";
+        }
+
         private void pnDatphong_Click(object sender, EventArgs e)
         {
             this.Hide();

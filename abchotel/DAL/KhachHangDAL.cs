@@ -10,26 +10,81 @@ namespace abchotel.DAL
 {
     public class KhachHangDAL
     {
+        // Hàm này được dùng để tạo đối tượng KhachHang từ DataRow
+        // Giúp tránh lặp code ở LayTatCa và TimKiem
+        private KhachHang MapDataRowToKhachHang(DataRow row)
+        {
+            return new KhachHang
+            {
+                MaKhachHang = (int)row["MaKhachHang"],
+                HoTen = row["HoTen"].ToString(),
+                GioiTinh = row["GioiTinh"].ToString(),
+                NgaySinh = row["NgaySinh"] == DBNull.Value ? DateTime.MinValue : (DateTime)row["NgaySinh"],
+                CCCD = row["CCCD"].ToString(),
+                SoDienThoai = row["SoDienThoai"].ToString(),
+                DiaChi = row["DiaChi"].ToString(),
+                // Gán số phòng (nếu có)
+                SoPhongHienTai = row["SoPhongHienTai"] == DBNull.Value ? null : row["SoPhongHienTai"].ToString()
+            };
+        }
+
         public List<KhachHang> LayTatCaKhachHang()
         {
-            string query = "SELECT * FROM KhachHang";
+            // Sửa lại query để nó lấy luôn SoPhongHienTai (nếu có)
+            // Logic: Lấy TOP 1 phòng mà khách đó đang ở (TrangThai = 'Đang ở')
+            string query = @"
+                SELECT kh.*, (
+                    SELECT TOP 1 p.SoPhong 
+                    FROM DatPhong dp 
+                    JOIN Phong p ON dp.MaPhong = p.MaPhong AND p.TrangThai = N'Đang ở'
+                    WHERE dp.MaKhachHang = kh.MaKhachHang
+                ) AS SoPhongHienTai
+                FROM KhachHang kh";
+
             DataTable dt = DatabaseHelper.GetData(query);
             List<KhachHang> list = new List<KhachHang>();
 
             foreach (DataRow row in dt.Rows)
             {
-                list.Add(new KhachHang
-                {
-                    MaKhachHang = (int)row["MaKhachHang"],
-                    HoTen = row["HoTen"].ToString(),
-                    GioiTinh = row["GioiTinh"].ToString(),
-                    NgaySinh = row["NgaySinh"] == DBNull.Value ? DateTime.MinValue : (DateTime)row["NgaySinh"],
-                    CCCD = row["CCCD"].ToString(),
-                    SoDienThoai = row["SoDienThoai"].ToString(),
-                    DiaChi = row["DiaChi"].ToString()
-                });
+                list.Add(MapDataRowToKhachHang(row));
             }
 
+            return list;
+        }
+
+        // THÊM HÀM TÌM KIẾM MỚI
+        public List<KhachHang> TimKiemKhachHang(string keyword)
+        {
+            // Câu query này sẽ tìm kiếm theo Tên, CCCD, SĐT 
+            // VÀ tìm xem khách có ở phòng nào khớp keyword không (dùng EXISTS)
+            string query = @"
+                DECLARE @kw NVARCHAR(100) = '%' + @keyword + '%';
+                
+                SELECT kh.*, (
+                    SELECT TOP 1 p.SoPhong 
+                    FROM DatPhong dp 
+                    JOIN Phong p ON dp.MaPhong = p.MaPhong AND p.TrangThai = N'Đang ở'
+                    WHERE dp.MaKhachHang = kh.MaKhachHang
+                ) AS SoPhongHienTai
+                FROM KhachHang kh
+                WHERE 
+                    kh.HoTen LIKE @kw OR
+                    kh.CCCD LIKE @kw OR
+                    kh.SoDienThoai LIKE @kw OR
+                    EXISTS (
+                        SELECT 1
+                        FROM DatPhong dp 
+                        JOIN Phong p ON dp.MaPhong = p.MaPhong AND p.TrangThai = N'Đang ở'
+                        WHERE dp.MaKhachHang = kh.MaKhachHang AND p.SoPhong LIKE @kw
+                    )";
+
+            DataTable dt = DatabaseHelper.GetData(query, ("@keyword", keyword));
+            List<KhachHang> list = new List<KhachHang>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(MapDataRowToKhachHang(row));
+            }
             return list;
         }
 
