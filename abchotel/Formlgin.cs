@@ -38,25 +38,29 @@ namespace abchotel
 
             NguoiDungBLL bll = new NguoiDungBLL();
             NguoiDung user = bll.DangNhap(username, password);
-            if
-
-            (user != null)
-            { MessageBox.Show(" Tên đăng nhập hoặc mật khẩu không đúng!");
+            if (user == null) 
+            {
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
             }
-            else if ( user.VaiTro == "Admin")
-            { 
+            
+            else if (user.VaiTro == "Admin")
+            {
                 FormAdmin formAdmin = new FormAdmin();
                 this.Hide();
                 formAdmin.ShowDialog();
                 this.Show();
             }
-            else if (user.VaiTro == "Nguoi Dung")
+            else if (user.VaiTro == "User")
             {
-                FormMain formMain = new FormMain();
+                FormMain formMain = new FormMain(user.HoTen);
                 this.Hide();
                 formMain.ShowDialog();
                 this.Show();
-            } 
+            }
+            else
+            {
+                MessageBox.Show("Vai trò của người dùng không xác định.");
+            }
         }
 
           private void checkBox1_CheckedChanged(object sender, EventArgs e)

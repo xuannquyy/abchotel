@@ -109,4 +109,15 @@ public class HoaDonDAL
             ("@MaHoaDon", maHoaDon)
         );
     }
+    public decimal LayDoanhThuHomNay()
+    {
+        string query = @"
+                SELECT ISNULL(SUM(TongThanhToan), 0) 
+                FROM HoaDon 
+                WHERE TrangThai = N'Đã thanh toán' 
+                AND CAST(NgayLap AS DATE) = CAST(GETDATE() AS DATE)";
+
+        object result = DatabaseHelper.ExecuteScalar(query);
+        return Convert.ToDecimal(result);
+    }
 }

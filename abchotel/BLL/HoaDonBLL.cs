@@ -22,13 +22,9 @@ namespace abchotel.BLL
             dal.LuuThanhToan(maHoaDon, giamGiaPhanTram, tongThanhToan);
         }
 
-        // Hàm này không còn phù hợp, vì 'ThanhTien' giờ là 'TongThanhToan'
-        // Bạn có thể tạo 1 hàm mới 'LayDoanhThuHomNay()'
         public decimal LayDoanhThuHomNay()
         {
-            // Cần tạo hàm mới trong DAL
-            // return dal.LayDoanhThuHomNay(); 
-            return 0; // Tạm thời
+            return dal.LayDoanhThuHomNay();
         }
     }
 }

@@ -16,16 +16,19 @@ namespace abchotel
     {
         DatPhongBLL datPhongBLL = new DatPhongBLL();
         HoaDonBLL hoaDonBLL = new HoaDonBLL();
+        PhongBLL phongBLL = new PhongBLL();
+        private string tenNhanVienHienTai;
         public FormMain()
         {
             InitializeComponent();
-            //currentUser = username;
-            //lblNhanvien.Text = "Nhân viên: " + username;
             timer1.Interval = 1000;
             timer1.Start();
-            
         }
-
+        public FormMain(string tenNhanVien) : this() // Gọi hàm khởi tạo mặc định (InitializeComponent)
+        {
+            this.tenNhanVienHienTai = tenNhanVien;
+            lblNhanvien.Text = "Nhân viên: " + this.tenNhanVienHienTai;
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTime.Text = "Thời gian: " + DateTime.Now.ToString("dd/MM/yyyy") + " " + DateTime.Now.ToString("HH:mm:ss");
@@ -38,7 +41,7 @@ namespace abchotel
                 e.Cancel = true;
             }    
         }
-        PhongBLL phongBLL = new PhongBLL();
+        
         private void FormMain_Load(object sender, EventArgs e)
         {
             HienThiTrangThaiPhong();
