@@ -988,14 +988,14 @@
             // 
             // lblDoanhthu
             // 
-            this.lblDoanhthu.AutoSize = true;
             this.lblDoanhthu.BackColor = System.Drawing.Color.White;
             this.lblDoanhthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoanhthu.Location = new System.Drawing.Point(113, 80);
+            this.lblDoanhthu.Location = new System.Drawing.Point(14, 80);
             this.lblDoanhthu.Name = "lblDoanhthu";
-            this.lblDoanhthu.Size = new System.Drawing.Size(55, 37);
+            this.lblDoanhthu.Size = new System.Drawing.Size(246, 37);
             this.lblDoanhthu.TabIndex = 3;
             this.lblDoanhthu.Text = "00";
+            this.lblDoanhthu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
@@ -1023,14 +1023,14 @@
             // 
             // lblKhachhang
             // 
-            this.lblKhachhang.AutoSize = true;
             this.lblKhachhang.BackColor = System.Drawing.Color.White;
             this.lblKhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKhachhang.Location = new System.Drawing.Point(106, 80);
+            this.lblKhachhang.Location = new System.Drawing.Point(14, 80);
             this.lblKhachhang.Name = "lblKhachhang";
-            this.lblKhachhang.Size = new System.Drawing.Size(55, 37);
+            this.lblKhachhang.Size = new System.Drawing.Size(225, 37);
             this.lblKhachhang.TabIndex = 2;
             this.lblKhachhang.Text = "00";
+            this.lblKhachhang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -1057,14 +1057,14 @@
             // 
             // lblPhongtrong
             // 
-            this.lblPhongtrong.AutoSize = true;
             this.lblPhongtrong.BackColor = System.Drawing.Color.White;
             this.lblPhongtrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhongtrong.Location = new System.Drawing.Point(111, 80);
+            this.lblPhongtrong.Location = new System.Drawing.Point(15, 80);
             this.lblPhongtrong.Name = "lblPhongtrong";
-            this.lblPhongtrong.Size = new System.Drawing.Size(55, 37);
+            this.lblPhongtrong.Size = new System.Drawing.Size(246, 37);
             this.lblPhongtrong.TabIndex = 1;
             this.lblPhongtrong.Text = "00";
+            this.lblPhongtrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 

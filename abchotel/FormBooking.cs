@@ -1,248 +1,379 @@
-﻿using System;
+﻿using abchotel.BLL;
+using abchotel.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using abchotel.BLL;
-using abchotel.Model;
 
 namespace abchotel
 {
     public partial class FormBooking : Form
     {
-        public class Phong
-        {
-            public string MaPhong { get; set; }
-            public string SoPhong { get; set; }
-            public string LoaiPhong { get; set; }
-            public decimal GiaPhong { get; set; }
-            
-            public bool Trong { get; set; } = true;
-        }
-
-        // Danh sách phòng toàn khách sạn
-        private List<Phong> danhSachPhong = new List<Phong>();
+        private readonly KhachHangBLL khachHangBLL = new KhachHangBLL();
+        private readonly DatPhongBLL datPhongBLL = new DatPhongBLL();
+        private bool _isCalculating = false; // Cờ để tránh lặp vô hạn sự kiện
         public FormBooking()
         {
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void FormBooking_Load(object sender, EventArgs e)
         {
-            //  VIP 
-            for (int i = 301; i <= 304; i++)
-            {
-                string loai = (i % 2 == 1) ? "VIP - Phòng Đôi" : "VIP - Phòng Đơn";
-                decimal gia = (i % 2 == 1) ? 3500000 : 3000000;
-                danhSachPhong.Add(new Phong
-                {
-                    MaPhong = $"VIP{i}",
-                    SoPhong = $"VIP{i}",
-                    LoaiPhong = loai,
-                    GiaPhong = gia,
-                    Trong = true // đảm bảo mặc định là trống
-                });
-            }
-
-            // Phòng Đôi
-            for (int i = 201; i <= 208; i++)
-            {
-                danhSachPhong.Add(new Phong
-                {
-                    MaPhong = $"A{i}",
-                    SoPhong = $"A{i}",
-                    LoaiPhong = "Phòng Đôi",
-                    GiaPhong = 1800000,
-                    Trong = true
-                });
-            }
-
-            // Phòng Đơn
-            for (int i = 101; i <= 108; i++)
-            {
-                danhSachPhong.Add(new Phong
-                {
-                    MaPhong = $"A{i}",
-                    SoPhong = $"A{i}",
-                    LoaiPhong = "Phòng Đơn",
-                    GiaPhong = 1200000,
-                    Trong = true
-                });
-            }
-
-            // 
-            Cbloaiphong.Items.AddRange(new string[]
-            {
-                "Phòng Đơn",
-                "Phòng Đôi",
-                "VIP - Phòng Đơn",
-                "VIP - Phòng Đôi"
-            });
-
-
+            SetupForm();
+            LoadDanhSachDatPhongHomNay();
+        }
+        private void SetupForm()
+        {
+            // Nạp ComboBox
+            Cbloaiphong.Items.AddRange(new string[] { "Phòng Đơn", "Phòng Đôi", "VIP - Phòng Đơn", "VIP - Phòng Đôi" });
             cbgioitinh.Items.AddRange(new string[] { "Nam", "Nữ" });
+
+            // Cài đặt DateTimePicker
+            datenhan.MinDate = DateTime.Today;
+            datenhan.Value = DateTime.Today;
+            datetra.MinDate = DateTime.Today.AddDays(1);
+            datetra.Value = DateTime.Today.AddDays(1);
+
+            KhoiTaoDatePickerNgaySinh();
+
+            // Gắn sự kiện
+            Cbloaiphong.SelectedIndexChanged += Cbloaiphong_SelectedIndexChanged;
+            cbphongtrong.SelectedIndexChanged += cbphongtrong_SelectedIndexChanged;
+
+            datenhan.ValueChanged += DateTimePicker_ValueChanged;
+            datetra.ValueChanged += DateTimePicker_ValueChanged;
             txbsodem.TextChanged += txbsodem_TextChanged;
+
+            txbsodem.KeyPress += TextBox_OnlyNumbers_KeyPress;
+            txbsoluong.KeyPress += TextBox_OnlyNumbers_KeyPress;
+            txbCMND.KeyPress += TextBox_OnlyNumbers_KeyPress;
+            txbsdt.KeyPress += TextBox_OnlyNumbers_KeyPress;
+
+            butdatphong.Click += butdatphong_Click;
+            butlmmoi.Click += butlmmoi_Click;
+
+            // Chạy làm mới để set trạng thái ban đầu
+            butlmmoi_Click(null, null);
+        }
+
+        private void KhoiTaoDatePickerNgaySinh()
+        {
+            datesinh.Format = DateTimePickerFormat.Custom;
+            datesinh.CustomFormat = " "; // Mặc định trống
+            datesinh.ValueChanged += datesinh_ValueChanged;
+        }
+        
+        private void datesinh_ValueChanged(object sender, EventArgs e)
+        {
+            datesinh.CustomFormat = "dd/MM/yyyy";
         }
 
         private void Cbloaiphong_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbphongtrong.Items.Clear();
-
-            var dsPhongTrong = danhSachPhong
-                .Where(p => p.LoaiPhong == Cbloaiphong.Text && p.Trong)
-                .ToList();
-
-            foreach (var p in dsPhongTrong)
-                cbphongtrong.Items.Add(p.SoPhong);
-
-            if (dsPhongTrong.Count > 0)
+            if (Cbloaiphong.SelectedIndex == -1)
             {
-                txbgia.Text = dsPhongTrong[0].GiaPhong.ToString("#,0") + " VNĐ";
-                
-            }
-
-            TinhTamTinh();
-        }
-        private void TinhTamTinh()
-        {
-            if (Cbloaiphong.SelectedItem == null) return;
-
-            DateTime nhan = datenhan.Value.Date;
-            DateTime tra = datetra.Value.Date;
-            int soDem = (tra - nhan).Days;
-            if (soDem <= 0) soDem = 1;
-
-            var phong = danhSachPhong.FirstOrDefault(p => p.LoaiPhong == Cbloaiphong.Text);
-            if (phong != null)
-            {
-                decimal tong = phong.GiaPhong * soDem;
-                lbVMD.Text = tong.ToString("#,0") + " VNĐ";
-                txbsodem.Text = soDem.ToString();
-            }
-        }
-
-        private void butdatphong_Click(object sender, EventArgs e)
-        {
-            if (cbphongtrong.SelectedItem == null)
-            {
-                MessageBox.Show("Vui lòng chọn phòng trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbphongtrong.DataSource = null;
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txbhoten.Text) || string.IsNullOrWhiteSpace(txbCMND.Text))
+            try
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ họ tên và CMND!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string loaiPhong = Cbloaiphong.SelectedItem.ToString();
+                DataTable dtPhong = datPhongBLL.LayPhongTrongTheoLoai(loaiPhong);
+
+                cbphongtrong.DataSource = dtPhong;
+                cbphongtrong.DisplayMember = "SoPhong";
+                cbphongtrong.ValueMember = "MaPhong";
+
+                if (dtPhong.Rows.Count == 0)
+                {
+                    cbphongtrong.Text = "Không còn phòng trống";
+                }
+            }
+            catch (Exception ex)
+            {
+                // (Không dùng MessageBox)
+                Console.WriteLine("Lỗi nạp phòng trống: " + ex.Message);
+            }
+        }
+
+        private void cbphongtrong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbphongtrong.SelectedValue == null || !(cbphongtrong.SelectedValue is int))
+            {
+                txbsophong.Clear();
+                txbgia.Text = "0";
                 return;
             }
 
-            string soPhong = cbphongtrong.Text;
-            var phong = danhSachPhong.FirstOrDefault(p => p.SoPhong == soPhong);
-            if (phong == null) return;
+            try
+            {
+                DataRowView drv = (DataRowView)cbphongtrong.SelectedItem;
+                txbsophong.Text = drv["SoPhong"].ToString();
+                decimal donGia = Convert.ToDecimal(drv["DonGia"]);
 
-            // Đánh dấu đã thuê
-            phong.Trong = false;
+                txbgia.Text = string.Format("{0:N0}", donGia);
 
-            int soDem = int.Parse(txbsodem.Text);
-            decimal thanhTien = phong.GiaPhong * soDem;
-
-            // Thêm vào ListView
-            ListViewItem item = new ListViewItem(phong.MaPhong);
-            item.SubItems.Add(phong.SoPhong);
-            item.SubItems.Add(txbhoten.Text);
-            item.SubItems.Add(txbCMND.Text);
-            item.SubItems.Add(phong.LoaiPhong);
-            item.SubItems.Add(datenhan.Value.ToShortDateString());
-            item.SubItems.Add(datetra.Value.ToShortDateString());
-            item.SubItems.Add(thanhTien.ToString("#,0") + " VNĐ");
-            listView1.Items.Add(item);
-
-            MessageBox.Show($"Đặt phòng {phong.SoPhong} thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Làm mới danh sách phòng trống cho loại hiện tại
-            Cbloaiphong_SelectedIndexChanged(null, null);
-
-            LamMoi();
+                // Sau khi có giá, tính toán lại
+                TinhToanNgayVaTien("cbphong");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi chọn phòng: " + ex.Message);
+            }
         }
-
-        //private void butnhanphong_Click(object sender, EventArgs e)
-        //{
-        //    if (listView1.SelectedItems.Count == 0)
-        //    {
-        //        MessageBox.Show("Vui lòng chọn một phòng trong danh sách để nhận!", "Thông báo");
-        //        return;
-        //    }
-
-        //    string maPhong = listView1.SelectedItems[0].SubItems[0].Text;
-        //    MessageBox.Show($"Phòng {maPhong} đã được nhận!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //}
-
-        private void butlmmoi_Click(object sender, EventArgs e)
+        private void LoadDanhSachDatPhongHomNay()
         {
-            LamMoi();
+            try
+            {
+                DataTable dt = datPhongBLL.LayDanhSachDatPhongHomNay();
+                listViewDatPhong.Items.Clear();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    ListViewItem item = new ListViewItem(row["HoTen"].ToString());
+                    item.SubItems.Add(row["SoPhong"].ToString());
+                    item.SubItems.Add(row["CCCD"].ToString());
+                    item.SubItems.Add(row["SoDienThoai"].ToString());
+                    item.SubItems.Add(Convert.ToDateTime(row["NgayNhan"]).ToString("dd/MM/yyyy"));
+                    item.SubItems.Add(Convert.ToDateTime(row["NgayTra"]).ToString("dd/MM/yyyy"));
+                    item.SubItems.Add(row["SoNguoiO"].ToString());
+                    item.SubItems.Add(string.Format(new CultureInfo("vi-VN"), "{0:N0} VND", row["TongTien"]));
+
+                    listViewDatPhong.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi nạp danh sách đặt phòng: " + ex.Message);
+            }
         }
-        private void LamMoi()
+        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            Cbloaiphong.SelectedIndex = -1;
-            cbphongtrong.Items.Clear();
-            txbgia.Clear();
-            txbsoluong.Clear();
-            txbhoten.Clear();
-            txbCMND.Clear();
-            txbsodem.Clear();
-            lbVMD.Text = "0 VNĐ";
-            datenhan.Value = DateTime.Now;
-            datetra.Value = DateTime.Now.AddDays(1);
-            txbsdt.Clear();
-            txbdiachi.Clear();
-            txbMphong.Clear();
-            cbgioitinh.Items.Clear();
-            txbsophong.Clear();
-
+            TinhToanNgayVaTien("date");
         }
 
         private void txbsodem_TextChanged(object sender, EventArgs e)
         {
-            if (int.TryParse(txbsodem.Text, out int soDem))
+            if (ActiveControl == txbsodem) // Chỉ chạy khi người dùng gõ
             {
-                if (soDem > 0)
+                TinhToanNgayVaTien("sodem");
+            }
+        }
+        private void TinhToanNgayVaTien(string nguoiGoi)
+        {
+            if (_isCalculating) return; // Ngăn lặp vô hạn
+            _isCalculating = true;
+
+            try
+            {
+                DateTime ngayNhan = datenhan.Value;
+                DateTime ngayTra = datetra.Value;
+                int soDem = 0;
+
+                // 1. Lấy giá phòng
+                decimal giaPhong = 0;
+                decimal.TryParse(txbgia.Text.Replace(",", ""), out giaPhong);
+
+                if (nguoiGoi == "date")
                 {
-                    // Cập nhật ngày trả = ngày nhận + số đêm
-                    datetra.Value = datenhan.Value.AddDays(soDem);
-                    TinhTamTinh(); // gọi lại hàm tính tiền tạm tính
+                    // Đảm bảo ngày trả luôn sau ngày nhận
+                    if (ngayTra.Date <= ngayNhan.Date)
+                    {
+                        ngayTra = ngayNhan.AddDays(1);
+                        datetra.Value = ngayTra; // Cập nhật UI
+                    }
+                    TimeSpan span = ngayTra.Date - ngayNhan.Date;
+                    soDem = (int)Math.Ceiling(span.TotalDays);
+                    txbsodem.Text = soDem.ToString();
+                }
+                else if (nguoiGoi == "sodem")
+                {
+                    if (int.TryParse(txbsodem.Text, out soDem) && soDem > 0)
+                    {
+                        datetra.Value = ngayNhan.AddDays(soDem);
+                    }
+                    else
+                    {
+                        soDem = 0; // Sẽ tính tiền = 0
+                    }
+                }
+                else if (nguoiGoi == "cbphong")
+                {
+                    // Chỉ cần lấy số đêm từ textbox và tính lại tiền
+                    int.TryParse(txbsodem.Text, out soDem);
+                }
+
+                // Tính tiền
+                decimal tamTinh = giaPhong * soDem;
+                lbttamtinh.Text = string.Format(new CultureInfo("vi-VN"), "{0:N0} VND", tamTinh);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi tính toán: " + ex.Message);
+            }
+            finally
+            {
+                _isCalculating = false;
+            }
+        }
+
+        private void butlmmoi_Click(object sender, EventArgs e)
+        {
+            // Thông tin đăng ký
+            Cbloaiphong.SelectedIndex = -1;
+            cbphongtrong.DataSource = null;
+            cbphongtrong.Items.Clear();
+            datenhan.Value = DateTime.Today;
+            datetra.Value = DateTime.Today.AddDays(1);
+            txbsodem.Text = "1";
+
+            // Thông tin khách hàng
+            txbhoten.Clear();
+            datesinh.CustomFormat = " ";
+            cbgioitinh.SelectedIndex = -1;
+            txbCMND.Clear();
+            txbsdt.Clear();
+            txbdiachi.Clear();
+
+            // Thông tin phòng
+            txbsophong.Clear();
+            txbsoluong.Clear();
+            txbgia.Text = "0";
+            lbttamtinh.Text = "0 VND";
+        }
+
+        private void butdatphong_Click(object sender, EventArgs e)
+        {
+            // 1. Validate
+            if (!IsFormValid()) return;
+
+            try
+            {
+                // 2. Tạo Khách hàng
+                KhachHang kh = new KhachHang
+                {
+                    HoTen = txbhoten.Text.Trim(),
+                    GioiTinh = cbgioitinh.SelectedItem.ToString(),
+                    NgaySinh = (datesinh.CustomFormat == " ") ? DateTime.MinValue : datesinh.Value,
+                    CCCD = txbCMND.Text.Trim(),
+                    SoDienThoai = txbsdt.Text.Trim(),
+                    DiaChi = txbdiachi.Text.Trim()
+                };
+
+                // Lấy MaKhachHang vừa tạo
+                int maKhachHang = khachHangBLL.ThemKhachHang(kh);
+
+                // 3. Tạo Đặt phòng
+                decimal tongTien = 0;
+                decimal.TryParse(lbttamtinh.Text.Replace(" VND", "").Replace(",", ""), out tongTien);
+
+                DatPhong dp = new DatPhong
+                {
+                    MaPhong = (int)cbphongtrong.SelectedValue,
+                    MaKhachHang = maKhachHang,
+                    NgayNhan = datenhan.Value.Date,
+                    NgayTra = datetra.Value.Date,
+                    SoNguoiO = int.Parse(txbsoluong.Text),
+                    TongTien = tongTien
+                };
+
+                // 4. Lưu Đặt phòng
+                bool thanhCong = datPhongBLL.ThemDatPhong(dp);
+
+                if (thanhCong)
+                {
+                    // (Không dùng MessageBox)
+                    Console.WriteLine("Đặt phòng thành công!");
+                    butlmmoi_Click(null, null); // Làm mới form
+                    LoadDanhSachDatPhongHomNay(); // Tải lại danh sách
+                }
+                else
+                {
+                    Console.WriteLine("Đặt phòng thất bại.");
                 }
             }
-        }
-
-        private void datenhan_ValueChanged(object sender, EventArgs e)
-        {
-            if (int.TryParse(txbsodem.Text, out int soDem) && soDem > 0)
-                datetra.Value = datenhan.Value.AddDays(soDem);
-
-            TinhTamTinh();
-        }
-        private void txbsdt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar < '0' || e.KeyChar > '9') && !char.IsControl(e.KeyChar))
+            catch (Exception ex)
             {
-                e.Handled = true;
+                Console.WriteLine("Lỗi khi đặt phòng: " + ex.Message);
             }
         }
-
-        private void txbsodem_KeyPress(object sender, KeyPressEventArgs e)
+        private bool IsFormValid()
         {
-            if ((e.KeyChar < '0' || e.KeyChar > '9') && !char.IsControl(e.KeyChar))
+            // 1. Kiểm tra phòng
+            if (Cbloaiphong.SelectedIndex == -1)
             {
-                e.Handled = true;
+                ShowError("Vui lòng chọn loại phòng.");
+                return false;
             }
+            if (cbphongtrong.SelectedValue == null)
+            {
+                ShowError("Vui lòng chọn phòng trống.");
+                return false;
+            }
+
+            // 2. Kiểm tra ngày
+            if (datetra.Value.Date <= datenhan.Value.Date || txbsodem.Text == "0")
+            {
+                ShowError("Ngày trả phải sau ngày nhận (ít nhất 1 đêm).");
+                return false;
+            }
+
+            // 3. Kiểm tra khách hàng
+            if (string.IsNullOrWhiteSpace(txbhoten.Text))
+            {
+                ShowError("Vui lòng nhập họ tên khách hàng.");
+                txbhoten.Focus();
+                return false;
+            }
+            if (cbgioitinh.SelectedIndex == -1)
+            {
+                ShowError("Vui lòng chọn giới tính.");
+                return false;
+            }
+            if (!Regex.IsMatch(txbCMND.Text, @"^(\d{9}|\d{12})$"))
+            {
+                ShowError("CCCD/CMND phải là 9 hoặc 12 số.");
+                txbCMND.Focus();
+                return false;
+            }
+            if (!Regex.IsMatch(txbsdt.Text, @"^\d{10}$"))
+            {
+                ShowError("Số điện thoại phải là 10 số.");
+                txbsdt.Focus();
+                return false;
+            }
+
+            // 4. Kiểm tra thông tin phòng
+            if (string.IsNullOrWhiteSpace(txbsoluong.Text) || int.Parse(txbsoluong.Text) <= 0)
+            {
+                ShowError("Vui lòng nhập số người ở (ít nhất 1).");
+                txbsoluong.Focus();
+                return false;
+            }
+
+            return true;
         }
 
-        private void txbhoten_KeyPress(object sender, KeyPressEventArgs e)
+        // Thay thế MessageBox
+        private void ShowError(string message)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            // Tạm thời dùng Console, bạn có thể thay bằng 1 Label thông báo lỗi
+            Console.WriteLine($"Lỗi Validation: {message}");
+            // Ví dụ: lblThongBaoLoi.Text = message;
+        }
+
+        // Sự kiện KeyPress để chỉ cho phép nhập số
+        private void TextBox_OnlyNumbers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

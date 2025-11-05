@@ -33,6 +33,28 @@ namespace abchotel.DAL
                 ("@TongTien", dp.TongTien)
             ) > 0;
         }
+        
+        public DataTable LayDanhSachDatPhongHomNay()
+        {
+            // Lấy các phòng có NgayNhan là hôm nay
+            string query = @"
+                SELECT 
+                    kh.HoTen, 
+                    p.SoPhong, 
+                    dp.NgayNhan, 
+                    dp.NgayTra, 
+                    dp.SoNguoiO, 
+                    dp.TongTien,
+                    kh.CCCD,
+                    kh.SoDienThoai
+                FROM DatPhong dp
+                JOIN KhachHang kh ON dp.MaKhachHang = kh.MaKhachHang
+                JOIN Phong p ON dp.MaPhong = p.MaPhong
+                WHERE CAST(dp.NgayNhan AS DATE) = CAST(GETDATE() AS DATE)
+                ORDER BY dp.MaDatPhong DESC"; // Hiển thị đặt phòng mới nhất lên đầu
+
+            return DatabaseHelper.GetData(query);
+        }
         public int TongSoNguoiDangO()
         {
             string query = "SELECT ISNULL(SUM(SoNguoiO), 0) FROM DatPhong WHERE GETDATE() BETWEEN NgayNhan AND NgayTra";

@@ -6,8 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using abchotel.DAL;
-using abchotel.Model;
+
 
 namespace abchotel.BLL
 {
@@ -23,6 +22,10 @@ namespace abchotel.BLL
         public bool ThemDatPhong(DatPhong dp)
         {
             return dal.ThemDatPhong(dp);
+        }
+        public DataTable LayDanhSachDatPhongHomNay()
+        {
+            return dal.LayDanhSachDatPhongHomNay();
         }
         public int TongSoNguoiDangO()
         {
