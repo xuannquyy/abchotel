@@ -33,28 +33,30 @@ namespace abchotel
 
             NguoiDungBLL bll = new NguoiDungBLL();
             NguoiDung user = bll.DangNhap(username, password);
-            if (user == null) 
+            if (user == null)
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
             }
-            
             else if (user.VaiTro == "Admin")
             {
                 FormAdmin formAdmin = new FormAdmin();
                 this.Hide();
-                formAdmin.ShowDialog();
-                this.Show();
+
+                formAdmin.FormClosed += (s, args) => Application.Exit();
+
+                formAdmin.Show();
             }
             else if (user.VaiTro == "User")
             {
-                FormMain formMain = new FormMain(user.HoTen);
+                FormMain formMain = new FormMain(user);
                 this.Hide();
-                formMain.ShowDialog();
-                this.Show();
+
+                formMain.FormClosed += (s, args) => Application.Exit();
+                formMain.Show();
             }
             else
             {
-                MessageBox.Show("Vai trò của người dùng không xác định.");
+                MessageBox.Show("Vai trò người dùng không được hỗ trợ: " + user.VaiTro);
             }
         }
 
@@ -78,13 +80,6 @@ namespace abchotel
             this.Hide();
             formforgotPW.ShowDialog();
             this.Show();
-        }
-
-        
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void FormLogin_Load(object sender, EventArgs e)

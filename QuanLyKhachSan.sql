@@ -83,7 +83,7 @@ VALUES ('admin', 'admin', N'Quản trị hệ thống', 'vienxuanquy82024@gmail.
 
 -- Thêm 1 tài khoản nhân viên ví dụ
 INSERT INTO NguoiDung (TenDangNhap, MatKhau, HoTen, Email, VaiTro)
-VALUES (N'Trương Thị Ánh', '123456', N'Nhân viên lễ tân', 'truongthianh23ct112@gmail.com', 'User');
+VALUES (N'NV123000580', '123456', N'Trương thị Ánh', 'truongthianh23ct112@gmail.com', 'User');
 
 INSERT INTO DichVu (TenDichVu, DonGia)
 VALUES
@@ -136,15 +136,15 @@ GO
 
 -- Khách 1 (Nguyễn Văn An) đặt phòng VIP301 (MaPhong 1) (2 đêm)
 INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
-VALUES (1, 1, '2024-10-25', '2024-10-27', 2, 7000000); -- (3.5tr * 2 đêm)
+VALUES (1, 1, '2025-10-25', '2025-10-27', 2, 7000000); -- (3.5tr * 2 đêm)
 GO
 -- Khách 2 (Trần Thị Bảo) đặt phòng A201 (MaPhong 5) (3 đêm)
 INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
-VALUES (5, 2, '2024-10-26', '2024-10-29', 2, 5400000); -- (1.8tr * 3 đêm)
+VALUES (5, 2, '2025-10-26', '2025-10-29', 2, 5400000); -- (1.8tr * 3 đêm)
 GO
 -- Khách 3 (Lê Minh Cường) đặt phòng A101 (MaPhong 13) (1 đêm)
 INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
-VALUES (13, 3, '2024-10-26', '2024-10-27', 1, 1200000); -- (1.2tr * 1 đêm)
+VALUES (13, 3, '2025-10-26', '2025-10-27', 1, 1200000); -- (1.2tr * 1 đêm)
 GO
 
 -- Cập nhật trạng thái các phòng đã được đặt
@@ -183,3 +183,7 @@ Go
 DELETE FROM HoaDon; -- Xóa dữ liệu cũ
 DROP TABLE HoaDon; -- Xóa bảng cũ
 GO
+DELETE FROM NguoiDung WHERE MaNguoiDung = 4;
+DBCC CHECKIDENT ('NguoiDung', RESEED, 2);
+
+

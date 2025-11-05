@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHuy = new System.Windows.Forms.Button();
             this.txtmkc = new System.Windows.Forms.TextBox();
             this.txtmkm = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtXacNhan = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnLuuthongtin = new System.Windows.Forms.Button();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -51,8 +53,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnHuy = new System.Windows.Forms.Button();
-            this.btnLuuthongtin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,20 @@
             this.panel1.Size = new System.Drawing.Size(485, 476);
             this.panel1.TabIndex = 0;
             // 
+            // btnHuy
+            // 
+            this.btnHuy.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnHuy.Location = new System.Drawing.Point(20, 402);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(180, 36);
+            this.btnHuy.TabIndex = 14;
+            this.btnHuy.Text = "HỦY";
+            this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // txtmkc
             // 
             this.txtmkc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -81,10 +95,9 @@
             this.txtmkc.Margin = new System.Windows.Forms.Padding(2);
             this.txtmkc.Multiline = true;
             this.txtmkc.Name = "txtmkc";
-            this.txtmkc.PasswordChar = '*';
+            this.txtmkc.PasswordChar = '•';
             this.txtmkc.Size = new System.Drawing.Size(243, 27);
             this.txtmkc.TabIndex = 13;
-            this.txtmkc.UseSystemPasswordChar = true;
             // 
             // txtmkm
             // 
@@ -93,10 +106,9 @@
             this.txtmkm.Margin = new System.Windows.Forms.Padding(2);
             this.txtmkm.Multiline = true;
             this.txtmkm.Name = "txtmkm";
-            this.txtmkm.PasswordChar = '*';
+            this.txtmkm.PasswordChar = '•';
             this.txtmkm.Size = new System.Drawing.Size(243, 27);
             this.txtmkm.TabIndex = 11;
-            this.txtmkm.UseSystemPasswordChar = true;
             // 
             // label10
             // 
@@ -146,6 +158,7 @@
             this.btnlmkm.TabIndex = 5;
             this.btnlmkm.Text = "LƯU MẬT KHẨU MỚI";
             this.btnlmkm.UseVisualStyleBackColor = false;
+            this.btnlmkm.Click += new System.EventHandler(this.btnlmkm_Click);
             // 
             // label3
             // 
@@ -166,10 +179,9 @@
             this.txtXacNhan.Margin = new System.Windows.Forms.Padding(2);
             this.txtXacNhan.Multiline = true;
             this.txtXacNhan.Name = "txtXacNhan";
-            this.txtXacNhan.PasswordChar = '*';
+            this.txtXacNhan.PasswordChar = '•';
             this.txtXacNhan.Size = new System.Drawing.Size(243, 27);
             this.txtXacNhan.TabIndex = 14;
-            this.txtXacNhan.UseSystemPasswordChar = true;
             // 
             // panel2
             // 
@@ -192,6 +204,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(408, 476);
             this.panel2.TabIndex = 1;
+            // 
+            // btnLuuthongtin
+            // 
+            this.btnLuuthongtin.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnLuuthongtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuuthongtin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLuuthongtin.Location = new System.Drawing.Point(151, 402);
+            this.btnLuuthongtin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLuuthongtin.Name = "btnLuuthongtin";
+            this.btnLuuthongtin.Size = new System.Drawing.Size(243, 36);
+            this.btnLuuthongtin.TabIndex = 15;
+            this.btnLuuthongtin.Text = "LƯU THÔNG TIN";
+            this.btnLuuthongtin.UseVisualStyleBackColor = false;
+            this.btnLuuthongtin.Click += new System.EventHandler(this.btnLuuthongtin_Click);
             // 
             // txtTenDangNhap
             // 
@@ -340,34 +366,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "THÔNG TIN VÀ CÀI ĐẶT CÁ NHÂN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnHuy.Location = new System.Drawing.Point(20, 402);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(180, 36);
-            this.btnHuy.TabIndex = 14;
-            this.btnHuy.Text = "HỦY";
-            this.btnHuy.UseVisualStyleBackColor = false;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // btnLuuthongtin
-            // 
-            this.btnLuuthongtin.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnLuuthongtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuthongtin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLuuthongtin.Location = new System.Drawing.Point(151, 402);
-            this.btnLuuthongtin.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLuuthongtin.Name = "btnLuuthongtin";
-            this.btnLuuthongtin.Size = new System.Drawing.Size(243, 36);
-            this.btnLuuthongtin.TabIndex = 15;
-            this.btnLuuthongtin.Text = "LƯU THÔNG TIN";
-            this.btnLuuthongtin.UseVisualStyleBackColor = false;
-            this.btnLuuthongtin.Click += new System.EventHandler(this.btnLuuthongtin_Click);
             // 
             // FormUser
             // 

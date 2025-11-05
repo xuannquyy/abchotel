@@ -1,4 +1,6 @@
 ﻿using abchotel.BLL;
+using abchotel.Model;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,15 +20,17 @@ namespace abchotel
         HoaDonBLL hoaDonBLL = new HoaDonBLL();
         PhongBLL phongBLL = new PhongBLL();
         private string tenNhanVienHienTai;
+        private int maNhanVienHienTai;
         public FormMain()
         {
             InitializeComponent();
             timer1.Interval = 1000;
             timer1.Start();
         }
-        public FormMain(string tenNhanVien) : this() // Gọi hàm khởi tạo mặc định (InitializeComponent)
+        public FormMain(NguoiDung user) : this() 
         {
-            this.tenNhanVienHienTai = tenNhanVien;
+            this.tenNhanVienHienTai = user.HoTen;
+            this.maNhanVienHienTai = user.MaNguoiDung; // <-- THÊM: Lưu lại ID
             lblNhanvien.Text = "Nhân viên: " + this.tenNhanVienHienTai;
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -93,7 +97,7 @@ namespace abchotel
         private void pnTraphong_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormRoom frm = new FormRoom();
+            FormInvoice frm = new FormInvoice();
             frm.FormClosed += (s, args) => this.Show();
             frm.Show();
         }
@@ -125,7 +129,7 @@ namespace abchotel
         private void pnThongke_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormRoom frm = new FormRoom();
+            FormReport frm = new FormReport(); 
             frm.FormClosed += (s, args) => this.Show();
             frm.Show();
         }
@@ -133,7 +137,7 @@ namespace abchotel
         private void pnCaidat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormUser frm = new FormUser();
+            FormUser frm = new FormUser(this.maNhanVienHienTai);
             frm.FormClosed += (s, args) => this.Show();
             frm.Show();
         }

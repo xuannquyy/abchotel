@@ -14,7 +14,10 @@ namespace abchotel
         public FormUser()
         {
             InitializeComponent();
-            this.maNguoiDung = maNguoiDung;
+        }
+        public FormUser(int maNguoiDungDangNhap) : this() // 'this()' gọi hàm FormUser() ở trên
+        {
+            this.maNguoiDung = maNguoiDungDangNhap;
         }
         private void btnlmkm_Click(object sender, EventArgs e)
         {
@@ -33,7 +36,6 @@ namespace abchotel
                 MessageBox.Show("Mật khẩu mới không khớp!", "Lỗi");
                 return;
             }
-
             if (bll.DoiMatKhau(maNguoiDung, cu, moi))
             {
                 MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo");
@@ -75,6 +77,7 @@ namespace abchotel
 
             if (nguoiDungHienTai != null)
             {
+                txtmnv.Text = nguoiDungHienTai.MaNguoiDung.ToString();
                 txtTenDangNhap.Text = nguoiDungHienTai.TenDangNhap;
                 txtHoTen.Text = nguoiDungHienTai.HoTen;
                 txtEmail.Text = nguoiDungHienTai.Email;

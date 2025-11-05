@@ -66,7 +66,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "ĐĂNG NHẬP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -121,7 +120,6 @@
             this.txtMatkhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMatkhau.Multiline = true;
             this.txtMatkhau.Name = "txtMatkhau";
-            this.txtMatkhau.PasswordChar = '*';
             this.txtMatkhau.Size = new System.Drawing.Size(240, 28);
             this.txtMatkhau.TabIndex = 8;
             this.txtMatkhau.UseSystemPasswordChar = true;
