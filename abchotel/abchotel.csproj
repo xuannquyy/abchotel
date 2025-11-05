@@ -85,11 +85,21 @@
     <Compile Include="FormforgotPW.Designer.cs">
       <DependentUpon>FormforgotPW.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormforgotPW1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormforgotPW.resx</DependentUpon>
+    </Compile>
     <Compile Include="Formlgin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formlgin.Designer.cs">
       <DependentUpon>Formlgin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formlgin1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formlgin.resx</DependentUpon>
     </Compile>
     <Compile Include="FormSer.cs">
       <SubType>Form</SubType>
@@ -143,9 +153,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormforgotPW.resx">
       <DependentUpon>FormforgotPW.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormforgotPW1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Formlgin.resx">
       <DependentUpon>Formlgin.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Formlgin1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSer.resx">
       <DependentUpon>FormSer.cs</DependentUpon>

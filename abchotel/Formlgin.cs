@@ -17,8 +17,7 @@ namespace abchotel
         public Formlgin()
         {
             InitializeComponent();
-        }
-
+        
         private void Formlgin_Load(object sender, EventArgs e)
         {
 
