@@ -148,10 +148,10 @@ VALUES (13, 3, '2025-10-26', '2025-10-27', 1, 1200000); -- (1.2tr * 1 đêm)
 GO
 
 -- Cập nhật trạng thái các phòng đã được đặt
-UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'VIP301';
-UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'A201';
-UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'A101';
-GO
+--UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'VIP301';
+--UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'A201';
+--UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'A101';
+--GO
 
 
 -- Lưu ý: MaDatPhong và MaDichVu cũng giả định IDENTITY bắt đầu từ 1.
