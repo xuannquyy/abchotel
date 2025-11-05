@@ -179,7 +179,86 @@ VALUES (@MaHD2, 1, 2, 150000);
 Go
 
 
+CREATE PROCEDURE sp_GetOrCreateHoaDon
+    @MaDatPhong INT
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    DECLARE @MaHoaDon INT;
+    DECLARE @TongTienPhong DECIMAL(18,2);
+    DECLARE @TongTienDichVu DECIMAL(18,2);
+    DECLARE @TrangThaiHD NVARCHAR(50);
+    DECLARE @SoDem INT;
+
+    -- 1. Kiểm tra xem hóa đơn đã tồn tại chưa
+    SELECT @MaHoaDon = MaHoaDon, @TrangThaiHD = TrangThai
+    FROM HoaDon
+    WHERE MaDatPhong = @MaDatPhong;
+
+    -- 2. Tính tiền phòng và số đêm
+    SELECT 
+        @SoDem = ISNULL(DATEDIFF(day, dp.NgayNhan, dp.NgayTra), 0),
+        @TongTienPhong = ISNULL(DATEDIFF(day, dp.NgayNhan, dp.NgayTra) * p.DonGia, 0)
+    FROM DatPhong dp
+    JOIN Phong p ON dp.MaPhong = p.MaPhong
+    WHERE dp.MaDatPhong = @MaDatPhong;
+    
+    -- (Nếu số đêm = 0, coi như 1 đêm)
+    IF @SoDem <= 0
+    BEGIN
+        SET @SoDem = 1;
+        SELECT @TongTienPhong = p.DonGia 
+        FROM Phong p 
+        JOIN DatPhong dp ON p.MaPhong = dp.MaPhong 
+        WHERE dp.MaDatPhong = @MaDatPhong;
+    END
+
+    -- 3. Nếu hóa đơn CHƯA TỒN TẠI
+    IF @MaHoaDon IS NULL
+    BEGIN
+        -- 3a. Tạo hóa đơn mới
+        INSERT INTO HoaDon (MaDatPhong, NgayLap, TongTienPhong, TrangThai)
+        VALUES (@MaDatPhong, GETDATE(), @TongTienPhong, N'Chưa thanh toán');
+        
+        SET @MaHoaDon = SCOPE_IDENTITY(); -- Lấy MaHoaDon vừa tạo
+        
+        -- (Tiền dịch vụ lúc này là 0)
+        SET @TongTienDichVu = 0;
+    END
+    -- 4. Nếu hóa đơn ĐÃ TỒN TẠI nhưng chưa thanh toán
+    ELSE IF @TrangThaiHD = N'Chưa thanh toán'
+    BEGIN
+        -- 4a. Tính tổng tiền dịch vụ (từ bảng ChiTietDichVu)
+        SELECT @TongTienDichVu = ISNULL(SUM(ThanhTien), 0)
+        FROM ChiTietDichVu
+        WHERE MaHoaDon = @MaHoaDon;
+
+        -- 4b. Cập nhật lại hóa đơn (tiền phòng và tiền dịch vụ)
+        UPDATE HoaDon
+        SET 
+            TongTienPhong = @TongTienPhong,
+            TongTienDichVu = @TongTienDichVu
+        WHERE MaHoaDon = @MaHoaDon;
+    END
+
+    -- 5. Trả về thông tin hóa đơn hoàn chỉnh (JOIN với các bảng khác)
+    SELECT 
+        hd.*,
+        kh.HoTen,
+        p.SoPhong,
+        dp.NgayNhan,
+        dp.NgayTra
+    FROM HoaDon hd
+    JOIN DatPhong dp ON hd.MaDatPhong = dp.MaDatPhong
+    JOIN KhachHang kh ON dp.MaKhachHang = kh.MaKhachHang
+    JOIN Phong p ON dp.MaPhong = p.MaPhong
+    WHERE hd.MaHoaDon = @MaHoaDon;
+
+END
+GO
+
+--Dùng để chỉnh sửa thôi không cần chạy
 DELETE FROM HoaDon; -- Xóa dữ liệu cũ
 DROP TABLE HoaDon; -- Xóa bảng cũ
 GO
