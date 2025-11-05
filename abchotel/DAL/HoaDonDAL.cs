@@ -24,10 +24,10 @@ public class HoaDonDAL
     // Lấy thông tin chi tiết Hóa đơn (bao gồm cả Tiền phòng)
     public HoaDon LayThongTinHoaDon(int maDatPhong)
     {
-        // Query này sẽ tạo hóa đơn nếu chưa có,
-        // và tính toán/cập nhật tiền phòng, tiền dịch vụ
         string query = "sp_GetOrCreateHoaDon"; // Sẽ dùng Stored Procedure
 
+        // SỬA 2: Gọi hàm GetData với đúng CommandType
+        // Giờ đây nó sẽ chọn đúng hàm 3 tham số
         var dt = DatabaseHelper.GetData(query, CommandType.StoredProcedure, ("@MaDatPhong", maDatPhong));
 
         if (dt.Rows.Count > 0)
