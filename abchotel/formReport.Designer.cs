@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblbc = new System.Windows.Forms.Label();
             this.cboloaibc = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -171,16 +171,16 @@
             // 
             // chdthu
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chdthu.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chdthu.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chdthu.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chdthu.Legends.Add(legend6);
             this.chdthu.Location = new System.Drawing.Point(974, 203);
             this.chdthu.Name = "chdthu";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chdthu.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chdthu.Series.Add(series6);
             this.chdthu.Size = new System.Drawing.Size(900, 624);
             this.chdthu.TabIndex = 6;
             this.chdthu.Text = "Doanh thu";
@@ -194,7 +194,6 @@
             this.lblto.Size = new System.Drawing.Size(74, 32);
             this.lblto.TabIndex = 8;
             this.lblto.Text = "Đến:";
-            this.lblto.Click += new System.EventHandler(this.lblto_Click);
             // 
             // lblfrom
             // 
@@ -205,7 +204,6 @@
             this.lblfrom.Size = new System.Drawing.Size(62, 32);
             this.lblfrom.TabIndex = 7;
             this.lblfrom.Text = "Từ: ";
-            this.lblfrom.Click += new System.EventHandler(this.lblfrom_Click);
             // 
             // dtto
             // 
@@ -215,7 +213,6 @@
             this.dtto.Name = "dtto";
             this.dtto.Size = new System.Drawing.Size(200, 22);
             this.dtto.TabIndex = 2;
-            this.dtto.ValueChanged += new System.EventHandler(this.dtto_ValueChanged);
             // 
             // lblloai
             // 
