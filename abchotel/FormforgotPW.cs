@@ -79,6 +79,7 @@ namespace abchotel
                 return;
             }
 
+
             otoCode= bll.GenerateOTP();
 
             try

@@ -36,6 +36,7 @@ namespace abchotel
             }
 
             NguoiDung user =  NguoiDungBLL.(username, password);
+
             if
 
             (user != null)
