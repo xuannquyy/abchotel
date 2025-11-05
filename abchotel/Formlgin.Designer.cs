@@ -45,7 +45,7 @@
             // 
             this.btnDangnhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnDangnhap.ForeColor = System.Drawing.Color.White;
-            this.btnDangnhap.Location = new System.Drawing.Point(129, 230);
+            this.btnDangnhap.Location = new System.Drawing.Point(119, 230);
             this.btnDangnhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDangnhap.Name = "btnDangnhap";
             this.btnDangnhap.Size = new System.Drawing.Size(164, 35);
@@ -82,7 +82,7 @@
             // 
             this.linkLblQuenmk.AutoSize = true;
             this.linkLblQuenmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLblQuenmk.Location = new System.Drawing.Point(168, 283);
+            this.linkLblQuenmk.Location = new System.Drawing.Point(149, 283);
             this.linkLblQuenmk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLblQuenmk.Name = "linkLblQuenmk";
             this.linkLblQuenmk.Size = new System.Drawing.Size(103, 16);
@@ -175,7 +175,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Formlgin";
-            this.Text = "Formlgin";
+            this.Text = "Formlogin";
             this.Load += new System.EventHandler(this.Formlgin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
