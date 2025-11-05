@@ -98,5 +98,17 @@ namespace abchotel.DAL
                 ("@Email", email)
             ) > 0;
         }
+        public DataTable TimKiem(string keyword)
+        {
+            string query = @"SELECT * FROM NguoiDung 
+                             WHERE HoTen LIKE @Keyword 
+                             OR TenDangNhap LIKE @Keyword 
+                             OR Email LIKE @Keyword";
+
+            // Thêm dấu % để tìm kiếm (LIKE)
+            string keywordParam = "%" + keyword + "%";
+
+            return DatabaseHelper.GetData(query, ("@Keyword", keywordParam));
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace abchotel
             {
                 MessageBox.Show("Đổi mật khẩu thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                new Formlgin().Show();
+                new FormLogin().Show();
             }
             else
             {
@@ -87,6 +87,11 @@ namespace abchotel
             {
                 MessageBox.Show("Không thể gửi email. Vui lòng kiểm tra kết nối hoặc cấu hình Gmail!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

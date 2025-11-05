@@ -45,6 +45,9 @@ namespace abchotel.BLL
         {
             return dal.DoiMatKhauTheoTen(username, email, newPass);
         }
-
+        public DataTable TimKiem(string keyword)
+        {
+            return dal.TimKiem(keyword);
+        }
     }
 }

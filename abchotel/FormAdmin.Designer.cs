@@ -34,9 +34,9 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvTaiKhoan = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txbtimkiem = new System.Windows.Forms.TextBox();
+            this.txtTimkiem = new System.Windows.Forms.TextBox();
             this.btxoatk = new System.Windows.Forms.Button();
-            this.btluu = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
             this.btthemmoi = new System.Windows.Forms.Button();
             this.btreset = new System.Windows.Forms.Button();
             this.cbChucVu = new System.Windows.Forms.ComboBox();
@@ -57,8 +57,10 @@
             this.txbmatkhau = new System.Windows.Forms.TextBox();
             this.labmatkhau = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pbTimkiem = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTimkiem)).BeginInit();
             this.SuspendLayout();
             // 
             // columnHeader5
@@ -93,34 +95,36 @@
             this.lvTaiKhoan.FullRowSelect = true;
             this.lvTaiKhoan.GridLines = true;
             this.lvTaiKhoan.HideSelection = false;
-            this.lvTaiKhoan.Location = new System.Drawing.Point(36, 105);
-            this.lvTaiKhoan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvTaiKhoan.Location = new System.Drawing.Point(26, 135);
+            this.lvTaiKhoan.Margin = new System.Windows.Forms.Padding(2);
             this.lvTaiKhoan.MultiSelect = false;
             this.lvTaiKhoan.Name = "lvTaiKhoan";
-            this.lvTaiKhoan.Size = new System.Drawing.Size(624, 461);
+            this.lvTaiKhoan.Size = new System.Drawing.Size(624, 440);
             this.lvTaiKhoan.TabIndex = 13;
             this.lvTaiKhoan.UseCompatibleStateImageBehavior = false;
             this.lvTaiKhoan.View = System.Windows.Forms.View.Details;
+            this.lvTaiKhoan.SelectedIndexChanged += new System.EventHandler(this.lvTaiKhoan_SelectedIndexChanged);
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Chức vụ";
             this.columnHeader4.Width = 120;
             // 
-            // txbtimkiem
+            // txtTimkiem
             // 
-            this.txbtimkiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbtimkiem.Location = new System.Drawing.Point(122, 78);
-            this.txbtimkiem.Margin = new System.Windows.Forms.Padding(2);
-            this.txbtimkiem.Name = "txbtimkiem";
-            this.txbtimkiem.Size = new System.Drawing.Size(387, 26);
-            this.txbtimkiem.TabIndex = 12;
+            this.txtTimkiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimkiem.Location = new System.Drawing.Point(122, 78);
+            this.txtTimkiem.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTimkiem.Name = "txtTimkiem";
+            this.txtTimkiem.Size = new System.Drawing.Size(387, 26);
+            this.txtTimkiem.TabIndex = 12;
+            this.txtTimkiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimkiem_KeyDown);
             // 
             // btxoatk
             // 
-            this.btxoatk.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btxoatk.Location = new System.Drawing.Point(170, 531);
-            this.btxoatk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btxoatk.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btxoatk.Location = new System.Drawing.Point(170, 490);
+            this.btxoatk.Margin = new System.Windows.Forms.Padding(2);
             this.btxoatk.Name = "btxoatk";
             this.btxoatk.Size = new System.Drawing.Size(146, 36);
             this.btxoatk.TabIndex = 25;
@@ -128,25 +132,25 @@
             this.btxoatk.UseVisualStyleBackColor = true;
             this.btxoatk.Click += new System.EventHandler(this.btxoatk_Click);
             // 
-            // btluu
+            // btnHuy
             // 
-            this.btluu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btluu.Location = new System.Drawing.Point(327, 531);
-            this.btluu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btluu.Name = "btluu";
-            this.btluu.Size = new System.Drawing.Size(116, 36);
-            this.btluu.TabIndex = 24;
-            this.btluu.Text = "HỦY";
-            this.btluu.UseVisualStyleBackColor = true;
-            this.btluu.Click += new System.EventHandler(this.btluu_Click);
+            this.btnHuy.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(327, 490);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(116, 36);
+            this.btnHuy.TabIndex = 24;
+            this.btnHuy.Text = "HỦY";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btthemmoi
             // 
-            this.btthemmoi.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btthemmoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btthemmoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btthemmoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btthemmoi.ForeColor = System.Drawing.SystemColors.Control;
-            this.btthemmoi.Location = new System.Drawing.Point(14, 531);
-            this.btthemmoi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btthemmoi.Location = new System.Drawing.Point(14, 490);
+            this.btthemmoi.Margin = new System.Windows.Forms.Padding(2);
             this.btthemmoi.Name = "btthemmoi";
             this.btthemmoi.Size = new System.Drawing.Size(142, 36);
             this.btthemmoi.TabIndex = 23;
@@ -156,11 +160,11 @@
             // 
             // btreset
             // 
-            this.btreset.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btreset.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btreset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btreset.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btreset.ForeColor = System.Drawing.SystemColors.Control;
-            this.btreset.Location = new System.Drawing.Point(151, 458);
-            this.btreset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btreset.Location = new System.Drawing.Point(149, 419);
+            this.btreset.Margin = new System.Windows.Forms.Padding(2);
             this.btreset.Name = "btreset";
             this.btreset.Size = new System.Drawing.Size(184, 36);
             this.btreset.TabIndex = 22;
@@ -172,8 +176,8 @@
             // 
             this.cbChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbChucVu.FormattingEnabled = true;
-            this.cbChucVu.Location = new System.Drawing.Point(160, 350);
-            this.cbChucVu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbChucVu.Location = new System.Drawing.Point(163, 352);
+            this.cbChucVu.Margin = new System.Windows.Forms.Padding(2);
             this.cbChucVu.Name = "cbChucVu";
             this.cbChucVu.Size = new System.Drawing.Size(262, 27);
             this.cbChucVu.TabIndex = 19;
@@ -181,18 +185,18 @@
             // labchucvu
             // 
             this.labchucvu.AutoSize = true;
-            this.labchucvu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labchucvu.Location = new System.Drawing.Point(26, 357);
+            this.labchucvu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labchucvu.Location = new System.Drawing.Point(21, 357);
             this.labchucvu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labchucvu.Name = "labchucvu";
-            this.labchucvu.Size = new System.Drawing.Size(64, 19);
+            this.labchucvu.Size = new System.Drawing.Size(83, 22);
             this.labchucvu.TabIndex = 18;
             this.labchucvu.Text = "Chức vụ:";
             // 
             // txbmail
             // 
             this.txbmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbmail.Location = new System.Drawing.Point(160, 292);
+            this.txbmail.Location = new System.Drawing.Point(163, 288);
             this.txbmail.Margin = new System.Windows.Forms.Padding(2);
             this.txbmail.Name = "txbmail";
             this.txbmail.Size = new System.Drawing.Size(262, 26);
@@ -201,18 +205,18 @@
             // labmail
             // 
             this.labmail.AutoSize = true;
-            this.labmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labmail.Location = new System.Drawing.Point(26, 299);
+            this.labmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labmail.Location = new System.Drawing.Point(21, 292);
             this.labmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labmail.Name = "labmail";
-            this.labmail.Size = new System.Drawing.Size(45, 19);
+            this.labmail.Size = new System.Drawing.Size(63, 22);
             this.labmail.TabIndex = 16;
             this.labmail.Text = "Email:";
             // 
             // txbhoten
             // 
             this.txbhoten.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbhoten.Location = new System.Drawing.Point(160, 236);
+            this.txbhoten.Location = new System.Drawing.Point(163, 233);
             this.txbhoten.Margin = new System.Windows.Forms.Padding(2);
             this.txbhoten.Name = "txbhoten";
             this.txbhoten.Size = new System.Drawing.Size(262, 26);
@@ -221,18 +225,18 @@
             // labhoten
             // 
             this.labhoten.AutoSize = true;
-            this.labhoten.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labhoten.Location = new System.Drawing.Point(26, 243);
+            this.labhoten.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labhoten.Location = new System.Drawing.Point(21, 237);
             this.labhoten.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labhoten.Name = "labhoten";
-            this.labhoten.Size = new System.Drawing.Size(71, 19);
+            this.labhoten.Size = new System.Drawing.Size(93, 22);
             this.labhoten.TabIndex = 14;
             this.labhoten.Text = "Họ và tên:";
             // 
             // txbtendn
             // 
             this.txbtendn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbtendn.Location = new System.Drawing.Point(160, 124);
+            this.txbtendn.Location = new System.Drawing.Point(163, 124);
             this.txbtendn.Margin = new System.Windows.Forms.Padding(2);
             this.txbtendn.Name = "txbtendn";
             this.txbtendn.Size = new System.Drawing.Size(262, 26);
@@ -241,18 +245,19 @@
             // labtendn
             // 
             this.labtendn.AutoSize = true;
-            this.labtendn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labtendn.Location = new System.Drawing.Point(26, 130);
+            this.labtendn.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labtendn.Location = new System.Drawing.Point(19, 125);
             this.labtendn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labtendn.Name = "labtendn";
-            this.labtendn.Size = new System.Drawing.Size(101, 19);
+            this.labtendn.Size = new System.Drawing.Size(137, 22);
             this.labtendn.TabIndex = 12;
             this.labtendn.Text = "Tên đăng nhập:";
             // 
             // txbmanv
             // 
+            this.txbmanv.Enabled = false;
             this.txbmanv.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbmanv.Location = new System.Drawing.Point(160, 78);
+            this.txbmanv.Location = new System.Drawing.Point(163, 78);
             this.txbmanv.Margin = new System.Windows.Forms.Padding(2);
             this.txbmanv.Name = "txbmanv";
             this.txbmanv.Size = new System.Drawing.Size(262, 26);
@@ -261,11 +266,11 @@
             // labmaNV
             // 
             this.labmaNV.AutoSize = true;
-            this.labmaNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labmaNV.Location = new System.Drawing.Point(26, 84);
+            this.labmaNV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labmaNV.Location = new System.Drawing.Point(19, 82);
             this.labmaNV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labmaNV.Name = "labmaNV";
-            this.labmaNV.Size = new System.Drawing.Size(59, 19);
+            this.labmaNV.Size = new System.Drawing.Size(73, 22);
             this.labmaNV.TabIndex = 10;
             this.labmaNV.Text = "Mã NV:";
             // 
@@ -273,7 +278,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(32, 23);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -285,7 +290,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(26, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -296,24 +301,25 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pbTimkiem);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.lvTaiKhoan);
-            this.panel2.Controls.Add(this.txbtimkiem);
+            this.panel2.Controls.Add(this.txtTimkiem);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(625, 162);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(617, 84);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(698, 600);
+            this.panel2.Size = new System.Drawing.Size(698, 589);
             this.panel2.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 84);
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(32, 81);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 19);
+            this.label4.Size = new System.Drawing.Size(77, 19);
             this.label4.TabIndex = 14;
             this.label4.Text = "Tìm kiếm:";
             // 
@@ -323,7 +329,7 @@
             this.panel1.Controls.Add(this.txbmatkhau);
             this.panel1.Controls.Add(this.labmatkhau);
             this.panel1.Controls.Add(this.btxoatk);
-            this.panel1.Controls.Add(this.btluu);
+            this.panel1.Controls.Add(this.btnHuy);
             this.panel1.Controls.Add(this.btthemmoi);
             this.panel1.Controls.Add(this.btreset);
             this.panel1.Controls.Add(this.cbChucVu);
@@ -337,16 +343,16 @@
             this.panel1.Controls.Add(this.txbmanv);
             this.panel1.Controls.Add(this.labmaNV);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(90, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(92, 84);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(462, 600);
+            this.panel1.Size = new System.Drawing.Size(463, 589);
             this.panel1.TabIndex = 5;
             // 
             // txbmatkhau
             // 
             this.txbmatkhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbmatkhau.Location = new System.Drawing.Point(160, 180);
+            this.txbmatkhau.Location = new System.Drawing.Point(163, 176);
             this.txbmatkhau.Margin = new System.Windows.Forms.Padding(2);
             this.txbmatkhau.Name = "txbmatkhau";
             this.txbmatkhau.Size = new System.Drawing.Size(262, 26);
@@ -355,26 +361,38 @@
             // labmatkhau
             // 
             this.labmatkhau.AutoSize = true;
-            this.labmatkhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labmatkhau.Location = new System.Drawing.Point(26, 187);
+            this.labmatkhau.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labmatkhau.Location = new System.Drawing.Point(19, 180);
             this.labmatkhau.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labmatkhau.Name = "labmatkhau";
-            this.labmatkhau.Size = new System.Drawing.Size(70, 19);
+            this.labmatkhau.Size = new System.Drawing.Size(95, 22);
             this.labmatkhau.TabIndex = 26;
             this.labmatkhau.Text = "Mật khẩu:";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(355, 53);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(739, 40);
+            this.label1.Size = new System.Drawing.Size(1370, 82);
             this.label1.TabIndex = 4;
             this.label1.Text = "QUẢN LÝ TÀI KHOẢN HỆ THỐNG (ADMIN)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbTimkiem
+            // 
+            this.pbTimkiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbTimkiem.Image = global::abchotel.Properties.Resources.icons8_search_100;
+            this.pbTimkiem.Location = new System.Drawing.Point(510, 78);
+            this.pbTimkiem.Name = "pbTimkiem";
+            this.pbTimkiem.Size = new System.Drawing.Size(30, 26);
+            this.pbTimkiem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbTimkiem.TabIndex = 15;
+            this.pbTimkiem.TabStop = false;
+            this.pbTimkiem.Click += new System.EventHandler(this.pbTimkiem_Click);
             // 
             // FormAdmin
             // 
@@ -384,7 +402,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -393,8 +411,8 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTimkiem)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -406,9 +424,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ListView lvTaiKhoan;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.TextBox txbtimkiem;
+        private System.Windows.Forms.TextBox txtTimkiem;
         private System.Windows.Forms.Button btxoatk;
-        private System.Windows.Forms.Button btluu;
+        private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btthemmoi;
         private System.Windows.Forms.Button btreset;
         private System.Windows.Forms.ComboBox cbChucVu;
@@ -429,5 +447,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbmatkhau;
         private System.Windows.Forms.Label labmatkhau;
+        private System.Windows.Forms.PictureBox pbTimkiem;
     }
 }

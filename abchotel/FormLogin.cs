@@ -12,16 +12,11 @@ using abchotel.Model;
 
 namespace abchotel
 {
-    public partial class Formlgin : Form
+    public partial class FormLogin : Form
     {
-        public Formlgin()
+        public FormLogin()
         {
             InitializeComponent();
-        }
-        
-        private void Formlgin_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -90,6 +85,13 @@ namespace abchotel
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            txtTen.Clear();
+            txtMatkhau.Clear();
+            txtTen.Focus();
         }
     }
 }
