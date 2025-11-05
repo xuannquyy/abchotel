@@ -141,6 +141,7 @@
     <Compile Include="Model\KhachHang.cs" />
     <Compile Include="Model\NguoiDung.cs" />
     <Compile Include="Model\Phong.cs" />
+    <Compile Include="Model\NguoiDung.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdmin.resx">
