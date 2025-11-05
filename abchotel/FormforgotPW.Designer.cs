@@ -185,7 +185,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 26);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Nhập Mã Xác Thực";
+            this.label6.Text = "Nhập Mã OTP";
             // 
             // bntGui
             // 

@@ -122,7 +122,6 @@
             this.txtMatkhau.Name = "txtMatkhau";
             this.txtMatkhau.Size = new System.Drawing.Size(240, 28);
             this.txtMatkhau.TabIndex = 8;
-            this.txtMatkhau.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -166,7 +165,7 @@
             this.checkBoxhienmk.TabIndex = 4;
             this.checkBoxhienmk.Text = "Hiện mật khẩu";
             this.checkBoxhienmk.UseVisualStyleBackColor = true;
-            this.checkBoxhienmk.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBoxhienmk.CheckedChanged += new System.EventHandler(this.checkBoxhienmk_CheckedChanged);
             // 
             // FormLogin
             // 

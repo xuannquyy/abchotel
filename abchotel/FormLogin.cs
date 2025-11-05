@@ -60,20 +60,7 @@ namespace abchotel
             }
         }
 
-          private void checkBox1_CheckedChanged(object sender, EventArgs e)
-               {
-                  if (checkBoxhienmk.Checked)
-                   {
-                    txtMatkhau.UseSystemPasswordChar = false;
-                   }
-                  else
-                            {
-                                txtMatkhau.UseSystemPasswordChar = true;
-                            }
-                        }
-
-        
-
+          
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormforgotPW formforgotPW = new FormforgotPW();
@@ -87,6 +74,21 @@ namespace abchotel
             txtTen.Clear();
             txtMatkhau.Clear();
             txtTen.Focus();
+            txtMatkhau.PasswordChar = '•';
+
+            checkBoxhienmk.Checked = false;
+        }
+
+        private void checkBoxhienmk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxhienmk.Checked)
+            {
+                txtMatkhau.PasswordChar = '\0';
+            }
+            else
+            {
+                txtMatkhau.PasswordChar = '•';
+            }
         }
     }
 }

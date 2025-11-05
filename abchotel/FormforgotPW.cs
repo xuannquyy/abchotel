@@ -1,18 +1,19 @@
-﻿using System;
+﻿using abchotel.BLL;
+using abchotel.DAL;
+using abchotel.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using abchotel.BLL;
-using System.Data.SqlClient;
-using abchotel.Model;
-using System.Net;
-using System.Net.Mail;
-using abchotel.DAL;
 namespace abchotel
 {
     public partial class FormforgotPW : Form
@@ -43,8 +44,7 @@ namespace abchotel
             if (result)
             {
                 MessageBox.Show("Đổi mật khẩu thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                new FormLogin().Show();
+                this.Close();
             }
             else
             {
@@ -70,22 +70,31 @@ namespace abchotel
 
             try
             {
+                string fromMail = ConfigurationManager.AppSettings["SmtpEmail"];
+                string fromPassword = ConfigurationManager.AppSettings["SmtpPassword"];
+
+                if (string.IsNullOrEmpty(fromMail) || string.IsNullOrEmpty(fromPassword))
+                {
+                    MessageBox.Show("Lỗi: Chưa cấu hình email gửi đi trong App.config!", "Lỗi cấu hình", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("youremail@gmail.com");
+                mail.From = new MailAddress(fromMail);
                 mail.To.Add(email);
                 mail.Subject = "Mã OTP - Quên mật khẩu";
                 mail.Body = $"Xin chào {username},\n\nMã OTP của bạn là: {otpCode}\n\nTrân trọng,\nHệ thống ABC Hotel";
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new NetworkCredential("youremail@gmail.com", "your_app_password");
+                smtp.Credentials = new NetworkCredential(fromMail, fromPassword); // Dùng 2 biến
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
 
                 MessageBox.Show("Đã gửi mã OTP đến email của bạn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Không thể gửi email. Vui lòng kiểm tra kết nối hoặc cấu hình Gmail!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.ToString());
+                MessageBox.Show("Không thể gửi email. Vui lòng kiểm tra lại cấu hình email và Mật khẩu ứng dụng trong App.config!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
