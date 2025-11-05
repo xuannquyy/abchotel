@@ -54,7 +54,6 @@
             this.label1.Size = new System.Drawing.Size(253, 34);
             this.label1.TabIndex = 11;
             this.label1.Text = "Quên Mật Khẩu ?";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -66,7 +65,6 @@
             this.label2.Size = new System.Drawing.Size(88, 14);
             this.label2.TabIndex = 12;
             this.label2.Text = "Tên Đăng nhập";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -116,7 +114,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(213, 26);
             this.txtEmail.TabIndex = 17;
-            this.txtEmail.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // bntXacnhan
             // 
@@ -195,7 +192,7 @@
             this.bntGui.TabIndex = 19;
             this.bntGui.Text = "Gửi mã";
             this.bntGui.UseVisualStyleBackColor = false;
-            this.bntGui.Click += new System.EventHandler(this.button2_Click);
+            this.bntGui.Click += new System.EventHandler(this.bntGui_Click);
             // 
             // FormforgotPW
             // 

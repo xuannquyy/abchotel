@@ -17,6 +17,7 @@ namespace abchotel
         public Formlgin()
         {
             InitializeComponent();
+        }
         
         private void Formlgin_Load(object sender, EventArgs e)
         {
@@ -35,7 +36,8 @@ namespace abchotel
                 return;
             }
 
-            NguoiDung user =  NguoiDungBLL.(username, password);
+            NguoiDungBLL bll = new NguoiDungBLL();
+            NguoiDung user = bll.DangNhap(username, password);
             if
 
             (user != null)

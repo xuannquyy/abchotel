@@ -48,5 +48,55 @@ namespace abchotel.DAL
                 ("@Moi", matKhauMoi)
             ) > 0;
         }
+        public NguoiDung DangNhap(string username, string password)
+        {
+            string query = "SELECT * FROM NguoiDung WHERE TenDangNhap = @username AND MatKhau = @password";
+
+            DataTable dt = DatabaseHelper.GetData(query, ("@username", username), ("@password", password));
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow r = dt.Rows[0];
+                return new NguoiDung
+                {
+                    MaNguoiDung = Convert.ToInt32(r["MaNguoiDung"]),
+                    TenDangNhap = r["TenDangNhap"].ToString(),
+                    MatKhau = r["MatKhau"].ToString(),
+                    HoTen = r["HoTen"].ToString(),
+                    Email = r["Email"].ToString(),
+                    VaiTro = r["VaiTro"].ToString()
+                };
+            }
+            return null;
+        }
+        public NguoiDung CheckEmail(string email)
+        {
+            string query = "SELECT * FROM NguoiDung WHERE Email = @Email";
+            DataTable dt = DatabaseHelper.GetData(query, ("@Email", email));
+            if (dt.Rows.Count > 0)
+            {
+                DataRow r = dt.Rows[0];
+                return new NguoiDung
+                {
+                    MaNguoiDung = Convert.ToInt32(r["MaNguoiDung"]),
+                    TenDangNhap = r["TenDangNhap"].ToString(),
+                    MatKhau = r["MatKhau"].ToString(),
+                    HoTen = r["HoTen"].ToString(),
+                    Email = r["Email"].ToString(),
+                    VaiTro = r["VaiTro"].ToString()
+                };
+            }
+            return null;
+        }
+
+        public bool DoiMatKhauTheoTen(string username, string email, string newPass)
+        {
+            string query = "UPDATE NguoiDung SET MatKhau = @MatKhauMoi WHERE TenDangNhap = @TenDangNhap AND Email = @Email";
+            return DatabaseHelper.ExecuteNonQuery(query,
+                ("@MatKhauMoi", newPass),
+                ("@TenDangNhap", username),
+                ("@Email", email)
+            ) > 0;
+        }
     }
 }

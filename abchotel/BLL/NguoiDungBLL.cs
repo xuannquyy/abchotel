@@ -32,5 +32,19 @@ namespace abchotel.BLL
         {
             return dal.DoiMatKhau(ma, cu, moi);
         }
+        public NguoiDung DangNhap(string username, string password)
+        {
+            return dal.DangNhap(username, password);
+        }
+        public NguoiDung CheckEmail(string email)
+        {
+            return dal.CheckEmail(email);
+        }
+
+        public bool DoiMatKhauTheoTen(string username, string email, string newPass)
+        {
+            return dal.DoiMatKhauTheoTen(username, email, newPass);
+        }
+
     }
 }
