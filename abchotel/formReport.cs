@@ -207,20 +207,5 @@ namespace abchotel
                 }
             }
         }
-
-        private void lblfrom_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtto_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
