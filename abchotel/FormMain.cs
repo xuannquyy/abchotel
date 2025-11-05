@@ -78,7 +78,7 @@ namespace abchotel
             lblKhachhang.Text = $"{tongSoNguoiO}";
 
             // Doanh thu hôm nay
-            decimal doanhThuHomNay = hoaDonBLL.DoanhThuHomNay();
+            decimal doanhThuHomNay = hoaDonBLL.LayDoanhThuHomNay();
             lblDoanhthu.Text = $"{doanhThuHomNay:N0} VNĐ";
         }
 

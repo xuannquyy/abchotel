@@ -34,7 +34,7 @@ namespace abchotel
 
         private void LoadHoaDon()
         {
-            DataTable dtHD = hdBLL.LayDanhSachHoaDon();
+            DataTable dtHD = hdBLL.LayDanhSachDatPhongChuaThanhToan();
             if (dtHD == null || dtHD.Rows.Count == 0) return;
 
             DataRow hdRow = dtHD.Rows[0];
