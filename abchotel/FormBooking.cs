@@ -33,21 +33,58 @@ namespace abchotel
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            for (int i = 1; i <= 10; i++)
+            //  VIP 
+            for (int i = 301; i <= 304; i++)
             {
-                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"10{i}", LoaiPhong = "Phòng đơn", GiaPhong = 300000 });
-            }
-            for (int i = 11; i <= 20; i++)
-            {
-                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"20{i}", LoaiPhong = "Phòng đôi", GiaPhong = 500000 });
-            }
-            for (int i = 21; i <= 30; i++)
-            {
-                danhSachPhong.Add(new Phong { MaPhong = $"P{i:000}", SoPhong = $"30{i}", LoaiPhong = "Phòng VIP", GiaPhong = 800000 });
+                string loai = (i % 2 == 1) ? "VIP - Phòng Đôi" : "VIP - Phòng Đơn";
+                decimal gia = (i % 2 == 1) ? 3500000 : 3000000;
+                danhSachPhong.Add(new Phong
+                {
+                    MaPhong = $"VIP{i}",
+                    SoPhong = $"VIP{i}",
+                    LoaiPhong = loai,
+                    GiaPhong = gia,
+                    Trong = true // đảm bảo mặc định là trống
+                });
             }
 
-            Cbloaiphong.Items.AddRange(new string[] { "Phòng đơn", "Phòng đôi", "Phòng VIP" });
-            cbgioitinh.Items.AddRange(new string[] { "Nam", "Nữ", "Khác" });
+            // Phòng Đôi
+            for (int i = 201; i <= 208; i++)
+            {
+                danhSachPhong.Add(new Phong
+                {
+                    MaPhong = $"A{i}",
+                    SoPhong = $"A{i}",
+                    LoaiPhong = "Phòng Đôi",
+                    GiaPhong = 1800000,
+                    Trong = true
+                });
+            }
+
+            // Phòng Đơn
+            for (int i = 101; i <= 108; i++)
+            {
+                danhSachPhong.Add(new Phong
+                {
+                    MaPhong = $"A{i}",
+                    SoPhong = $"A{i}",
+                    LoaiPhong = "Phòng Đơn",
+                    GiaPhong = 1200000,
+                    Trong = true
+                });
+            }
+
+            // 
+            Cbloaiphong.Items.AddRange(new string[]
+            {
+                "Phòng Đơn",
+                "Phòng Đôi",
+                "VIP - Phòng Đơn",
+                "VIP - Phòng Đôi"
+            });
+
+
+            cbgioitinh.Items.AddRange(new string[] { "Nam", "Nữ" });
             txbsodem.TextChanged += txbsodem_TextChanged;
         }
 
@@ -123,7 +160,10 @@ namespace abchotel
             item.SubItems.Add(thanhTien.ToString("#,0") + " VNĐ");
             listView1.Items.Add(item);
 
-            MessageBox.Show("Đặt phòng thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Đặt phòng {phong.SoPhong} thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Làm mới danh sách phòng trống cho loại hiện tại
+            Cbloaiphong_SelectedIndexChanged(null, null);
 
             LamMoi();
         }
