@@ -38,9 +38,9 @@
             this.bntXacnhan = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bntGui = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtNewPass = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.bntGui = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@
             this.label1.Location = new System.Drawing.Point(87, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 34);
+            this.label1.Size = new System.Drawing.Size(253, 34);
             this.label1.TabIndex = 11;
             this.label1.Text = "Quên Mật Khẩu ?";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -164,18 +164,14 @@
             this.panel1.Size = new System.Drawing.Size(414, 335);
             this.panel1.TabIndex = 21;
             // 
-            // bntGui
+            // txtNewPass
             // 
-            this.bntGui.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.bntGui.ForeColor = System.Drawing.Color.White;
-            this.bntGui.Location = new System.Drawing.Point(258, 165);
-            this.bntGui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bntGui.Name = "bntGui";
-            this.bntGui.Size = new System.Drawing.Size(112, 35);
-            this.bntGui.TabIndex = 19;
-            this.bntGui.Text = "Gửi mã";
-            this.bntGui.UseVisualStyleBackColor = false;
-            this.bntGui.Click += new System.EventHandler(this.button2_Click);
+            this.txtNewPass.Location = new System.Drawing.Point(157, 254);
+            this.txtNewPass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNewPass.Multiline = true;
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.Size = new System.Drawing.Size(213, 26);
+            this.txtNewPass.TabIndex = 21;
             // 
             // label6
             // 
@@ -188,14 +184,18 @@
             this.label6.TabIndex = 20;
             this.label6.Text = "Nhập Mã";
             // 
-            // txtNewPass
+            // bntGui
             // 
-            this.txtNewPass.Location = new System.Drawing.Point(157, 254);
-            this.txtNewPass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtNewPass.Multiline = true;
-            this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Size = new System.Drawing.Size(213, 26);
-            this.txtNewPass.TabIndex = 21;
+            this.bntGui.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.bntGui.ForeColor = System.Drawing.Color.White;
+            this.bntGui.Location = new System.Drawing.Point(258, 165);
+            this.bntGui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bntGui.Name = "bntGui";
+            this.bntGui.Size = new System.Drawing.Size(112, 35);
+            this.bntGui.TabIndex = 19;
+            this.bntGui.Text = "Gửi mã";
+            this.bntGui.UseVisualStyleBackColor = false;
+            this.bntGui.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormforgotPW
             // 
