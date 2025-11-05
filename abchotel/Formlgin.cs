@@ -61,11 +61,11 @@ namespace abchotel
                {
                   if (checkBoxhienmk.Checked)
                    {
-                    txtMatkhau.UseSystemPasswordChar = false;
+                    txtMatkhau.PasswordChar = '\0';
                    }
                   else
                             {
-                                txtMatkhau.UseSystemPasswordChar = true;
+                                txtMatkhau.PasswordChar = '*';
                             }
                         }
 

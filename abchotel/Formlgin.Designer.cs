@@ -117,6 +117,7 @@
             this.txtMatkhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMatkhau.Multiline = true;
             this.txtMatkhau.Name = "txtMatkhau";
+            this.txtMatkhau.PasswordChar = '*';
             this.txtMatkhau.Size = new System.Drawing.Size(229, 28);
             this.txtMatkhau.TabIndex = 8;
             // 

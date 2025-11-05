@@ -17,8 +17,20 @@ namespace abchotel
 {
     public partial class FormforgotPW : Form
     {
-        public FormforgotPW()
+       
+        NguoiDungBLL bll = new NguoiDungBLL();
+        private string otpCode;
+        private string otoCode;
+        private string GenerateOTP()
         {
+            Random random = new Random();
+            int otp = random.Next(100000, 999999);
+            return otp.ToString();
+        }
+
+        public FormforgotPW()
+        { 
+            
             InitializeComponent();
         }
         private void label2_Click(object sender, EventArgs e)
@@ -36,7 +48,7 @@ namespace abchotel
 
             // Gọi lớp BLL hoặc DAL để kiểm tra thông tin
             NguoiDungBLL userBLL = new NguoiDungBLL();
-            bool result = userBLL.DoiMatKhau( username, email, newPassword);
+            bool result = userBLL.LayTatCa( username, email, newPassword);
 
             if (result)
                 MessageBox.Show("Đặt lại mật khẩu thành công!");
@@ -104,7 +116,7 @@ namespace abchotel
                 return;
             }
 
-            bool result = bll.ChangePassword(txtEmail, txtNewPass.Text.Trim());
+            bool result = bll.DoiMatKhau(txtEmail, txtNewPass.Text.Trim());
 
             if (result)
             {
