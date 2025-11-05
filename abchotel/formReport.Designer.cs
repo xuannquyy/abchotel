@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblbc = new System.Windows.Forms.Label();
             this.cboloaibc = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,10 +48,12 @@
             this.lblloai = new System.Windows.Forms.Label();
             this.dtfrom = new System.Windows.Forms.DateTimePicker();
             this.btntk = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdt)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chdthu)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblbc
@@ -70,22 +72,19 @@
             // 
             this.cboloaibc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cboloaibc.FormattingEnabled = true;
-            this.cboloaibc.Location = new System.Drawing.Point(432, 64);
+            this.cboloaibc.Location = new System.Drawing.Point(413, 22);
             this.cboloaibc.Name = "cboloaibc";
             this.cboloaibc.Size = new System.Drawing.Size(313, 37);
             this.cboloaibc.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnxuat);
             this.panel1.Controls.Add(this.dgvdt);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.chdthu);
-            this.panel1.Controls.Add(this.lblto);
-            this.panel1.Controls.Add(this.lblfrom);
-            this.panel1.Controls.Add(this.dtto);
             this.panel1.Controls.Add(this.lblloai);
-            this.panel1.Controls.Add(this.dtfrom);
             this.panel1.Controls.Add(this.btntk);
             this.panel1.Controls.Add(this.cboloaibc);
             this.panel1.Location = new System.Drawing.Point(12, 81);
@@ -100,7 +99,7 @@
             this.btnxuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnxuat.ForeColor = System.Drawing.Color.White;
-            this.btnxuat.Location = new System.Drawing.Point(766, 870);
+            this.btnxuat.Location = new System.Drawing.Point(732, 808);
             this.btnxuat.Name = "btnxuat";
             this.btnxuat.Size = new System.Drawing.Size(390, 68);
             this.btnxuat.TabIndex = 15;
@@ -112,7 +111,7 @@
             // 
             this.dgvdt.BackgroundColor = System.Drawing.Color.White;
             this.dgvdt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvdt.Location = new System.Drawing.Point(108, 203);
+            this.dgvdt.Location = new System.Drawing.Point(57, 161);
             this.dgvdt.Name = "dgvdt";
             this.dgvdt.RowHeadersWidth = 51;
             this.dgvdt.RowTemplate.Height = 24;
@@ -125,7 +124,7 @@
             this.panel2.Controls.Add(this.lblvaluesdthu);
             this.panel2.Controls.Add(this.lblsohoadon);
             this.panel2.Controls.Add(this.lbltongdoanhthu);
-            this.panel2.Location = new System.Drawing.Point(1114, 57);
+            this.panel2.Location = new System.Drawing.Point(1071, 22);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(541, 84);
             this.panel2.TabIndex = 13;
@@ -171,16 +170,16 @@
             // 
             // chdthu
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chdthu.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chdthu.Legends.Add(legend6);
-            this.chdthu.Location = new System.Drawing.Point(974, 203);
+            chartArea1.Name = "ChartArea1";
+            this.chdthu.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chdthu.Legends.Add(legend1);
+            this.chdthu.Location = new System.Drawing.Point(948, 161);
             this.chdthu.Name = "chdthu";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chdthu.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chdthu.Series.Add(series1);
             this.chdthu.Size = new System.Drawing.Size(900, 624);
             this.chdthu.TabIndex = 6;
             this.chdthu.Text = "Doanh thu";
@@ -188,20 +187,20 @@
             // lblto
             // 
             this.lblto.AutoSize = true;
-            this.lblto.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblto.Location = new System.Drawing.Point(480, 136);
+            this.lblto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblto.Location = new System.Drawing.Point(279, 15);
             this.lblto.Name = "lblto";
-            this.lblto.Size = new System.Drawing.Size(74, 32);
+            this.lblto.Size = new System.Drawing.Size(54, 25);
             this.lblto.TabIndex = 8;
             this.lblto.Text = "Đến:";
             // 
             // lblfrom
             // 
             this.lblfrom.AutoSize = true;
-            this.lblfrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblfrom.Location = new System.Drawing.Point(184, 144);
+            this.lblfrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblfrom.Location = new System.Drawing.Point(26, 18);
             this.lblfrom.Name = "lblfrom";
-            this.lblfrom.Size = new System.Drawing.Size(62, 32);
+            this.lblfrom.Size = new System.Drawing.Size(47, 25);
             this.lblfrom.TabIndex = 7;
             this.lblfrom.Text = "Từ: ";
             // 
@@ -209,7 +208,7 @@
             // 
             this.dtto.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtto.Location = new System.Drawing.Point(576, 144);
+            this.dtto.Location = new System.Drawing.Point(73, 18);
             this.dtto.Name = "dtto";
             this.dtto.Size = new System.Drawing.Size(200, 22);
             this.dtto.TabIndex = 2;
@@ -218,7 +217,7 @@
             // 
             this.lblloai.AutoSize = true;
             this.lblloai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblloai.Location = new System.Drawing.Point(184, 66);
+            this.lblloai.Location = new System.Drawing.Point(184, 22);
             this.lblloai.Name = "lblloai";
             this.lblloai.Size = new System.Drawing.Size(197, 32);
             this.lblloai.TabIndex = 6;
@@ -228,9 +227,9 @@
             // 
             this.dtfrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtfrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtfrom.Location = new System.Drawing.Point(272, 146);
+            this.dtfrom.Location = new System.Drawing.Point(339, 17);
             this.dtfrom.Name = "dtfrom";
-            this.dtfrom.Size = new System.Drawing.Size(186, 22);
+            this.dtfrom.Size = new System.Drawing.Size(200, 22);
             this.dtfrom.TabIndex = 3;
             // 
             // btntk
@@ -240,13 +239,24 @@
             this.btntk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btntk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btntk.ForeColor = System.Drawing.Color.White;
-            this.btntk.Location = new System.Drawing.Point(812, 68);
+            this.btntk.Location = new System.Drawing.Point(792, 9);
             this.btntk.Name = "btntk";
             this.btntk.Size = new System.Drawing.Size(224, 60);
             this.btntk.TabIndex = 4;
             this.btntk.Text = "Xem Báo Cáo";
             this.btntk.UseVisualStyleBackColor = false;
             this.btntk.Click += new System.EventHandler(this.btntk_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lblto);
+            this.panel3.Controls.Add(this.lblfrom);
+            this.panel3.Controls.Add(this.dtto);
+            this.panel3.Controls.Add(this.dtfrom);
+            this.panel3.Location = new System.Drawing.Point(190, 80);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(618, 61);
+            this.panel3.TabIndex = 16;
             // 
             // FormReport
             // 
@@ -264,6 +274,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chdthu)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -287,5 +299,6 @@
         private System.Windows.Forms.Button btnxuat;
         private System.Windows.Forms.DataGridView dgvdt;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }
