@@ -42,7 +42,7 @@ namespace abchotel
                 FormAdmin formAdmin = new FormAdmin();
                 this.Hide();
 
-                formAdmin.FormClosed += (s, args) => Application.Exit();
+                formAdmin.FormClosed += (s, args) => this.Show();
 
                 formAdmin.Show();
             }
