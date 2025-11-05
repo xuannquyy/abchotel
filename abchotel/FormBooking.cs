@@ -33,7 +33,7 @@ namespace abchotel
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            // --- VIP ---
+            //  VIP 
             for (int i = 301; i <= 304; i++)
             {
                 string loai = (i % 2 == 1) ? "VIP - Phòng Đôi" : "VIP - Phòng Đơn";
@@ -48,7 +48,7 @@ namespace abchotel
                 });
             }
 
-            // --- Phòng Đôi (A2xx) ---
+            // Phòng Đôi
             for (int i = 201; i <= 208; i++)
             {
                 danhSachPhong.Add(new Phong
@@ -61,7 +61,7 @@ namespace abchotel
                 });
             }
 
-            // --- Phòng Đơn (A1xx) ---
+            // Phòng Đơn
             for (int i = 101; i <= 108; i++)
             {
                 danhSachPhong.Add(new Phong
@@ -74,7 +74,7 @@ namespace abchotel
                 });
             }
 
-            // --- ComboBox ---
+            // 
             Cbloaiphong.Items.AddRange(new string[]
             {
                 "Phòng Đơn",
