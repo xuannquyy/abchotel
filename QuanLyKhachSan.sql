@@ -48,15 +48,35 @@ CREATE TABLE DichVu (
     TenDichVu NVARCHAR(100),
     DonGia DECIMAL(18,2)
 );
--- Bảng hóa đơn
+---- Bảng hóa đơn
+--CREATE TABLE HoaDon (
+--    MaHoaDon INT IDENTITY(1,1) PRIMARY KEY,
+--    MaDatPhong INT FOREIGN KEY REFERENCES DatPhong(MaDatPhong),
+--	MaDichVu INT FOREIGN KEY REFERENCES DichVu(MaDichVu),
+--    NgayLap DATE,
+--    ThanhTien DECIMAL(18,2)
+--);
 CREATE TABLE HoaDon (
     MaHoaDon INT IDENTITY(1,1) PRIMARY KEY,
-    MaDatPhong INT FOREIGN KEY REFERENCES DatPhong(MaDatPhong),
-	MaDichVu INT FOREIGN KEY REFERENCES DichVu(MaDichVu),
-    NgayLap DATE,
-    ThanhTien DECIMAL(18,2)
+    MaDatPhong INT NOT NULL UNIQUE FOREIGN KEY REFERENCES DatPhong(MaDatPhong), 
+    NgayLap DATE DEFAULT GETDATE(), 
+    TongTienPhong DECIMAL(18,2) DEFAULT 0,
+    TongTienDichVu DECIMAL(18,2) DEFAULT 0,
+    GiamGiaPhanTram INT DEFAULT 0,
+    TongThanhToan DECIMAL(18,2) DEFAULT 0,
+    TrangThai NVARCHAR(50) DEFAULT N'Chưa thanh toán' 
 );
+GO
 
+CREATE TABLE ChiTietDichVu (
+    MaChiTiet INT IDENTITY(1,1) PRIMARY KEY,
+    MaHoaDon INT NOT NULL FOREIGN KEY REFERENCES HoaDon(MaHoaDon), 
+    MaDichVu INT NOT NULL FOREIGN KEY REFERENCES DichVu(MaDichVu), 
+    SoLuong INT NOT NULL DEFAULT 1,
+    DonGia DECIMAL(18,2) NOT NULL, 
+    ThanhTien AS (ISNULL(SoLuong, 0) * ISNULL(DonGia, 0)) 
+);
+GO
 -- Thêm 1 tài khoản admin mặc định
 INSERT INTO NguoiDung (TenDangNhap, MatKhau, HoTen, Email, VaiTro)
 VALUES ('admin', 'admin', N'Quản trị hệ thống', 'vienxuanquy82024@gmail.com', 'Admin');
@@ -138,19 +158,28 @@ GO
 -- MaDatPhong 1 = Đặt phòng của Nguyễn Văn An
 -- MaDatPhong 2 = Đặt phòng của Trần Thị Bảo
 
--- Khách 1 (DatPhong 1) dùng Spa (MaDichVu 2, giá 800k)
-INSERT INTO HoaDon (MaDatPhong, MaDichVu, NgayLap, ThanhTien)
-VALUES (1, 2, '2024-10-26', 800000);
+-- Khi khách đặt phòng 1 (MaDatPhong = 1)
+INSERT INTO HoaDon (MaDatPhong, NgayLap) VALUES (1, GETDATE());
 GO
--- Khách 1 (DatPhong 1) dùng Minibar (MaDichVu 5, giá 100k)
-INSERT INTO HoaDon (MaDatPhong, MaDichVu, NgayLap, ThanhTien)
-VALUES (1, 5, '2024-10-26', 100000);
-GO
--- Khách 2 (DatPhong 2) dùng Ăn sáng buffet (MaDichVu 1, giá 150k)
-INSERT INTO HoaDon (MaDatPhong, MaDichVu, NgayLap, ThanhTien)
-VALUES (2, 1, '2024-10-27', 150000);
-GO
--- Khách 2 (DatPhong 2) dùng Giặt ủi (MaDichVu 7, giá 50k)
-INSERT INTO HoaDon (MaDatPhong, MaDichVu, NgayLap, ThanhTien)
-VALUES (2, 7, '2024-10-28', 50000);
+DECLARE @MaHD1 INT = SCOPE_IDENTITY();
+-- Khách (HD 1) dùng Spa (MaDichVu 2, giá 800k, SL 1)
+INSERT INTO ChiTietDichVu (MaHoaDon, MaDichVu, SoLuong, DonGia)
+VALUES (@MaHD1, 2, 1, 800000);
+-- Khách (HD 1) dùng Minibar (MaDichVu 5, giá 100k, SL 2)
+INSERT INTO ChiTietDichVu (MaHoaDon, MaDichVu, SoLuong, DonGia)
+VALUES (@MaHD1, 5, 2, 100000); 
+Go
+-- Khi khách đặt phòng 2 (MaDatPhong = 2)
+INSERT INTO HoaDon (MaDatPhong, NgayLap) VALUES (2, GETDATE());
+Go
+DECLARE @MaHD2 INT = SCOPE_IDENTITY(); -- Lấy MaHoaDon vừa tạo (là 2)
+-- Khách (HD 2) dùng Buffet (MaDichVu 1, giá 150k, SL 2)
+INSERT INTO ChiTietDichVu (MaHoaDon, MaDichVu, SoLuong, DonGia)
+VALUES (@MaHD2, 1, 2, 150000);
+Go
+
+
+
+DELETE FROM HoaDon; -- Xóa dữ liệu cũ
+DROP TABLE HoaDon; -- Xóa bảng cũ
 GO
