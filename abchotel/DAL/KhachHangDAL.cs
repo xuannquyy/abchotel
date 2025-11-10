@@ -10,8 +10,6 @@ namespace abchotel.DAL
 {
     public class KhachHangDAL
     {
-        // Hàm này được dùng để tạo đối tượng KhachHang từ DataRow
-        // Giúp tránh lặp code ở LayTatCa và TimKiem
         private KhachHang MapDataRowToKhachHang(DataRow row)
         {
             return new KhachHang
@@ -92,14 +90,19 @@ namespace abchotel.DAL
         {
             string query = @"
                 INSERT INTO KhachHang (HoTen, GioiTinh, NgaySinh, CCCD, SoDienThoai, DiaChi)
-                VALUES (@HoTen, @GioiTinh, @NgaySinh, @CCCD, @SoDienThoai, @DiaChi)";
-            return DatabaseHelper.ExecuteNonQuery(query,
+                VALUES (@HoTen, @GioiTinh, @NgaySinh, @CCCD, @SoDienThoai, @DiaChi);
+                SELECT SCOPE_IDENTITY();"; // Lấy ID vừa tạo
+
+            object result = DatabaseHelper.ExecuteScalar(query,
                 ("@HoTen", kh.HoTen),
                 ("@GioiTinh", kh.GioiTinh),
-                ("@NgaySinh", kh.NgaySinh),
+                // Xử lý nếu ngày sinh không được chọn
+                ("@NgaySinh", (kh.NgaySinh == DateTime.MinValue) ? (object)DBNull.Value : kh.NgaySinh),
                 ("@CCCD", kh.CCCD),
                 ("@SoDienThoai", kh.SoDienThoai),
                 ("@DiaChi", kh.DiaChi));
+
+            return Convert.ToInt32(result);
         }
 
         public int SuaKhachHang(KhachHang kh)

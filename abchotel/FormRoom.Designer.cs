@@ -111,6 +111,7 @@
             // dateTra
             // 
             this.dateTra.CustomFormat = "dd/MM/yyyy";
+            this.dateTra.Enabled = false;
             this.dateTra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTra.Location = new System.Drawing.Point(180, 258);
             this.dateTra.Name = "dateTra";
@@ -130,6 +131,7 @@
             // dateNhan
             // 
             this.dateNhan.CustomFormat = "dd/MM/yyyy";
+            this.dateNhan.Enabled = false;
             this.dateNhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateNhan.Location = new System.Drawing.Point(180, 215);
             this.dateNhan.Name = "dateNhan";
@@ -163,6 +165,7 @@
             this.txtTenKH.Location = new System.Drawing.Point(180, 85);
             this.txtTenKH.Multiline = true;
             this.txtTenKH.Name = "txtTenKH";
+            this.txtTenKH.ReadOnly = true;
             this.txtTenKH.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtTenKH.Size = new System.Drawing.Size(245, 29);
             this.txtTenKH.TabIndex = 7;

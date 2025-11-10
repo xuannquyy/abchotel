@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ChiTietDichVuBLL.cs" />
     <Compile Include="BLL\DatPhong.cs" />
     <Compile Include="BLL\DichVuBLL.cs" />
     <Compile Include="BLL\HoaDonBLL.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="BLL\NguoiDungBLL.cs" />
     <Compile Include="BLL\PhongBLL.cs" />
     <Compile Include="BLL\ReportBLL.cs" />
+    <Compile Include="DAL\ChiTietDichVuDAL.cs" />
     <Compile Include="DAL\DatabaseHelper.cs" />
     <Compile Include="DAL\DatPhong.cs" />
     <Compile Include="DAL\DichVuDAL.cs" />

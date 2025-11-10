@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using abchotel.Model;
 
 namespace abchotel
 {
@@ -25,7 +26,7 @@ namespace abchotel
 
         private List<DichVuDaChon> dsDaChon = new List<DichVuDaChon>();
         private DichVuBLL dichVuBLL = new DichVuBLL();
-
+        private ChiTietDichVuBLL ctdvBLL = new ChiTietDichVuBLL();
         // Biến lưu trữ thông tin khách hàng đang chọn
         private int maDatPhongHienTai = -1;
         private int maHoaDonHienTai = -1;
@@ -48,8 +49,7 @@ namespace abchotel
             int ma = int.Parse(selectedItem.SubItems[0].Text);
             string ten = selectedItem.SubItems[1].Text;
 
-            // Lấy giá từ CSDL (an toàn hơn) thay vì từ text
-            decimal gia = dichVuBLL.LayTatCaDichVu().First(d => d.MaDichVu == ma).DonGia;
+            decimal gia = decimal.Parse(selectedItem.SubItems[2].Text.Replace(",", ""));
 
             var dv = dsDaChon.FirstOrDefault(x => x.MaDV == ma);
             if (dv == null)
@@ -87,7 +87,6 @@ namespace abchotel
                 return;
             }
 
-            // Sửa: Kiểm tra xem đã tìm thấy khách hàng và hóa đơn chưa
             if (maHoaDonHienTai <= 0 || maDatPhongHienTai <= 0)
             {
                 MessageBox.Show("Vui lòng nhập Mã Phòng và chọn khách hàng đang ở!");
@@ -97,24 +96,25 @@ namespace abchotel
 
             try
             {
-                // Sửa: Lưu vào CSDL
                 int soLuongThemThanhCong = 0;
-                string query = "INSERT INTO ChiTietDichVu (MaHoaDon, MaDichVu, SoLuong, DonGia) VALUES (@MaHD, @MaDV, @SL, @DonGia)";
 
                 foreach (var dv in dsDaChon)
                 {
-                    // (Bạn có thể thêm logic kiểm tra trùng lặp nếu muốn,
-                    // ở đây tôi ghi đè/thêm mới)
-                    DatabaseHelper.ExecuteNonQuery(query,
-                        ("@MaHD", maHoaDonHienTai),
-                        ("@MaDV", dv.MaDV),
-                        ("@SL", dv.SoLuong),
-                        ("@DonGia", dv.DonGia)
-                    );
-                    soLuongThemThanhCong++;
+                    var chiTiet = new ChiTietDichVu
+                    {
+                        MaHoaDon = maHoaDonHienTai,
+                        MaDichVu = dv.MaDV,
+                        SoLuong = dv.SoLuong,
+                        DonGia = dv.DonGia
+                    };
+
+                    if (ctdvBLL.Them(chiTiet))
+                    {
+                        soLuongThemThanhCong++;
+                    }
                 }
 
-                MessageBox.Show($"Đã đăng ký thành công {soLuongThemThanhCong} dịch vụ cho khách hàng {txbhoten.Text}!");
+                MessageBox.Show($"Đã đăng ký/cập nhật thành công {soLuongThemThanhCong} loại dịch vụ cho khách hàng {txbhoten.Text}!");
                 btnHuy_Click(null, null); // Xóa form
             }
             catch (Exception ex)

@@ -11,10 +11,23 @@ namespace abchotel.DAL
 {
     public class NguoiDungDAL
     {
+        public NguoiDung LayTheoMa(int maND)
+        {
+            string query = "SELECT * FROM NguoiDung WHERE MaNguoiDung = @Ma";
+            DataTable dt = DatabaseHelper.GetData(query, ("@Ma", maND));
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow r = dt.Rows[0];
+                return MapDataRowToNguoiDung(r);
+            }
+            return null;
+        }
+
         public DataTable LayTatCa()
         {
             string query = "SELECT * FROM NguoiDung";
-            return DatabaseHelper.GetData(query); 
+            return DatabaseHelper.GetData(query);
         }
 
         public bool Them(NguoiDung nd)
@@ -29,6 +42,17 @@ namespace abchotel.DAL
                 ("@HoTen", nd.HoTen),
                 ("@Email", nd.Email),
                 ("@VaiTro", nd.VaiTro)
+            ) > 0;
+        }
+
+        public bool SuaThongTinCaNhan(NguoiDung nd)
+        {
+            string query = "UPDATE NguoiDung SET HoTen = @HoTen, Email = @Email WHERE MaNguoiDung = @Ma";
+            return DatabaseHelper.ExecuteNonQuery(
+                query,
+                ("@HoTen", nd.HoTen),
+                ("@Email", nd.Email),
+                ("@Ma", nd.MaNguoiDung)
             ) > 0;
         }
 
@@ -48,6 +72,21 @@ namespace abchotel.DAL
                 ("@Moi", matKhauMoi)
             ) > 0;
         }
+
+        // Hàm helper để map DataRow -> NguoiDung
+        private NguoiDung MapDataRowToNguoiDung(DataRow r)
+        {
+            return new NguoiDung
+            {
+                MaNguoiDung = Convert.ToInt32(r["MaNguoiDung"]),
+                TenDangNhap = r["TenDangNhap"].ToString(),
+                MatKhau = r["MatKhau"].ToString(),
+                HoTen = r["HoTen"].ToString(),
+                Email = r["Email"].ToString(),
+                VaiTro = r["VaiTro"].ToString()
+            };
+        }
+
         public NguoiDung DangNhap(string username, string password)
         {
             string query = "SELECT * FROM NguoiDung WHERE TenDangNhap = @username AND MatKhau = @password";
@@ -57,15 +96,7 @@ namespace abchotel.DAL
             if (dt.Rows.Count > 0)
             {
                 DataRow r = dt.Rows[0];
-                return new NguoiDung
-                {
-                    MaNguoiDung = Convert.ToInt32(r["MaNguoiDung"]),
-                    TenDangNhap = r["TenDangNhap"].ToString(),
-                    MatKhau = r["MatKhau"].ToString(),
-                    HoTen = r["HoTen"].ToString(),
-                    Email = r["Email"].ToString(),
-                    VaiTro = r["VaiTro"].ToString()
-                };
+                return MapDataRowToNguoiDung(r);
             }
             return null;
         }
@@ -76,15 +107,7 @@ namespace abchotel.DAL
             if (dt.Rows.Count > 0)
             {
                 DataRow r = dt.Rows[0];
-                return new NguoiDung
-                {
-                    MaNguoiDung = Convert.ToInt32(r["MaNguoiDung"]),
-                    TenDangNhap = r["TenDangNhap"].ToString(),
-                    MatKhau = r["MatKhau"].ToString(),
-                    HoTen = r["HoTen"].ToString(),
-                    Email = r["Email"].ToString(),
-                    VaiTro = r["VaiTro"].ToString()
-                };
+                return MapDataRowToNguoiDung(r);
             }
             return null;
         }
@@ -105,7 +128,6 @@ namespace abchotel.DAL
                              OR TenDangNhap LIKE @Keyword 
                              OR Email LIKE @Keyword";
 
-            // Thêm dấu % để tìm kiếm (LIKE)
             string keywordParam = "%" + keyword + "%";
 
             return DatabaseHelper.GetData(query, ("@Keyword", keywordParam));

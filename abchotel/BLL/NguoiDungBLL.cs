@@ -12,7 +12,10 @@ namespace abchotel.BLL
     public class NguoiDungBLL
     {
         private readonly NguoiDungDAL dal = new NguoiDungDAL();
-
+        public NguoiDung LayTheoMa(int maND)
+        {
+            return dal.LayTheoMa(maND);
+        }
         public DataTable LayTatCa()
         {
             return dal.LayTatCa();
@@ -22,7 +25,10 @@ namespace abchotel.BLL
         {
             return dal.Them(nd);
         }
-
+        public bool SuaThongTinCaNhan(NguoiDung nd)
+        {
+            return dal.SuaThongTinCaNhan(nd);
+        }
         public bool Xoa(int ma)
         {
             return dal.Xoa(ma);

@@ -268,7 +268,9 @@ namespace abchotel
                     DiaChi = txbdiachi.Text.Trim()
                 };
 
-                // Lấy MaKhachHang vừa tạo
+                // *** ĐÃ SỬA LỖI LOGIC ***
+                // Lỗi cũ: Hàm ThemKhachHang trả về 1 (rows affected)
+                // Sửa: Hàm ThemKhachHang (đã sửa ở DAL) trả về ID
                 int maKhachHang = khachHangBLL.ThemKhachHang(kh);
 
                 // 3. Tạo Đặt phòng
@@ -278,7 +280,7 @@ namespace abchotel
                 DatPhong dp = new DatPhong
                 {
                     MaPhong = (int)cbphongtrong.SelectedValue,
-                    MaKhachHang = maKhachHang,
+                    MaKhachHang = maKhachHang, // Giờ đã là ID đúng
                     NgayNhan = datenhan.Value.Date,
                     NgayTra = datetra.Value.Date,
                     SoNguoiO = int.Parse(txbsoluong.Text),
@@ -290,19 +292,18 @@ namespace abchotel
 
                 if (thanhCong)
                 {
-                    // (Không dùng MessageBox)
-                    Console.WriteLine("Đặt phòng thành công!");
-                    butlmmoi_Click(null, null); // Làm mới form
-                    LoadDanhSachDatPhongHomNay(); // Tải lại danh sách
+                    MessageBox.Show("Đặt phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    butlmmoi_Click(null, null);
+                    LoadDanhSachDatPhongHomNay();
                 }
                 else
                 {
-                    Console.WriteLine("Đặt phòng thất bại.");
+                    ShowError("Đặt phòng thất bại. Vui lòng thử lại.");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi đặt phòng: " + ex.Message);
+                ShowError("Lỗi khi đặt phòng: " + ex.Message);
             }
         }
         private bool IsFormValid()
@@ -362,12 +363,9 @@ namespace abchotel
             return true;
         }
 
-        // Thay thế MessageBox
         private void ShowError(string message)
         {
-            // Tạm thời dùng Console, bạn có thể thay bằng 1 Label thông báo lỗi
-            Console.WriteLine($"Lỗi Validation: {message}");
-            // Ví dụ: lblThongBaoLoi.Text = message;
+            MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         // Sự kiện KeyPress để chỉ cho phép nhập số

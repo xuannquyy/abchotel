@@ -58,9 +58,15 @@ public class HoaDonDAL
         string query = @"
                 SELECT 
                     p.LoaiPhong AS N'Loại phòng', 
-                    DATEDIFF(day, dp.NgayNhan, dp.NgayTra) AS N'Số đêm',
+                    CASE 
+                        WHEN DATEDIFF(day, dp.NgayNhan, dp.NgayTra) <= 0 THEN 1 
+                        ELSE DATEDIFF(day, dp.NgayNhan, dp.NgayTra) 
+                    END AS N'Số đêm',
                     p.DonGia AS N'Đơn giá',
-                    (DATEDIFF(day, dp.NgayNhan, dp.NgayTra) * p.DonGia) AS N'Tổng'
+                    (CASE 
+                        WHEN DATEDIFF(day, dp.NgayNhan, dp.NgayTra) <= 0 THEN 1 
+                        ELSE DATEDIFF(day, dp.NgayNhan, dp.NgayTra) 
+                    END * p.DonGia) AS N'Tổng'
                 FROM DatPhong dp
                 JOIN Phong p ON dp.MaPhong = p.MaPhong
                 WHERE dp.MaDatPhong = @MaDatPhong";

@@ -21,9 +21,12 @@ namespace abchotel.DAL
 
         public bool ThemDatPhong(DatPhong dp)
         {
-            string query = @"INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
-                             VALUES (@MaPhong, @MaKhachHang, @NgayNhan, @NgayTra, @SoNguoiO, @TongTien);
-                             UPDATE Phong SET TrangThai = N'Đang ở' WHERE MaPhong = @MaPhong";
+            string query = @"
+                INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
+                VALUES (@MaPhong, @MaKhachHang, @NgayNhan, @NgayTra, @SoNguoiO, @TongTien);
+                
+                UPDATE Phong SET TrangThai = N'Đang ở' WHERE MaPhong = @MaPhong";
+
             return DatabaseHelper.ExecuteNonQuery(query,
                 ("@MaPhong", dp.MaPhong),
                 ("@MaKhachHang", dp.MaKhachHang),
@@ -31,7 +34,7 @@ namespace abchotel.DAL
                 ("@NgayTra", dp.NgayTra),
                 ("@SoNguoiO", dp.SoNguoiO),
                 ("@TongTien", dp.TongTien)
-            ) > 0;
+            ) > 1;
         }
         
         public DataTable LayDanhSachDatPhongHomNay()
@@ -57,7 +60,13 @@ namespace abchotel.DAL
         }
         public int TongSoNguoiDangO()
         {
-            string query = "SELECT ISNULL(SUM(SoNguoiO), 0) FROM DatPhong WHERE GETDATE() BETWEEN NgayNhan AND NgayTra";
+            string query = @"
+                SELECT ISNULL(SUM(SoNguoiO), 0) 
+                FROM DatPhong 
+                WHERE 
+                    CAST(GETDATE() AS DATE) >= CAST(NgayNhan AS DATE) 
+                    AND CAST(GETDATE() AS DATE) < CAST(NgayTra AS DATE)";
+
             object result = DatabaseHelper.ExecuteScalar(query);
             return Convert.ToInt32(result);
         }

@@ -23,6 +23,7 @@ namespace abchotel.DAL
 
             DataTable dt = DatabaseHelper.GetData(query);
             List<Phong> list = new List<Phong>();
+            // Dùng GroupBy để phòng trường hợp dữ liệu rác (1 phòng có 2 khách ở)
             var groupedRows = dt.AsEnumerable().GroupBy(row => (int)row["MaPhong"]);
             foreach (var group in groupedRows)
             {
@@ -54,11 +55,16 @@ namespace abchotel.DAL
 
         public void SuaPhong(Phong p)
         {
-            string sql = "UPDATE Phong SET SoPhong=@SoPhong,LoaiPhong=@LoaiPhong,TrangThai=@TrangThai,DonGia=@DonGia WHERE MaPhong=@MaPhong";
+            string sql = @"
+                UPDATE Phong SET 
+                    SoPhong=@SoPhong,
+                    LoaiPhong=@LoaiPhong,
+                    DonGia=@DonGia 
+                WHERE MaPhong=@MaPhong";
+
             DatabaseHelper.ExecuteNonQuery(sql,
                 ("@SoPhong", p.SoPhong),
                 ("@LoaiPhong", p.LoaiPhong),
-                ("@TrangThai", p.TrangThai),
                 ("@DonGia", p.DonGia),
                 ("@MaPhong", p.MaPhong));
         }

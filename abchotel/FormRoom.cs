@@ -35,6 +35,7 @@ namespace abchotel
         {
             var ds = phongBLL.LayTatCaPhong();
             HienThiPhong(ds);
+            btnHuy_Click(null, null);
         }
         private void HienThiPhong(List<Phong> ds)
         {
@@ -86,17 +87,21 @@ namespace abchotel
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtSophong.Text) ||
+                string.IsNullOrWhiteSpace(txtLoaiphong.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Số phòng và Loại phòng.");
+                return;
+            }
+
             try
             {
                 var p = new Phong
                 {
-                    TenKhachHang = txtTenKH.Text.Trim(),
                     SoPhong = txtSophong.Text.Trim(),
                     LoaiPhong = txtLoaiphong.Text.Trim(),
                     DonGia = decimal.TryParse(txtDongia.Text, out decimal g) ? g : 0,
-                    NgayNhan = dateNhan.CustomFormat == " " ? (DateTime?)null : dateNhan.Value,
-                    NgayTra = dateTra.CustomFormat == " " ? (DateTime?)null : dateTra.Value,
-                    TrangThai = string.IsNullOrWhiteSpace(txtTenKH.Text) ? "Trống" : "Đang ở"
+                    // TrangThai sẽ được set là 'Trống' mặc định bởi DAL
                 };
 
                 phongBLL.ThemPhong(p);
@@ -122,13 +127,10 @@ namespace abchotel
                 var p = new Phong
                 {
                     MaPhong = maPhongDangChon,
-                    TenKhachHang = txtTenKH.Text.Trim(),
                     SoPhong = txtSophong.Text.Trim(),
                     LoaiPhong = txtLoaiphong.Text.Trim(),
                     DonGia = decimal.TryParse(txtDongia.Text, out decimal g2) ? g2 : 0,
-                    NgayNhan = dateNhan.CustomFormat == " " ? (DateTime?)null : dateNhan.Value,
-                    NgayTra = dateTra.CustomFormat == " " ? (DateTime?)null : dateTra.Value,
-                    TrangThai = string.IsNullOrWhiteSpace(txtTenKH.Text) ? "Trống" : "Đang ở"
+                    // Không cập nhật Tên KH, Ngày, Trạng thái ở đây
                 };
 
                 phongBLL.SuaPhong(p);
@@ -164,10 +166,6 @@ namespace abchotel
             }
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {

@@ -55,25 +55,7 @@ namespace abchotel
         }
         private void HienThiThongTin()
         {
-            DataTable dt = bll.LayTatCa();
-            nguoiDungHienTai = null;
-
-            foreach (DataRow row in dt.Rows)
-            {
-                if ((int)row["MaNguoiDung"] == maNguoiDung)
-                {
-                    nguoiDungHienTai = new NguoiDung
-                    {
-                        MaNguoiDung = maNguoiDung,
-                        TenDangNhap = row["TenDangNhap"].ToString(),
-                        HoTen = row["HoTen"].ToString(),
-                        Email = row["Email"].ToString(),
-                        VaiTro = row["VaiTro"].ToString(),
-                        MatKhau = row["MatKhau"].ToString()
-                    };
-                    break;
-                }
-            }
+            nguoiDungHienTai = bll.LayTheoMa(this.maNguoiDung);
 
             if (nguoiDungHienTai != null)
             {
@@ -82,6 +64,11 @@ namespace abchotel
                 txtHoTen.Text = nguoiDungHienTai.HoTen;
                 txtEmail.Text = nguoiDungHienTai.Email;
                 txtChucVu.Text = nguoiDungHienTai.VaiTro;
+            }
+            else
+            {
+                MessageBox.Show("Không thể tải thông tin người dùng!");
+                this.Close();
             }
         }
 
@@ -94,16 +81,16 @@ namespace abchotel
 
         private void btnLuuthongtin_Click(object sender, EventArgs e)
         {
-            string query = "UPDATE NguoiDung SET HoTen = @HoTen, Email = @Email WHERE MaNguoiDung = @Ma";
-            bool kq = abchotel.DAL.DatabaseHelper.ExecuteNonQuery(
-                query,
-                ("@HoTen", txtHoTen.Text.Trim()),
-                ("@Email", txtEmail.Text.Trim()),
-                ("@Ma", maNguoiDung)
-            ) > 0;
+            // Cập nhật thông tin vào đối tượng
+            nguoiDungHienTai.HoTen = txtHoTen.Text.Trim();
+            nguoiDungHienTai.Email = txtEmail.Text.Trim();
+
+            bool kq = bll.SuaThongTinCaNhan(nguoiDungHienTai);
 
             if (kq)
                 MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo");
+            else
+                MessageBox.Show("Cập nhật thất bại!", "Lỗi");
         }
     }
 }

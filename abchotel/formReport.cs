@@ -1,5 +1,6 @@
 ﻿using abchotel.BLL;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,13 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using Excel = Microsoft.Office.Interop.Excel;
-// 1. Trong Solution Explorer, click chuột phải vào mục "References" của dự án abchotel.
-// 2. Chọn "Add Reference..."
-// 3. Một cửa sổ mới sẽ hiện ra. Chọn tab "COM" (ở bên trái).
-// 4. Tìm trong danh sách "Microsoft Excel 16.0 Object Library" (con số 16.0 có thể là 15.0, 14.0... tùy vào phiên bản Office bạn cài).
-// 5. Đánh dấu tick vào nó và nhấn OK.
-//
+
 namespace abchotel
 {
     public partial class FormReport : Form
@@ -23,6 +18,7 @@ namespace abchotel
         public FormReport()
         {
             InitializeComponent();
+            OfficeOpenXml.ExcelPackage.License.SetNonCommercialPersonal("Khai Bao Su Dung");
             LoadReportForm();
         }
         private void LoadReportForm()
@@ -65,9 +61,9 @@ namespace abchotel
                 DateTime fromDate = dtfrom.Value;
                 DateTime toDate = dtto.Value;
 
-                // Thêm 1 ngày vào toDate để bao gồm cả ngày kết thúc
-                // (Vì SQL BETWEEN thường tính đến 00:00:00 của ngày)
-                toDate = toDate.AddDays(1).AddSeconds(-1);
+                // Xử lý logic 'toDate' để bao gồm cả ngày
+                // Ví dụ: chọn 10/11 -> 10/11 23:59:59
+                toDate = toDate.Date.AddDays(1).AddSeconds(-1);
 
 
                 if (fromDate > toDate)
@@ -185,23 +181,10 @@ namespace abchotel
         }
         private void ExportToExcel(DataGridView dgv, string filePath)
         {
-            Excel.Application excelApp = null;
-            Excel.Workbook workbook = null;
-            Excel.Worksheet worksheet = null;
-
-            try
+            FileInfo file = new FileInfo(filePath);
+            using (ExcelPackage package = new ExcelPackage(file))
             {
-                excelApp = new Excel.Application();
-                if (excelApp == null)
-                {
-                    // "Excel is not properly installed!!"
-                    return;
-                }
-
-                excelApp.Visible = false; // Không hiển thị Excel
-                workbook = excelApp.Workbooks.Add(Type.Missing);
-                worksheet = (Excel.Worksheet)workbook.Sheets[1];
-                worksheet.Name = "BaoCaoDoanhThu";
+                ExcelWorksheet ws = package.Workbook.Worksheets.Add("BaoCaoDoanhThu");
 
                 // 1. Thêm tiêu đề
                 string reportType = cboloaibc.SelectedItem.ToString();
@@ -209,104 +192,53 @@ namespace abchotel
                 string toDate = dtto.Value.ToString("dd/MM/yyyy");
                 string title = $"BÁO CÁO DOANH THU {reportType.ToUpper()} (Từ {fromDate} đến {toDate})";
 
-                Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, dgv.Columns.Count]];
-                titleRange.Merge();
-                titleRange.Value = title;
-                titleRange.Font.Bold = true;
-                titleRange.Font.Size = 16;
-                titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                ws.Cells["A1"].Value = title;
+                ws.Cells["A1:C1"].Merge = true;
+                ws.Cells["A1"].Style.Font.Bold = true;
+                ws.Cells["A1"].Style.Font.Size = 16;
+                ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
-                // 2. Thêm tiêu đề cột (Header) từ DataGridView
-                for (int i = 0; i < dgv.Columns.Count; i++)
+                // 2. Thêm tổng quan
+                ws.Cells["A3"].Value = "Tổng doanh thu:";
+                ws.Cells["B3"].Value = lblvaluesdthu.Text;
+                ws.Cells["A4"].Value = "Tổng số hóa đơn:";
+                ws.Cells["B4"].Value = lblvaluessohoadon.Text;
+                ws.Cells["A3:A4"].Style.Font.Bold = true;
+
+                // 3. Tải dữ liệu từ DataTable (Nguồn của DataGridView)
+                DataTable dt = (DataTable)dgv.DataSource;
+                ws.Cells["A6"].LoadFromDataTable(dt, true); // true = chèn tiêu đề cột
+
+                // 4. Định dạng
+                using (ExcelRange headers = ws.Cells["A6:C6"])
                 {
-                    worksheet.Cells[3, i + 1] = dgv.Columns[i].HeaderText;
-                    Excel.Range headerCell = (Excel.Range)worksheet.Cells[3, i + 1];
-                    headerCell.Font.Bold = true;
-                    headerCell.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
-                    headerCell.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                    headers.Style.Font.Bold = true;
+                    headers.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    headers.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
                 }
 
-                // 3. Thêm dữ liệu
-                for (int i = 0; i < dgv.Rows.Count; i++)
+                // Định dạng cột DoanhThu
+                if (dt.Columns.Contains("DoanhThu"))
                 {
-                    for (int j = 0; j < dgv.Columns.Count; j++)
-                    {
-                        // Ghi giá trị vào ô
-                        worksheet.Cells[i + 4, j + 1] = dgv.Rows[i].Cells[j].Value?.ToString();
-
-                        // Áp dụng định dạng
-                        if (dgv.Columns[j].Name == "DoanhThu")
-                        {
-                            // Định dạng số cho cột DoanhThu
-                            ((Excel.Range)worksheet.Cells[i + 4, j + 1]).NumberFormat = "#,##0";
-                        }
-
-                        ((Excel.Range)worksheet.Cells[i + 4, j + 1]).Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-                    }
+                    int doanhThuColIndex = dt.Columns["DoanhThu"].Ordinal + 1;
+                    ws.Column(doanhThuColIndex).Style.Numberformat.Format = "#,##0";
                 }
 
-                // 4. Thêm tổng kết
-                int totalRowIndex = dgv.Rows.Count + 5; // Dòng sau dòng dữ liệu cuối
-                worksheet.Cells[totalRowIndex, 1] = "TỔNG CỘNG";
-                ((Excel.Range)worksheet.Cells[totalRowIndex, 1]).Font.Bold = true;
+                // 5. Thêm dòng tổng
+                int totalRow = dt.Rows.Count + 7; // (A6 là header, +1)
+                ws.Cells[totalRow, 1].Value = "TỔNG CỘNG";
+                ws.Cells[totalRow, 1].Style.Font.Bold = true;
 
-                // Tính tổng doanh thu và số hóa đơn
-                // (Giả sử cột 1 là "Thời gian", 2 là "DoanhThu", 3 là "SoHoaDon")
-                if (dgv.Columns.Contains("DoanhThu") && dgv.Columns["DoanhThu"].Index == 1)
-                {
-                    Excel.Range totalRevenueCell = (Excel.Range)worksheet.Cells[totalRowIndex, 2];
-                    totalRevenueCell.Formula = $"=SUM(B4:B{totalRowIndex - 2})";
-                    totalRevenueCell.NumberFormat = "#,##0";
-                    totalRevenueCell.Font.Bold = true;
-                }
+                ws.Cells[totalRow, 2].Formula = $"SUM(B7:B{totalRow - 1})";
+                ws.Cells[totalRow, 2].Style.Numberformat.Format = "#,##0";
+                ws.Cells[totalRow, 2].Style.Font.Bold = true;
 
-                if (dgv.Columns.Contains("SoHoaDon") && dgv.Columns["SoHoaDon"].Index == 2)
-                {
-                    Excel.Range totalInvoiceCell = (Excel.Range)worksheet.Cells[totalRowIndex, 3];
-                    totalInvoiceCell.Formula = $"=SUM(C4:C{totalRowIndex - 2})";
-                    totalInvoiceCell.NumberFormat = "0";
-                    totalInvoiceCell.Font.Bold = true;
-                }
+                ws.Cells[totalRow, 3].Formula = $"SUM(C7:C{totalRow - 1})";
+                ws.Cells[totalRow, 3].Style.Numberformat.Format = "0";
+                ws.Cells[totalRow, 3].Style.Font.Bold = true;
 
-                // Tự động điều chỉnh độ rộng cột
-                worksheet.Columns.AutoFit();
-
-                // Lưu workbook
-                workbook.SaveAs(filePath);
-            }
-            catch (Exception ex)
-            {
-                // "Error exporting to Excel: " + ex.Message
-                Console.WriteLine("Lỗi khi xuất Excel: " + ex.Message);
-            }
-            finally
-            {
-                // Đóng và giải phóng tài nguyên COM
-                if (workbook != null) workbook.Close(false, Type.Missing, Type.Missing);
-                if (excelApp != null) excelApp.Quit();
-
-                ReleaseObject(worksheet);
-                ReleaseObject(workbook);
-                ReleaseObject(excelApp);
-            }
-        }
-        private void ReleaseObject(object obj)
-        {
-            try
-            {
-                if (obj != null)
-                {
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                    obj = null;
-                }
-            }
-            catch (Exception)
-            {
-                obj = null;
-            }
-            finally
-            {
-                GC.Collect();
+                ws.Cells[ws.Dimension.Address].AutoFitColumns();
+                package.Save();
             }
         }
     }
