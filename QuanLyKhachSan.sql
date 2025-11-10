@@ -1,8 +1,7 @@
 ﻿CREATE DATABASE QuanLyKhachSan;
 GO
 USE QuanLyKhachSan;
-
--- Bảng người dùng (dành cho formLogin)
+GO
 CREATE TABLE NguoiDung (
     MaNguoiDung INT IDENTITY(1,1) PRIMARY KEY,
     TenDangNhap NVARCHAR(50),
@@ -12,7 +11,6 @@ CREATE TABLE NguoiDung (
     VaiTro NVARCHAR(20)
 );
 
--- Bảng khách hàng
 CREATE TABLE KhachHang (
     MaKhachHang INT IDENTITY(1,1) PRIMARY KEY,
     HoTen NVARCHAR(100),
@@ -23,7 +21,6 @@ CREATE TABLE KhachHang (
     DiaChi NVARCHAR(200)
 );
 
--- Bảng phòng
 CREATE TABLE Phong (
     MaPhong INT IDENTITY(1,1) PRIMARY KEY,
     SoPhong NVARCHAR(20),
@@ -32,7 +29,6 @@ CREATE TABLE Phong (
     DonGia DECIMAL(18,2)
 );
 
--- Bảng đặt phòng
 CREATE TABLE DatPhong (
     MaDatPhong INT IDENTITY(1,1) PRIMARY KEY,
     MaPhong INT FOREIGN KEY REFERENCES Phong(MaPhong),
@@ -42,20 +38,13 @@ CREATE TABLE DatPhong (
 	SoNguoiO INT DEFAULT 1,
     TongTien DECIMAL(18,2)
 );
--- Bảng dịch vụ
+
 CREATE TABLE DichVu (
     MaDichVu INT IDENTITY(1,1) PRIMARY KEY,
     TenDichVu NVARCHAR(100),
     DonGia DECIMAL(18,2)
 );
----- Bảng hóa đơn
---CREATE TABLE HoaDon (
---    MaHoaDon INT IDENTITY(1,1) PRIMARY KEY,
---    MaDatPhong INT FOREIGN KEY REFERENCES DatPhong(MaDatPhong),
---	MaDichVu INT FOREIGN KEY REFERENCES DichVu(MaDichVu),
---    NgayLap DATE,
---    ThanhTien DECIMAL(18,2)
---);
+
 CREATE TABLE HoaDon (
     MaHoaDon INT IDENTITY(1,1) PRIMARY KEY,
     MaDatPhong INT NOT NULL UNIQUE FOREIGN KEY REFERENCES DatPhong(MaDatPhong), 
@@ -122,62 +111,6 @@ VALUES
 (N'A107', N'Phòng Đơn', N'Trống', 1200000),
 (N'A108', N'Phòng Đơn', N'Trống', 1200000);
 GO
-
-INSERT INTO KhachHang (HoTen, GioiTinh, NgaySinh, CCCD, SoDienThoai, DiaChi)
-VALUES
-(N'Nguyễn Văn An', N'Nam', '1990-05-15', '012345678901', '0905123456', N'123 Lê Lợi, Q1, TP. HCM'),
-(N'Trần Thị Bảo', N'Nữ', '1995-11-20', '023456789012', '0913234567', N'456 Hai Bà Trưng, Hà Nội'),
-(N'Lê Minh Cường', N'Nam', '1988-02-01', '034567890123', '0987654321', N'789 Nguyễn Văn Linh, Đà Nẵng'),
-(N'Phạm Thùy Dung', N'Nữ', '2000-07-30', '045678901234', '0334455667', N'101 Võ Thị Sáu, Cần Thơ');
-GO
-
--- Lưu ý: Các MaPhong và MaKhachHang dưới đây đang giả định IDENTITY bắt đầu từ 1.
--- Ví dụ: MaKhachHang 1 = Nguyễn Văn An, MaPhong 1 = VIP301, MaPhong 5 = A201, MaPhong 13 = A101
-
--- Khách 1 (Nguyễn Văn An) đặt phòng VIP301 (MaPhong 1) (2 đêm)
-INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
-VALUES (1, 1, '2025-10-25', '2025-10-27', 2, 7000000); -- (3.5tr * 2 đêm)
-GO
--- Khách 2 (Trần Thị Bảo) đặt phòng A201 (MaPhong 5) (3 đêm)
-INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
-VALUES (5, 2, '2025-10-26', '2025-10-29', 2, 5400000); -- (1.8tr * 3 đêm)
-GO
--- Khách 3 (Lê Minh Cường) đặt phòng A101 (MaPhong 13) (1 đêm)
-INSERT INTO DatPhong (MaPhong, MaKhachHang, NgayNhan, NgayTra, SoNguoiO, TongTien)
-VALUES (13, 3, '2025-10-26', '2025-10-27', 1, 1200000); -- (1.2tr * 1 đêm)
-GO
-
--- Cập nhật trạng thái các phòng đã được đặt
---UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'VIP301';
---UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'A201';
---UPDATE Phong SET TrangThai = N'Đang ở' WHERE SoPhong = N'A101';
---GO
-
-
--- Lưu ý: MaDatPhong và MaDichVu cũng giả định IDENTITY bắt đầu từ 1.
--- MaDatPhong 1 = Đặt phòng của Nguyễn Văn An
--- MaDatPhong 2 = Đặt phòng của Trần Thị Bảo
-
--- Khi khách đặt phòng 1 (MaDatPhong = 1)
-INSERT INTO HoaDon (MaDatPhong, NgayLap) VALUES (1, GETDATE());
-GO
-DECLARE @MaHD1 INT = SCOPE_IDENTITY();
--- Khách (HD 1) dùng Spa (MaDichVu 2, giá 800k, SL 1)
-INSERT INTO ChiTietDichVu (MaHoaDon, MaDichVu, SoLuong, DonGia)
-VALUES (@MaHD1, 2, 1, 800000);
--- Khách (HD 1) dùng Minibar (MaDichVu 5, giá 100k, SL 2)
-INSERT INTO ChiTietDichVu (MaHoaDon, MaDichVu, SoLuong, DonGia)
-VALUES (@MaHD1, 5, 2, 100000); 
-Go
--- Khi khách đặt phòng 2 (MaDatPhong = 2)
-INSERT INTO HoaDon (MaDatPhong, NgayLap) VALUES (2, GETDATE());
-Go
-DECLARE @MaHD2 INT = SCOPE_IDENTITY(); -- Lấy MaHoaDon vừa tạo (là 2)
--- Khách (HD 2) dùng Buffet (MaDichVu 1, giá 150k, SL 2)
-INSERT INTO ChiTietDichVu (MaHoaDon, MaDichVu, SoLuong, DonGia)
-VALUES (@MaHD2, 1, 2, 150000);
-Go
-
 
 CREATE PROCEDURE sp_GetOrCreateHoaDon
     @MaDatPhong INT
