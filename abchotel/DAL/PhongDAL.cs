@@ -10,6 +10,11 @@ namespace abchotel.DAL
 {
     public class PhongDAL
     {
+        public DataTable LayTatCaLoaiPhong()
+        {
+            string query = "SELECT DISTINCT LoaiPhong FROM Phong ORDER BY LoaiPhong";
+            return DatabaseHelper.GetData(query);
+        }
         public List<Phong> LayTatCaPhong()
         {
             string query = @"
@@ -45,11 +50,10 @@ namespace abchotel.DAL
 
         public void ThemPhong(Phong p)
         {
-            string sql = "INSERT INTO Phong(SoPhong,LoaiPhong,TrangThai,DonGia) VALUES(@SoPhong,@LoaiPhong,@TrangThai,@DonGia)";
+            string sql = "INSERT INTO Phong(SoPhong,LoaiPhong,TrangThai,DonGia) VALUES(@SoPhong,@LoaiPhong, N'Trống',@DonGia)";
             DatabaseHelper.ExecuteNonQuery(sql,
                 ("@SoPhong", p.SoPhong),
                 ("@LoaiPhong", p.LoaiPhong),
-                ("@TrangThai", p.TrangThai),
                 ("@DonGia", p.DonGia));
         }
 

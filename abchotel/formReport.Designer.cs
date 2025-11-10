@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblbc = new System.Windows.Forms.Label();
             this.cboloaibc = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -75,10 +75,11 @@
             this.cboloaibc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cboloaibc.FormattingEnabled = true;
             this.cboloaibc.Location = new System.Drawing.Point(310, 18);
-            this.cboloaibc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboloaibc.Margin = new System.Windows.Forms.Padding(2);
             this.cboloaibc.Name = "cboloaibc";
             this.cboloaibc.Size = new System.Drawing.Size(236, 30);
             this.cboloaibc.TabIndex = 1;
+            this.cboloaibc.SelectedIndexChanged += new System.EventHandler(this.cboloaibc_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -91,7 +92,7 @@
             this.panel1.Controls.Add(this.btntk);
             this.panel1.Controls.Add(this.cboloaibc);
             this.panel1.Location = new System.Drawing.Point(9, 66);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1425, 790);
             this.panel1.TabIndex = 2;
@@ -103,7 +104,7 @@
             this.panel3.Controls.Add(this.dtto);
             this.panel3.Controls.Add(this.dtfrom);
             this.panel3.Location = new System.Drawing.Point(142, 65);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(464, 50);
             this.panel3.TabIndex = 16;
@@ -136,7 +137,7 @@
             this.dtto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtto.Location = new System.Drawing.Point(254, 11);
-            this.dtto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtto.Margin = new System.Windows.Forms.Padding(2);
             this.dtto.Name = "dtto";
             this.dtto.Size = new System.Drawing.Size(151, 26);
             this.dtto.TabIndex = 3;
@@ -147,7 +148,7 @@
             this.dtfrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtfrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtfrom.Location = new System.Drawing.Point(55, 11);
-            this.dtfrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtfrom.Margin = new System.Windows.Forms.Padding(2);
             this.dtfrom.Name = "dtfrom";
             this.dtfrom.Size = new System.Drawing.Size(151, 26);
             this.dtfrom.TabIndex = 2;
@@ -160,7 +161,7 @@
             this.btnxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnxuat.ForeColor = System.Drawing.Color.White;
             this.btnxuat.Location = new System.Drawing.Point(549, 656);
-            this.btnxuat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnxuat.Margin = new System.Windows.Forms.Padding(2);
             this.btnxuat.Name = "btnxuat";
             this.btnxuat.Size = new System.Drawing.Size(292, 55);
             this.btnxuat.TabIndex = 15;
@@ -175,7 +176,7 @@
             this.dgvdt.BackgroundColor = System.Drawing.Color.White;
             this.dgvdt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdt.Location = new System.Drawing.Point(43, 131);
-            this.dgvdt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvdt.Margin = new System.Windows.Forms.Padding(2);
             this.dgvdt.Name = "dgvdt";
             this.dgvdt.ReadOnly = true;
             this.dgvdt.RowHeadersWidth = 51;
@@ -190,7 +191,7 @@
             this.panel2.Controls.Add(this.lblsohoadon);
             this.panel2.Controls.Add(this.lbltongdoanhthu);
             this.panel2.Location = new System.Drawing.Point(803, 18);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(406, 68);
             this.panel2.TabIndex = 13;
@@ -240,17 +241,17 @@
             // 
             // chdthu
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chdthu.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chdthu.Legends.Add(legend6);
+            chartArea1.Name = "ChartArea1";
+            this.chdthu.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chdthu.Legends.Add(legend1);
             this.chdthu.Location = new System.Drawing.Point(711, 131);
-            this.chdthu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chdthu.Margin = new System.Windows.Forms.Padding(2);
             this.chdthu.Name = "chdthu";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chdthu.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chdthu.Series.Add(series1);
             this.chdthu.Size = new System.Drawing.Size(675, 507);
             this.chdthu.TabIndex = 6;
             this.chdthu.Text = "Doanh thu";
@@ -274,7 +275,7 @@
             this.btntk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btntk.ForeColor = System.Drawing.Color.White;
             this.btntk.Location = new System.Drawing.Point(594, 7);
-            this.btntk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntk.Margin = new System.Windows.Forms.Padding(2);
             this.btntk.Name = "btntk";
             this.btntk.Size = new System.Drawing.Size(168, 49);
             this.btntk.TabIndex = 4;
@@ -289,7 +290,7 @@
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblbc);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormReport";
             this.Text = "FormReport";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

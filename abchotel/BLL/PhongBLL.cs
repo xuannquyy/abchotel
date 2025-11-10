@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace abchotel.BLL
 {
     public class PhongBLL
     {
         private PhongDAL phongDAL = new PhongDAL();
-
+        public DataTable LayTatCaLoaiPhong() => phongDAL.LayTatCaLoaiPhong();
         public List<Phong> LayTatCaPhong() => phongDAL.LayTatCaPhong();
         public void ThemPhong(Phong p) => phongDAL.ThemPhong(p);
         public void SuaPhong(Phong p) => phongDAL.SuaPhong(p);

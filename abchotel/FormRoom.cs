@@ -35,7 +35,20 @@ namespace abchotel
         {
             var ds = phongBLL.LayTatCaPhong();
             HienThiPhong(ds);
-            btnHuy_Click(null, null);
+            ResetForm();
+        }
+        private void ResetForm()
+        {
+            txtMaphong.Clear();
+            txtTenKH.Clear();
+            txtSophong.Clear();
+            txtLoaiphong.Clear();
+            txtDongia.Clear();
+            dateNhan.CustomFormat = " ";
+            dateTra.CustomFormat = " ";
+            maPhongDangChon = -1;
+            lstPhong.SelectedItems.Clear();
+            txtTimkiem.Clear();
         }
         private void HienThiPhong(List<Phong> ds)
         {
@@ -169,17 +182,9 @@ namespace abchotel
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn hủy tất cả thay đổi chưa lưu?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có muốn hủy các thay đổi?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                LoadFullList();
-                txtMaphong.Clear();
-                txtTenKH.Clear();
-                txtSophong.Clear();
-                txtLoaiphong.Clear();
-                txtDongia.Clear();
-                dateNhan.CustomFormat = " ";
-                dateTra.CustomFormat = " ";
-                maPhongDangChon = -1;
+                ResetForm();
             }
         }
 

@@ -18,6 +18,7 @@ namespace abchotel
     {
         private readonly KhachHangBLL khachHangBLL = new KhachHangBLL();
         private readonly DatPhongBLL datPhongBLL = new DatPhongBLL();
+        private readonly PhongBLL phongBLL = new PhongBLL();
         private bool _isCalculating = false; // Cờ để tránh lặp vô hạn sự kiện
         public FormBooking()
         {
@@ -31,8 +32,7 @@ namespace abchotel
         }
         private void SetupForm()
         {
-            // Nạp ComboBox
-            Cbloaiphong.Items.AddRange(new string[] { "Phòng Đơn", "Phòng Đôi", "VIP - Phòng Đơn", "VIP - Phòng Đôi" });
+            LoadComboBoxLoaiPhong();
             cbgioitinh.Items.AddRange(new string[] { "Nam", "Nữ" });
 
             // Cài đặt DateTimePicker
@@ -62,7 +62,21 @@ namespace abchotel
             // Chạy làm mới để set trạng thái ban đầu
             butlmmoi_Click(null, null);
         }
-
+        private void LoadComboBoxLoaiPhong()
+        {
+            try
+            {
+                DataTable dt = phongBLL.LayTatCaLoaiPhong();
+                Cbloaiphong.DataSource = dt;
+                Cbloaiphong.DisplayMember = "LoaiPhong";
+                Cbloaiphong.ValueMember = "LoaiPhong";
+                Cbloaiphong.SelectedIndex = -1; // Để trống ban đầu
+            }
+            catch (Exception ex)
+            {
+                ShowError("Lỗi tải loại phòng: " + ex.Message);
+            }
+        }
         private void KhoiTaoDatePickerNgaySinh()
         {
             datesinh.Format = DateTimePickerFormat.Custom;
@@ -85,7 +99,9 @@ namespace abchotel
 
             try
             {
-                string loaiPhong = Cbloaiphong.SelectedItem.ToString();
+                DataRowView drv = (DataRowView)Cbloaiphong.SelectedItem;
+                string loaiPhong = drv["LoaiPhong"].ToString();
+
                 DataTable dtPhong = datPhongBLL.LayPhongTrongTheoLoai(loaiPhong);
 
                 cbphongtrong.DataSource = dtPhong;
@@ -227,10 +243,13 @@ namespace abchotel
 
         private void butlmmoi_Click(object sender, EventArgs e)
         {
-            // Thông tin đăng ký
+            // Tạm thời tắt sự kiện để tránh lỗi
+            Cbloaiphong.SelectedIndexChanged -= Cbloaiphong_SelectedIndexChanged;
+            cbphongtrong.SelectedIndexChanged -= cbphongtrong_SelectedIndexChanged;
             Cbloaiphong.SelectedIndex = -1;
             cbphongtrong.DataSource = null;
             cbphongtrong.Items.Clear();
+            cbphongtrong.Text = "";
             datenhan.Value = DateTime.Today;
             datetra.Value = DateTime.Today.AddDays(1);
             txbsodem.Text = "1";
@@ -248,6 +267,9 @@ namespace abchotel
             txbsoluong.Clear();
             txbgia.Text = "0";
             lbttamtinh.Text = "0 VND";
+            // Bật lại sự kiện
+            Cbloaiphong.SelectedIndexChanged += Cbloaiphong_SelectedIndexChanged;
+            cbphongtrong.SelectedIndexChanged += cbphongtrong_SelectedIndexChanged;
         }
 
         private void butdatphong_Click(object sender, EventArgs e)
@@ -353,13 +375,36 @@ namespace abchotel
             }
 
             // 4. Kiểm tra thông tin phòng
-            if (string.IsNullOrWhiteSpace(txbsoluong.Text) || int.Parse(txbsoluong.Text) <= 0)
+            if (string.IsNullOrWhiteSpace(txbsoluong.Text))
+            {
+                ShowError("Vui lòng nhập số người ở.");
+                txbsoluong.Focus();
+                return false;
+            }
+
+            int soNguoi = 0;
+            int.TryParse(txbsoluong.Text, out soNguoi);
+
+            if (soNguoi <= 0)
             {
                 ShowError("Vui lòng nhập số người ở (ít nhất 1).");
                 txbsoluong.Focus();
                 return false;
             }
+            // Lấy loại phòng từ combobox
+            string loaiPhong = Cbloaiphong.SelectedValue.ToString();
+            int maxNguoi = 6; // Mặc định (Phòng Đơn)
 
+            if (loaiPhong == "Phòng Đôi") maxNguoi = 10;
+            if (loaiPhong == "VIP - Phòng Đơn") maxNguoi = 8; 
+            if (loaiPhong == "VIP - Phòng Đôi") maxNguoi = 12; 
+            
+            if (soNguoi > maxNguoi)
+            {
+                ShowError($"Loại phòng '{loaiPhong}' chỉ cho phép tối đa {maxNguoi} người.");
+                txbsoluong.Focus();
+                return false;
+            }
             return true;
         }
 

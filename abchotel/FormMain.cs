@@ -30,7 +30,7 @@ namespace abchotel
         public FormMain(NguoiDung user) : this() 
         {
             this.tenNhanVienHienTai = user.HoTen;
-            this.maNhanVienHienTai = user.MaNguoiDung; // <-- THÊM: Lưu lại ID
+            this.maNhanVienHienTai = user.MaNguoiDung; 
             lblNhanvien.Text = "Nhân viên: " + this.tenNhanVienHienTai;
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -48,8 +48,12 @@ namespace abchotel
         
         private void FormMain_Load(object sender, EventArgs e)
         {
+            CapNhatDuLieu();
+        }
+        public void CapNhatDuLieu()
+        {
             HienThiTrangThaiPhong();
-            CapNhatThongTinTongQuan(); ;
+            CapNhatThongTinTongQuan();
         }
         private void HienThiTrangThaiPhong()
         {
@@ -73,15 +77,12 @@ namespace abchotel
         {
             var ds = phongBLL.LayTatCaPhong();
 
-            // Tổng số phòng trống
             int soPhongTrong = ds.Count(p => p.TrangThai == "Trống");
             lblPhongtrong.Text = $"{soPhongTrong}";
 
-            // Tổng số người đang ở
             int tongSoNguoiO = datPhongBLL.TongSoNguoiDangO();
             lblKhachhang.Text = $"{tongSoNguoiO}";
 
-            // Doanh thu hôm nay
             decimal doanhThuHomNay = hoaDonBLL.LayDoanhThuHomNay();
             lblDoanhthu.Text = $"{doanhThuHomNay:N0} VNĐ";
         }
@@ -90,7 +91,11 @@ namespace abchotel
         {
             this.Hide();
             FormBooking frm = new FormBooking();
-            frm.FormClosed += (s, args) => this.Show(); // Khi đóng form con thì hiện lại form chính
+            frm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                this.CapNhatDuLieu();
+            };
             frm.Show();
         }
 
@@ -98,7 +103,11 @@ namespace abchotel
         {
             this.Hide();
             FormInvoice frm = new FormInvoice();
-            frm.FormClosed += (s, args) => this.Show();
+            frm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                this.CapNhatDuLieu(); 
+            };
             frm.Show();
         }
 
@@ -106,23 +115,34 @@ namespace abchotel
         {
             this.Hide();
             FormSer frm = new FormSer();
-            frm.FormClosed += (s, args) => this.Show();
+            frm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                this.CapNhatDuLieu(); 
+            };
             frm.Show();
         }
 
         private void pnQlyphong_Click(object sender, EventArgs e)
         {
-            this.Hide(); 
+            this.Hide();
             FormRoom frm = new FormRoom();
-            frm.FormClosed += (s, args) => this.Show(); 
+            frm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                this.CapNhatDuLieu(); 
+            };
             frm.Show();
         }
 
         private void pnQlykhachhang_Click(object sender, EventArgs e)
         {
-            this.Hide(); 
+            this.Hide();
             FormCustomer frm = new FormCustomer();
-            frm.FormClosed += (s, args) => this.Show();
+            frm.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
             frm.Show();
         }
 

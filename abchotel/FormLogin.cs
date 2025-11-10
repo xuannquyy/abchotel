@@ -90,5 +90,15 @@ namespace abchotel
                 txtMatkhau.PasswordChar = '•';
             }
         }
+
+        private void txtMatkhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) {btnDangnhap.PerformClick(); }
+        }
+
+        private void txtTen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) { txtMatkhau.Focus(); }
+        }
     }
 }

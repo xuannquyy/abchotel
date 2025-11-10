@@ -97,10 +97,10 @@
             this.txtTen.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Location = new System.Drawing.Point(164, 124);
             this.txtTen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtTen.Multiline = true;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(240, 28);
+            this.txtTen.Size = new System.Drawing.Size(240, 29);
             this.txtTen.TabIndex = 6;
+            this.txtTen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTen_KeyDown);
             // 
             // label3
             // 
@@ -118,10 +118,10 @@
             this.txtMatkhau.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatkhau.Location = new System.Drawing.Point(164, 180);
             this.txtMatkhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtMatkhau.Multiline = true;
             this.txtMatkhau.Name = "txtMatkhau";
-            this.txtMatkhau.Size = new System.Drawing.Size(240, 28);
+            this.txtMatkhau.Size = new System.Drawing.Size(240, 29);
             this.txtMatkhau.TabIndex = 8;
+            this.txtMatkhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatkhau_KeyDown);
             // 
             // label4
             // 

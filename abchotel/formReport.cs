@@ -29,15 +29,13 @@ namespace abchotel
             cboloaibc.Items.Add("Theo năm");
             cboloaibc.SelectedIndex = 0; // Chọn "Theo ngày" làm mặc định
 
-            // Định dạng DateTimePicker
-            dtfrom.CustomFormat = "dd/MM/yyyy";
-            dtfrom.Format = DateTimePickerFormat.Custom;
-            dtto.CustomFormat = "dd/MM/yyyy";
-            dtto.Format = DateTimePickerFormat.Custom;
+            cboloaibc.SelectedIndexChanged += cboloaibc_SelectedIndexChanged;
 
-            // Đặt ngày mặc định (ví dụ: ngày đầu tháng và ngày hiện tại)
             dtfrom.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             dtto.Value = DateTime.Now;
+
+            // Kích hoạt sự kiện lần đầu
+            cboloaibc_SelectedIndexChanged(null, null);
 
             // Xóa dữ liệu mẫu và thiết lập trạng thái ban đầu
             ClearReportData();
@@ -61,34 +59,39 @@ namespace abchotel
                 DateTime fromDate = dtfrom.Value;
                 DateTime toDate = dtto.Value;
 
-                // Xử lý logic 'toDate' để bao gồm cả ngày
-                // Ví dụ: chọn 10/11 -> 10/11 23:59:59
-                toDate = toDate.Date.AddDays(1).AddSeconds(-1);
+                if (reportType == "Theo tháng")
+                {
+                    // Lấy ngày 1 của tháng bắt đầu
+                    fromDate = new DateTime(fromDate.Year, fromDate.Month, 1);
+                    // Lấy ngày cuối của tháng kết thúc
+                    toDate = new DateTime(toDate.Year, toDate.Month, DateTime.DaysInMonth(toDate.Year, toDate.Month));
+                }
+                else if (reportType == "Theo năm")
+                {
+                    // Lấy ngày 1/1 của năm bắt đầu
+                    fromDate = new DateTime(fromDate.Year, 1, 1);
+                    // Lấy ngày 31/12 của năm kết thúc
+                    toDate = new DateTime(toDate.Year, 12, 31);
+                }
 
+                toDate = toDate.Date.AddDays(1).AddSeconds(-1);
 
                 if (fromDate > toDate)
                 {
-                    // Thay vì MessageBox, ta có thể dùng một Label để thông báo lỗi
-                    // (Giả sử bạn có một lblError trên form)
-                    // lblError.Text = "Ngày bắt đầu không được lớn hơn ngày kết thúc.";
-                    // Hoặc đơn giản là không làm gì cả
+                    MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Gọi BLL để lấy dữ liệu
                 DataTable dt = reportBLL.LayDuLieuBaoCao(reportType, fromDate, toDate);
 
-                // 1. Hiển thị dữ liệu lên DataGridView
                 dgvdt.DataSource = dt;
                 FormatDataGridView();
 
-                // 2. Tính toán và hiển thị tổng
                 decimal tongDoanhThu = 0;
                 int tongHoaDon = 0;
 
                 if (dt.Rows.Count > 0)
                 {
-                    // Dùng LINQ để tính tổng từ DataTable
                     tongDoanhThu = dt.AsEnumerable().Sum(row => row.Field<decimal>("DoanhThu"));
                     tongHoaDon = dt.AsEnumerable().Sum(row => row.Field<int>("SoHoaDon"));
                 }
@@ -96,14 +99,11 @@ namespace abchotel
                 lblvaluesdthu.Text = string.Format(new CultureInfo("vi-VN"), "{0:N0} VND", tongDoanhThu);
                 lblvaluessohoadon.Text = tongHoaDon.ToString();
 
-                // 3. Vẽ biểu đồ
                 PopulateChart(dt, reportType);
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi (ví dụ: ghi log, hiển thị thông báo)
-                // (Tránh dùng MessageBox nếu theo yêu cầu)
-                Console.WriteLine("Lỗi khi xem báo cáo: " + ex.Message);
+                MessageBox.Show("Lỗi khi xem báo cáo: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void FormatDataGridView()
@@ -239,6 +239,45 @@ namespace abchotel
 
                 ws.Cells[ws.Dimension.Address].AutoFitColumns();
                 package.Save();
+            }
+        }
+
+        private void cboloaibc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string reportType = cboloaibc.SelectedItem.ToString();
+
+            if (reportType == "Theo ngày")
+            {
+                dtfrom.CustomFormat = "dd/MM/yyyy";
+                dtto.CustomFormat = "dd/MM/yyyy";
+                dtfrom.ShowUpDown = false;
+                dtto.ShowUpDown = false;
+
+                // Đặt lại ngày
+                dtfrom.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                dtto.Value = DateTime.Now;
+            }
+            else if (reportType == "Theo tháng")
+            {
+                dtfrom.CustomFormat = "MM / yyyy";
+                dtto.CustomFormat = "MM / yyyy";
+                dtfrom.ShowUpDown = true; // Chỉ hiện tháng/năm
+                dtto.ShowUpDown = true;
+
+                // Đặt lại ngày
+                dtfrom.Value = new DateTime(DateTime.Now.Year, 1, 1); // Tháng 1
+                dtto.Value = DateTime.Now; // Tháng hiện tại
+            }
+            else if (reportType == "Theo năm")
+            {
+                dtfrom.CustomFormat = "yyyy";
+                dtto.CustomFormat = "yyyy";
+                dtfrom.ShowUpDown = true; // Chỉ hiện năm
+                dtto.ShowUpDown = true;
+
+                // Đặt lại ngày
+                dtfrom.Value = new DateTime(DateTime.Now.Year - 1, 1, 1); // Năm ngoái
+                dtto.Value = DateTime.Now; // Năm nay
             }
         }
     }
