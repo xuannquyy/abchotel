@@ -26,9 +26,9 @@ namespace abchotel.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN\\SQLEXPRESS;Initial Catalog=QuanLyKhachSan;Integrated Security=T" +
-            "rue;Persist Security Info=False;Pooling=False;Encrypt=True; TrustServerCertifica" +
-            "te=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ANHENHS\\SQLEXPRESS;Initial Catalog=QuanLyKhachSan;Integrated Security" +
+            "=True;Persist Security Info=False;Pooling=False;Encrypt=True; TrustServerCertifi" +
+            "cate=True")]
         public string Setting {
             get {
                 return ((string)(this["Setting"]));
